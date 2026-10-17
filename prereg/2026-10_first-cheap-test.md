@@ -1,5 +1,7 @@
 # Pre-registration: first cheap test (DRAFT, not frozen)
 
+> **On hold (2026-10-18).** The plan changed: Ai2's own safety and length protocols run first on the Olmo 3 7B Think stages (see `experiments/2026-10-18_think7b-safety` and `experiments/2026-10-18_length`), and RL-Zero became an auxiliary comparison after the step-0 floor check. This draft will be rewritten for the RL-curve runs. Predictions still get written and frozen before those runs.
+
 Status: **draft**. It will be frozen with the git tag `prereg-first-test` right before the run. After that it doesn't change; corrections go to `addenda/`.
 
 ## Question

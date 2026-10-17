@@ -4,18 +4,22 @@
 
 Ai2 trains its Olmo reasoning models with RL on verifiable rewards (RLVR): math, code, instruction following and general chat. Training is checked on the skills it targets. What else moves (refusals, over-refusals, answer length, following new kinds of instructions) often gets noticed late. Ai2 flagged Olmo 3.1's wordiness as a P0 for the next release ([open-instruct #2002](https://github.com/allenai/open-instruct/issues/2002)), and the eval battery it runs while building Olmo 3.5 has no refusal or over-refusal test yet ([#1964](https://github.com/allenai/open-instruct/issues/1964): "the battery has neither").
 
-Ai2 released single-domain RL runs that all start from the same 7B base (Olmo 3 RL-Zero: Math, Code, IF, General), with intermediate checkpoints. That's a ready-made "one data type at a time" experiment. This repo measures what changes outside each run's domain, then checks the effects with small runs of my own using Ai2's recipe ([open-instruct](https://github.com/allenai/open-instruct)).
+Ai2 releases every post-training stage of Olmo 3 Think (SFT, DPO, and RL with intermediate checkpoints) and its own eval code, so you can see where along training a behaviour changes, measured the way Ai2 measures it. Which data causes a change is then tested with small runs of my own, using Ai2's recipe ([open-instruct](https://github.com/allenai/open-instruct)) and changing one data type at a time.
 
 Independent work by [Qirun Li](https://github.com/bethehand). Not affiliated with Ai2.
 
-## Status
-Planning. The first test is drafted in [`prereg/`](prereg/). It gets frozen with a git tag before it runs.
+## Status (2026-10-18)
+- **Running:** Ai2's own safety protocol (OLMES `safety_reasoning::olmo3` → allenai/safety-eval) on the Olmo 3 7B Think stages, 3 runs each, starting with the three tests #1964 names (XSTest, WildJailbreak-benign, WildGuardTest). The first SFT run is within 1 point of the Olmo 3 report's Table 52 on all three. [`experiments/2026-10-18_think7b-safety`](experiments/2026-10-18_think7b-safety)
+- **Running:** answer length across the same stages with Ai2's AlpacaEval setting, for #2002. [`experiments/2026-10-18_length`](experiments/2026-10-18_length)
+- **Done:** step 0. On RL-Zero, refusal of harmful prompts is off the floor and moves with the data type; over-refusal is at the floor. [`experiments/2026-10-18_step0-floor-check`](experiments/2026-10-18_step0-floor-check)
+- The pre-registration in [`prereg/`](prereg/) is on hold while the plan is re-based on the Think stages. Predictions get written and frozen with a git tag before the main runs.
 
 ## Plan
-1. **First cheap test:** the base model vs the first and last checkpoint of each RL-Zero series, on a small battery: refusal, over-refusal, answer length, InstrumentalEval.
-2. **Curves:** more intermediate checkpoints for the series that move.
-3. **Controlled runs:** OLMo 2 1B with open-instruct's GRPO. Math only, instruction following only, and the official mix, 2 seeds each.
-4. **Battery:** package the out-of-domain tests so they can run during training, and offer them to open-instruct / OLMES.
+1. **Replicate:** Ai2's safety numbers for the Olmo 3 7B Think stages (Table 52), with run-to-run noise and the smallest change a given test size can detect; answer length per stage.
+2. **Curve:** about 8 intermediate checkpoints of the Think RL run, to see where along RL the changes happen.
+3. **Auxiliary:** the RL-Zero single-domain series (Math, Code, IF, General), on measures that aren't at their floor.
+4. **Controlled runs:** OLMo 2 1B with open-instruct's GRPO. Math only, instruction following only, and the official mix, 2 seeds each, to see which data causes which change.
+5. **Battery:** package the out-of-domain tests so they can run during training, and offer them to open-instruct / OLMES.
 
 ## Keeping it honest
 - Predictions are written down before each run (`prereg/`) and frozen with a git tag.

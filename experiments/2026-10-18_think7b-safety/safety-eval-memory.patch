@@ -1,0 +1,41 @@
+diff --git a/src/classifier_models/strong_reject_logprobs.py b/src/classifier_models/strong_reject_logprobs.py
+index 1d43399..cc1312b 100644
+--- a/src/classifier_models/strong_reject_logprobs.py
++++ b/src/classifier_models/strong_reject_logprobs.py
+@@ -60,7 +60,8 @@ class StrongRejectLogProbs(StrongRejectLogProbsBase):
+         super().__init__(batch_size, **kwargs)
+         self.input_format = STRONGREJECT_INPUT_FORMAT
+         self.model_path = maybe_merge_lora_weights_and_save(self.MODEL_NAME)
+-        self.model = LLM(model=self.model_path, tokenizer_mode="slow")
++        from src.generation_utils import _vllm_memory_kwargs  # local change: memory settings for 24 GB cards
++        self.model = LLM(model=self.model_path, tokenizer_mode="slow", **_vllm_memory_kwargs())
+     
+     @torch.inference_mode()
+     def _classify_batch(self, batch: list[dict[str, str]]) -> list[SafetyClassifierOutput]:
+diff --git a/src/generation_utils.py b/src/generation_utils.py
+index 36a7577..e4f8c13 100644
+--- a/src/generation_utils.py
++++ b/src/generation_utils.py
+@@ -496,10 +496,22 @@ def load_vllm_model(model_name_or_path,
+         tensor_parallel_size=num_devices,
+         tokenizer_mode=tokenizer_mode,
+         trust_remote_code=trust_remote_code,
++        **_vllm_memory_kwargs(),
+     )
+     return model
+ 
+ 
++def _vllm_memory_kwargs() -> dict:
++    # Local change (olmo-rlvr-side-effects, for 24 GB cards): vLLM memory settings from the environment.
++    # Unset = vLLM's defaults, i.e. upstream behaviour. Sampling is not affected.
++    kw = {}
++    if os.environ.get("SAFETY_EVAL_GPU_MEM"):
++        kw["gpu_memory_utilization"] = float(os.environ["SAFETY_EVAL_GPU_MEM"])
++    if os.environ.get("SAFETY_EVAL_MAX_NUM_SEQS"):
++        kw["max_num_seqs"] = int(os.environ["SAFETY_EVAL_MAX_NUM_SEQS"])
++    return kw
++
++
+ def delete_vllm_model(model: LLM):
+     print("Deleting vllm model")
+     # Import function used for cleanup; could be in two places depending on vllm version

@@ -5,3 +5,10 @@ logs/
 runs/
 *.log
 .DS_Store
+
+# raw model outputs stay on the GPU machine (some answer harmful prompts)
+experiments/*/outputs/
+experiments/*/logs/
+# benchmark prompts are rebuilt by each experiment's build script (some sources are gated)
+experiments/*/prompts.jsonl
+experiments/*/smoke_prompts.jsonl
