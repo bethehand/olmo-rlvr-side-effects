@@ -2,7 +2,7 @@
 
 **Which RLVR training data changes what, outside the training domain?**
 
-Ai2 trains its Olmo reasoning models with RL on verifiable rewards (RLVR): math, code, instruction following and general chat. Training is checked on the skills it targets. What else moves (refusals, over-refusals, answer length, following new kinds of instructions) mostly gets noticed after release. Ai2 says its own eval battery doesn't cover over-refusal yet ([open-instruct #1964](https://github.com/allenai/open-instruct/issues/1964): "the battery has neither").
+Ai2 trains its Olmo reasoning models with RL on verifiable rewards (RLVR): math, code, instruction following and general chat. Training is checked on the skills it targets. What else moves (refusals, over-refusals, answer length, following new kinds of instructions) often gets noticed late. Ai2 flagged Olmo 3.1's wordiness as a P0 for the next release ([open-instruct #2002](https://github.com/allenai/open-instruct/issues/2002)), and the eval battery it runs while building Olmo 3.5 has no refusal or over-refusal test yet ([#1964](https://github.com/allenai/open-instruct/issues/1964): "the battery has neither").
 
 Ai2 released single-domain RL runs that all start from the same 7B base (Olmo 3 RL-Zero: Math, Code, IF, General), with intermediate checkpoints. That's a ready-made "one data type at a time" experiment. This repo measures what changes outside each run's domain, then checks the effects with small runs of my own using Ai2's recipe ([open-instruct](https://github.com/allenai/open-instruct)).
 

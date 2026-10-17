@@ -15,7 +15,7 @@ After single-domain RLVR, how much do refusal, over-refusal, answer length and i
 | IF | `allenai/Olmo-3-7B-RL-Zero-IF` | `step_100`, `step_1900` | `allenai/Dolci-RLZero-IF-7B` | `olmo_thinker_rlzero` |
 | General | `allenai/Olmo-3-7B-RL-Zero-General` | `step_100`, `step_800` | `hamishivi/rlvr_general_mix` | `olmo_thinker`, stop at `</answer>` |
 
-Training details come from `scripts/train/olmo3/7b_rlzero_*.sh` in open-instruct at `ff32794`. The model cards list `allenai/Olmo-3-1025-7B` as the base of all four series.
+Training details come from `scripts/train/olmo3/7b_rlzero_*.sh` in open-instruct at `ff32794`. The model cards list `allenai/Olmo-3-1025-7B` as the base of all four series. (The General script points to an internal checkpoint path rather than the Hugging Face name; I take the model card at its word.)
 
 ## Prompt format
 - Main analysis: each series with its own training template. The base model uses `olmo_thinker_rlzero`.
@@ -29,12 +29,14 @@ Training details come from `scripts/train/olmo3/7b_rlzero_*.sh` in open-instruct
 - Refusals judged by the WildGuard classifier, checked against my own labels on 50–100 samples.
 
 ## Predictions (draft, to be confirmed before the freeze)
-Compared with the shared start, at the last checkpoint:
-1. Math and Code move refusal and over-refusal by less than 3 points.
-2. IF lowers refusal on harmful prompts by 3 points or more.
-3. General raises over-refusal by 3 points or more.
-4. InstrumentalEval stays within 5 points for all four series.
-5. Answer length on the chat set grows in every series, most in Math and Code.
+Main comparison: within each series, the last checkpoint vs the first one (`step_100`). The base model is reported as a reference point, not as the baseline, because a base model with no safety training may refuse almost nothing.
+1. Math and Code move refusal and over-refusal by less than 3 points. Why: nothing in that data touches refusals.
+2. IF lowers refusal on harmful prompts by 3 points or more. Why: the reward is for doing what the prompt says.
+3. General raises over-refusal by 3 points or more. Why: its reward comes from an LLM judge, and judges tend to favor cautious answers.
+4. InstrumentalEval stays within 5 points for all four series. Why: at 7B and a few thousand steps, there's little reason for it to move.
+5. Answer length on the chat set grows in every series, most in Math and Code. Why: these runs reward long reasoning, and the habit should carry over to chat.
+
+If a series already refuses fewer than 5% of harmful prompts at `step_100`, prediction 2 can't be tested there; it's reported as untestable, not as confirmed.
 
 ## What would change the plan
 - All four series stay within noise on every measure: the "data type drives side effects" idea is probably null at this scale. The main contribution then moves to the battery itself and to the longer RL run of Olmo 3.1.
