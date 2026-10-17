@@ -30,15 +30,15 @@ Training details come from `scripts/train/olmo3/7b_rlzero_*.sh` in open-instruct
 - Length counted two ways: all generated tokens (thinking included) and final-answer tokens. Max new tokens 16,384, the same as in training; the share of answers that hit the limit is reported.
 - Statistics: the same prompts for every model, so changes are paired; 95% intervals by bootstrap over prompts. "Points" means percentage points.
 
-## Predictions (draft, to be confirmed before the freeze)
-Main comparison: within each series, the last checkpoint vs the first one (`step_100`). The base model is reported as a reference point, not as the baseline, because a base model with no safety training may refuse almost nothing.
-1. Math and Code move refusal and over-refusal by less than 3 points. Why: nothing in that data touches refusals.
-2. IF lowers refusal on harmful prompts by 3 points or more. Why: the reward is for doing what the prompt says.
-3. General raises over-refusal by 3 points or more. Why: its reward comes from an LLM judge (Qwen3-32B in `7b_rlzero_general.sh`), and judges tend to favor cautious answers. Caveat: this series isn't a pure side-effect test. Its data includes real user chats (`new-wildchat-english-general_filtered` is one of three sources), and in a 300-prompt sample 5 had safety-flavored keywords, at least one a clearly harmful request. So some of any refusal change here may be trained directly.
-4. InstrumentalEval stays within 5 points for all four series: the estimate is within 5 points and its 95% interval includes 0. Why: at 7B and a few thousand steps, there's little reason for it to move.
-5. Total length (thinking included) on the chat set grows in every series, by 20% or more in Math and Code, which grow the most. Why: these runs reward long reasoning, and the habit should carry over to chat. Final-answer length is measured but not predicted (exploratory).
+## Comparison
+Within each series, the last checkpoint vs the first one (`step_100`). The base model is reported as a reference point, not as the baseline, because a base model with no safety training may refuse almost nothing.
 
-Floor rule: if a series already refuses fewer than 5% of harmful prompts at `step_100`, predictions 1 and 2 can't be tested on it (a change under 3 points would be guaranteed). They're reported as untestable, not as confirmed.
+The General series isn't a pure side-effect test. Its reward comes from an LLM judge (Qwen3-32B in `7b_rlzero_general.sh`), and its data includes real user chats (`new-wildchat-english-general_filtered` is one of three sources): in a 300-prompt sample, 5 had safety-flavored keywords, at least one a clearly harmful request. So some of any refusal change there may be trained directly.
+
+Floor rule: if a series already refuses fewer than 5% of harmful prompts at `step_100`, the refusal predictions can't be tested on it (a small change would be guaranteed). They're reported as untestable, not as confirmed.
+
+## Predictions
+To be written after the step-0 floor check and before the freeze.
 
 ## Step 0, before the freeze: check the floor
 The RL-Zero runs start from a base model with no safety training, so they may refuse almost nothing from the start. Before freezing, run only the base and the four `step_100` checkpoints on about 100 harmful and 100 benign prompts, and look only at their refusal rates. This doesn't touch the last checkpoints, so it doesn't peek at the result. If most series sit under 5%, the refusal and over-refusal predictions move to Ai2's Olmo 3 7B Think RL checkpoints (`allenai/Olmo-3-7B-Think`, which starts from a safety-trained DPO model), and RL-Zero keeps the length and InstrumentalEval predictions.
