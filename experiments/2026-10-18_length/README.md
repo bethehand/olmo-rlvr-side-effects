@@ -3,12 +3,12 @@
 **Question.** open-instruct #2002 says: "Olmo 3.1 is excessively verbose. This is a P0 issue for the next release", and plans to test checkpoints to find where it starts. We measure where answer length grows along SFT → DPO → RL:
 - first, the 7B Think stages;
 - then the 32B stages: 3.1 Instruct SFT/DPO/final, and 3 and 3.1 Think, which share SFT and DPO;
-- then the Olmo 3.1 7B RL-Zero models.
+- the Olmo 3.1 7B RL-Zero models were planned too, but are not run yet.
 
 **Protocol: Ai2's.** We follow OLMES `alpaca_eval_v3::olmo3:adapt`, the AlpacaEval setting in Ai2's `olmo3:adapt` suite:
 - 805 AlpacaEval prompts, in the model's own chat template;
 - temperature 0.6, top_p 0.95, one sample per prompt, no stop sequences;
-- **Generation is capped at 32K**, as in Ai2's own evals. The Olmo 3 report uses "a 32K max context length, a sampling temperature of 0.6 and top-p of 0.95" for all post-trained models. open-instruct's release-eval scripts pass `--oe_eval_max_length 32768 --process_output r1_style --use_hf_tokenizer_template`. The task config alone asks for 131,072 new tokens, but the launcher overrides it.
+- **Generation is capped at 32K**, as in Ai2's own evals. The Olmo 3 report uses "a 32K max context length, a sampling temperature of 0.6 and top-p of 0.95" for all post-trained models. open-instruct's release-eval scripts pass `--oe_eval_max_length 32768 --process_output r1_style --use_hf_tokenizer_template`. The task config alone asks for 131,072 new tokens, but the launcher overrides it (task config checked in allenai/olmes `oe_eval/configs/tasks.py` on 2026-10-19: `max_gen_toks` 131072, temperature 0.6, top_p 0.95, no stop sequences).
 
 The answer is the text after the last `</think>`, following OLMES's `r1_style` processor; if there is no `</think>`, the whole output counts as the answer.
 
@@ -20,14 +20,16 @@ The answer is the text after the last `</think>`, following OLMES's `r1_style` p
 We don't compute the win rate: it needs a paid GPT-4 judge, and #2002 is about length.
 
 **Differences from Ai2's runs**
-- **Our 32,768 counts new tokens only; Ai2's 32K is the whole context**, prompt plus output. This only changes where a runaway output stops, by the prompt's length, and those outputs are reported separately anyway. The longest output that finished normally is 26K tokens. (A first attempt that followed the task config, with no cap and the full 65K window, stalled on 2× 24 GB. A few looping outputs held the KV cache while the normal prompts waited behind them.)
+- **Our 32,768 counts new tokens only; Ai2's 32K is the whole context**, prompt plus output. This only changes where a runaway output stops, by the prompt's length, and those outputs are reported separately anyway. The longest output that finished normally is 31,592 tokens (32B Think DPO). In all 14 runs, every output that finished normally also fits a 32K context together with its prompt (prompts are at most 558 tokens), so the medians and the runaway counts are the same as under Ai2's limit. (A first attempt that followed the task config, with no cap and the full 65K window, stalled on 2× 24 GB. A few looping outputs held the KV cache while the normal prompts waited behind them.)
 - vLLM `gpu_memory_utilization` is 0.85, for 24 GB cards.
 - Software is safety-eval's environment: vLLM 0.11.0, transformers 4.57.1.
 - Seeds: from 2026-10-18 17:00 on, a run named `runN` uses seed N (`SEED` / `--seed`; each output row records it). Earlier runs used vLLM's default seed (0), as in Ai2's code: the 7B stages, the control, the DPO repeat, and 32B Instruct SFT and DPO. The `ctrl1` runs (the system-prompt controls) also use seed 0. The DPO repeat was checked to be distinct from the first run (0/805 identical outputs).
 - 32B on 4× 24 GB: `GPU_MEM=0.80 MAX_SEQS=64` (vLLM's defaults run out of memory at start-up), and the 3.1 32B Instruct SFT/DPO checkpoints, stored in fp32, are loaded in bf16.
 - Each 7B model runs on 2× RTX 4090.
+- Prompts reach vLLM as text. For all 10 checkpoints, tokenizing that text gives exactly the chat template's own token ids (no extra BOS), so the model sees the same input either way.
+- Restarts: 7B SFT `run1` was restarted once (its first start used an earlier version of the script and wrote no output), and the first start of each 3.1 32B Instruct run failed before writing any output (GPU memory held by an earlier crashed run). Every output file comes from one uninterrupted engine run (each log shows `0 already written`).
 
-**First check: 20 prompts, Think-SFT.** 19 of 20 outputs closed `</think>`; 1 looped to the end of the window (65,457 tokens). The median output was 1,550 tokens in total; the median answer was 708 tokens, or 2,811 characters.
+**First check: 20 prompts, Think-SFT.** 19 of 20 outputs closed `</think>`; 1 looped to the end of the window (65,457 tokens). The median output was 1,550 tokens in total; over the 19 that finished, the median answer was 704 tokens, or 2,723 characters. (This check ran without a cap.)
 
 **Results: Olmo 3 7B Think stages (2026-10-18).** 805 AlpacaEval prompts, one run per stage, plus a repeat of DPO and a system-prompt control. Full output: `results_7b.txt` (from `analyze_length.py`).
 
@@ -90,4 +92,4 @@ What the three model sets say together:
 
 The 7B results are Olmo 3, so for #2002, which is about Olmo 3.1, they are related evidence only; both 3.1 models are in the 32B results above.
 
-**Run.** `run_length.sh MODEL_REPO REVISION RUN_NAME GPUS [LIMIT]`. The outputs are answers to benign AlpacaEval prompts; they stay on the GPU machine for now.
+**Run.** `[TEMPLATE_FROM=REPO] [GPU_MEM=0.80 MAX_SEQS=64] [DTYPE=bfloat16] [SEED=N] run_length.sh MODEL_REPO REVISION RUN_NAME GPUS [LIMIT]`. `TEMPLATE_FROM` gives the `ctrl1` system-prompt controls another checkpoint's chat template; `runN` sets `SEED=N` unless given. The outputs are answers to benign AlpacaEval prompts; they stay on the GPU machine for now.

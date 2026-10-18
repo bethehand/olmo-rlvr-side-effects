@@ -17,3 +17,8 @@ paired over prompts that finished in both stages: per-prompt change, median [95%
   Olmo-3-32B-Think_run1 -> Olmo-3.1-32B-Think_ctrl1, thinking tokens: n=803  median    +246 (175, 310) | mean    +373 (260, 486)
   Olmo-3.1-32B-Think_ctrl1 -> Olmo-3.1-32B-Think_run1, answer chars   : n=804  median    -138 (-187, -101) | mean    -195 (-257, -133)
   Olmo-3.1-32B-Think_ctrl1 -> Olmo-3.1-32B-Think_run1, thinking tokens: n=804  median     -86 (-145, -43) | mean    -204 (-311, -103)
+
+# As released (Olmo 3 final -> Olmo 3.1 final, each with its own default system prompt), used in the README and the #2002 comment:
+# python analyze_length.py outputs/Olmo-3-32B-Think@main_run1.jsonl outputs/Olmo-3.1-32B-Think@main_run1.jsonl
+  Olmo-3-32B-Think_run1 -> Olmo-3.1-32B-Think_run1, answer chars   : n=803  median     +35 (-11, 103) | mean     +84 (22, 144)
+  Olmo-3-32B-Think_run1 -> Olmo-3.1-32B-Think_run1, thinking tokens: n=803  median    +151 (97, 213) | mean    +173 (55, 291)
