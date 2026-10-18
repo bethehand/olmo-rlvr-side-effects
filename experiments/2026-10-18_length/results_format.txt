@@ -1,0 +1,18 @@
+# python format_counts.py ... (2026-10-18; definitions in the script docstring)
+
+## Olmo 3 7B Think: SFT, DPO, final (each with its own default system prompt)
+mean per answer over the 768 prompts finished in all 3 runs
+  Olmo-3-7B-Think-SFT@main_run1        lines  31.2  headers   4.1  list items  16.0  bold spans  18.9  table rows   0.2
+  Olmo-3-7B-Think-DPO@main_run1        lines  38.4  headers   4.6  list items  20.4  bold spans  25.9  table rows   0.5
+  Olmo-3-7B-Think@main_run1            lines  33.5  headers   4.1  list items  17.4  bold spans  19.4  table rows   0.4
+
+## Olmo 3 7B Think: SFT with DPO s system prompt (control) vs DPO, same prompt
+mean per answer over the 781 prompts finished in all 2 runs
+  Olmo-3-7B-Think-SFT@main_ctrl1       lines  30.8  headers   3.9  list items  15.6  bold spans  18.3  table rows   0.4
+  Olmo-3-7B-Think-DPO@main_run1        lines  38.3  headers   4.7  list items  20.4  bold spans  25.9  table rows   0.5
+
+## Olmo 3.1 32B Instruct: SFT, DPO, final
+mean per answer over the 802 prompts finished in all 3 runs
+  Olmo-3.1-32B-Instruct-SFT@main_run1  lines  18.2  headers   1.9  list items   7.2  bold spans   7.5  table rows   0.8
+  Olmo-3.1-32B-Instruct-DPO@main_run1  lines  35.1  headers   4.6  list items  13.9  bold spans  16.3  table rows   1.4
+  Olmo-3.1-32B-Instruct@main_run1      lines  32.7  headers   3.3  list items  13.0  bold spans  11.0  table rows   1.2

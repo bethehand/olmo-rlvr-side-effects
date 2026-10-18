@@ -45,11 +45,11 @@ Paired over prompts (median per-prompt change [95% CI]):
 - **System prompt only** (SFT → SFT with DPO's prompt): answer −14 chars [−45, 13]; thinking −78 tokens. The control's prompt was checked by rendering it.
 - **DPO training, same prompt** (SFT with DPO's prompt → DPO): answer +1,103 chars [1,045, 1,184]; thinking +296 tokens.
 - **Repeat** (DPO → DPO): answer −14 [−48, 17]; thinking −16 [−49, 6]. The two DPO runs share no identical output (median shared prefix 74 chars), so this is real run-to-run noise.
-- **RL** (DPO → final): answer −633 chars [−697, −579]; thinking +919 tokens [823, 1,018].
+- **RL** (DPO → final): answer −693 chars [−748, −606]; thinking +915 tokens [827, 1,003]. With the DPO repeat instead of the first DPO run: −633 and +919.
 
 What it says, at 7B:
-- **DPO makes the final answers about 1.5× as long**: the median per-prompt ratio is 1.53, and answers get longer on 96% of prompts. Per answer, it adds lines (31 → 38), list items (16 → 20) and bold spans (19 → 26), counted over the 768 prompts finished in all three stages. The SFT checkpoint's different default system prompt doesn't explain it.
-- **RL trims the answers by about 0.6K characters (shorter on 87% of prompts) but nearly doubles the thinking** (longer on 88%; the mean goes from 1.7K to 3.0K tokens).
+- **DPO makes the final answers about 1.5× as long**: the median per-prompt ratio is 1.53, and answers get longer on 96% of prompts. Per answer, it adds lines (31 → 38), list items (16 → 20) and bold spans (19 → 26), counted over the 768 prompts finished in all three stages. The SFT checkpoint's different default system prompt doesn't explain it: with DPO's prompt on both sides, lines go 31 → 38, list items 16 → 20 and bold spans 18 → 26 (781 prompts). Table rows barely change (0.4 → 0.5). Counts from `format_counts.py`, output in `results_format.txt`.
+- **RL trims the answers by about 0.7K characters (shorter on 87% of prompts) but makes the thinking about 1.7× as long** (median per-prompt ratio 1.72; longer on 88%; the stage median goes from 1.2K to 2.2K tokens).
 - **Outputs that run to the cap fall from 3% (SFT) to about 1%.** Two very short DPO outputs (95 and 127 tokens) stop without closing `</think>`; they count neither as finished nor as runaway. One DPO output has two `</think>` tags; as in `r1_style`, its answer is the text after the last one.
 
 **Results: Olmo 3.1 32B Instruct stages (2026-10-18).** Same 805 prompts, one run per stage. SFT and DPO are fp32 checkpoints, loaded in bf16. Full output: `results_32b_instruct.txt`.
@@ -60,7 +60,7 @@ What it says, at 7B:
 | DPO | 0% | 2,387 [2,244, 2,534] | 544 | same as SFT |
 | Final (RL) | 0% | 2,152 [2,018, 2,345] | 493 | "You are Olmo, a helpful AI assistant built by Ai2…" |
 
-- **DPO** (same system prompt on both sides): +851 chars per prompt [757, 954]. The median per-prompt ratio is 1.64 and answers get longer on 92% of prompts. Per answer, lines go 18 → 35, list items 7 → 14, bold spans 7.5 → 16 and headers 1.9 → 4.6, counted over the 802 prompts finished in all three stages.
+- **DPO** (same system prompt on both sides): +851 chars per prompt [757, 954]. The median per-prompt ratio is 1.64 and answers get longer on 92% of prompts. Per answer, lines go 18 → 35, list items 7 → 14, bold spans 7.5 → 16 and headers 1.9 → 4.6, counted over the 802 prompts finished in all three stages (`format_counts.py`).
 - **RL** (DPO → final): −48 chars [−77, −20], about flat, with fewer bold spans (16 → 11) and headers (4.6 → 3.3). The final checkpoint ships a different default system prompt, so this step is not a clean comparison.
 - It matches 7B: at both sizes, most of the added length comes from DPO.
 

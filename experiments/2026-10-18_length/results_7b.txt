@@ -15,3 +15,9 @@ paired over prompts that finished in both stages: per-prompt change, median [95%
   Think-DPO_run1 -> Think-DPO_run2, thinking tokens: n=790  median     -16 (-49, 6) | mean     -33 (-115, 47)
   Think-DPO_run2 -> Think_run1, answer chars   : n=793  median    -633 (-697, -579) | mean    -709 (-765, -656)
   Think-DPO_run2 -> Think_run1, thinking tokens: n=793  median    +919 (823, 1018) | mean   +1269 (1158, 1387)
+
+# The pairs above follow the argument order (SFT, control, DPO, DPO repeat, final), so the last pair is DPO repeat -> final.
+# RL step from the first DPO run, the one in the stage table (used in the README):
+# python analyze_length.py outputs/Olmo-3-7B-Think-DPO@main_run1.jsonl outputs/Olmo-3-7B-Think@main_run1.jsonl
+  Think-DPO_run1 -> Think_run1, answer chars   : n=789  median    -693 (-748, -606) | mean    -721 (-779, -665)
+  Think-DPO_run1 -> Think_run1, thinking tokens: n=789  median    +915 (827, 1003) | mean   +1219 (1097, 1335)
