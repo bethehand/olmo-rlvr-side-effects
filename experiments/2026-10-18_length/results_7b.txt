@@ -1,0 +1,17 @@
+stage                         runaway (32K cap)    answer chars, median [95% CI]    mean  answer tok med  thinking tok med / mean  OLMES-style mean chars
+Think-SFT_run1             24 =  3.0% [2.0, 4.4]      2490 [2316, 2603]             2498             589          941 /    1576                    6114
+Think-SFT_ctrl1            16 =  2.0% [1.2, 3.2]      2413 [2286, 2552]             2456             567          840 /    1424                    4762
+Think-DPO_run1              8 =  1.0% [0.5, 1.9]      3652 [3538, 3856]             3617             874         1163 /    1756                    4691
+   checks: ok; finished without </think>: 2
+Think-DPO_run2              7 =  0.9% [0.4, 1.8]      3653 [3480, 3842]             3600             872         1133 /    1697                    4178
+Think_run1                  7 =  0.9% [0.4, 1.8]      2812 [2678, 3002]             2881             656         2220 /    2973                    3813
+
+paired over prompts that finished in both stages: per-prompt change, median [95% CI] | mean [95% CI]
+  Think-SFT_run1 -> Think-SFT_ctrl1, answer chars   : n=772  median     -14 (-45, 13) | mean     -21 (-70, 33)
+  Think-SFT_run1 -> Think-SFT_ctrl1, thinking tokens: n=772  median     -78 (-107, -44) | mean    -185 (-281, -95)
+  Think-SFT_ctrl1 -> Think-DPO_run1, answer chars   : n=781  median   +1103 (1045, 1184) | mean   +1160 (1103, 1218)
+  Think-SFT_ctrl1 -> Think-DPO_run1, thinking tokens: n=781  median    +296 (265, 317) | mean    +313 (215, 413)
+  Think-DPO_run1 -> Think-DPO_run2, answer chars   : n=790  median     -14 (-48, 17) | mean     -21 (-69, 25)
+  Think-DPO_run1 -> Think-DPO_run2, thinking tokens: n=790  median     -16 (-49, 6) | mean     -33 (-115, 47)
+  Think-DPO_run2 -> Think_run1, answer chars   : n=793  median    -633 (-697, -579) | mean    -709 (-765, -656)
+  Think-DPO_run2 -> Think_run1, thinking tokens: n=793  median    +919 (823, 1018) | mean   +1269 (1158, 1387)
