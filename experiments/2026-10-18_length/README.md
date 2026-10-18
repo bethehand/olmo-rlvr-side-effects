@@ -52,6 +52,18 @@ What it says, at 7B:
 - **RL trims the answers by about 0.6K characters (shorter on 87% of prompts) but nearly doubles the thinking** (longer on 88%; the mean goes from 1.7K to 3.0K tokens).
 - **Outputs that run to the cap fall from 3% (SFT) to about 1%.** Two very short DPO outputs (95 and 127 tokens) stop without closing `</think>`; they count neither as finished nor as runaway. One DPO output has two `</think>` tags; as in `r1_style`, its answer is the text after the last one.
 
-This is Olmo 3 at 7B, so for #2002, which is about Olmo 3.1, it is related evidence only. The 3.1 32B stages are next (`queues`: Instruct SFT/DPO/final, then the Think stages).
+**Results: Olmo 3.1 32B Instruct stages (2026-10-18).** Same 805 prompts, one run per stage. SFT and DPO are fp32 checkpoints, loaded in bf16. Full output: `results_32b_instruct.txt`.
+
+| Stage | Hit the 32K cap | Answer chars, median [95% CI] | Answer tokens, median | Default system prompt |
+|---|---|---|---|---|
+| SFT | 0.4% | 1,084 [943, 1,251] | 242 | "You are a helpful function-calling AI assistant…" |
+| DPO | 0% | 2,387 [2,244, 2,534] | 544 | same as SFT |
+| Final (RL) | 0% | 2,152 [2,018, 2,345] | 493 | "You are Olmo, a helpful AI assistant built by Ai2…" |
+
+- **DPO** (same system prompt on both sides): +851 chars per prompt [757, 954]. The median per-prompt ratio is 1.64 and answers get longer on 92% of prompts. Per answer, lines go 18 → 35, list items 7 → 14, bold spans 7.5 → 16 and headers 1.9 → 4.6, counted over the 802 prompts finished in all three stages.
+- **RL** (DPO → final): −48 chars [−77, −20], about flat, with fewer bold spans (16 → 11) and headers (4.6 → 3.3). The final checkpoint ships a different default system prompt, so this step is not a clean comparison.
+- It matches 7B: at both sizes, most of the added length comes from DPO.
+
+The 7B results are Olmo 3, so for #2002, which is about Olmo 3.1, they are related evidence only. The Olmo 3 / 3.1 32B Think stages run next.
 
 **Run.** `run_length.sh MODEL_REPO REVISION RUN_NAME GPUS [LIMIT]`. The outputs are answers to benign AlpacaEval prompts; they stay on the GPU machine for now.

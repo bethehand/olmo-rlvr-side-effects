@@ -1,0 +1,10 @@
+stage                         runaway (32K cap)    answer chars, median [95% CI]    mean  answer tok med  thinking tok med / mean  OLMES-style mean chars
+Olmo-3.1-32B-Instruct-SFT_run1    3 =  0.4% [0.1, 1.1]      1084 [943, 1251]             1432             242            1 /       1                    1710
+Olmo-3.1-32B-Instruct-DPO_run1    0 =  0.0% [0.0, 0.5]      2387 [2244, 2534]             2608             544            1 /       1                    2608
+Olmo-3.1-32B-Instruct_run1    0 =  0.0% [0.0, 0.5]      2152 [2018, 2345]             2585             493            1 /       1                    2585
+
+paired over prompts that finished in both stages: per-prompt change, median [95% CI] | mean [95% CI]
+  Olmo-3.1-32B-Instruct-SFT_run1 -> Olmo-3.1-32B-Instruct-DPO_run1, answer chars   : n=802  median    +851 (757, 954) | mean   +1113 (1033, 1192)
+  Olmo-3.1-32B-Instruct-SFT_run1 -> Olmo-3.1-32B-Instruct-DPO_run1, thinking tokens: n=802  median      +0 (0, 0) | mean      +0 (0, 0)
+  Olmo-3.1-32B-Instruct-DPO_run1 -> Olmo-3.1-32B-Instruct_run1, answer chars   : n=805  median     -48 (-77, -20) | mean     -22 (-94, 52)
+  Olmo-3.1-32B-Instruct-DPO_run1 -> Olmo-3.1-32B-Instruct_run1, thinking tokens: n=805  median      +0 (0, 0) | mean      +0 (0, 0)
