@@ -14,12 +14,15 @@
 
 | Change | Why | Effect on scores |
 |---|---|---|
-| vLLM `gpu_memory_utilization` is 0.85 instead of 0.9, set through `SAFETY_EVAL_GPU_MEM` (in `safety-eval-local-changes.patch`, two vLLM calls: the shared loader and the StrongReject judge) | On 24 GB cards, 0.9 runs out of memory during vLLM's start-up sampler warm-up | No systematic effect; it only changes memory headroom and batching |
+| vLLM `gpu_memory_utilization` is 0.85 instead of 0.9, set through `SAFETY_EVAL_GPU_MEM` (in `safety-eval-local-changes.patch`, which also sets the seed; two vLLM calls: the shared loader and the StrongReject judge) | On 24 GB cards, 0.9 runs out of memory during vLLM's start-up sampler warm-up | No systematic effect; it only changes memory headroom and batching |
 | safety-eval is on `PYTHONPATH` instead of being an editable install, with a placeholder `OPENAI_API_KEY` | safety-eval imports itself as a package and builds an OpenAI client at import time; no task here calls OpenAI | None |
 | Two robustness fixes (same patch): `run_all_generation_benchmarks.py` now maps its GPU indices through the caller's `CUDA_VISIBLE_DEVICES` (upstream, a run started on GPUs 2,3 launches its tasks on GPUs 0,1); and the parent no longer waits forever when the vLLM subprocess dies before returning results | Found 2026-10-18, when a run on GPUs 2,3 landed on the busy GPUs 0,1, failed with CUDA OOM at start-up, then hung | None |
 | StrongReject runs one at a time on the machine (a lock in `run.sh`) | Its judge saves the merged model to one fixed folder, and two runs would write it at once | None |
 | Task order | The three #1964 tasks go first and StrongReject last | None |
+| Engine seed: a run named `runN` uses seed N (`SAFETY_EVAL_SEED`, same patch), from 2026-10-18 17:00 on | Upstream passes no seed, so vLLM V1 uses 0 and a rerun can be a byte-identical copy (see above). The 9 #1964 runs above predate this and used seed 0 | Repeated runs become independent samples |
 | 2× RTX 4090 per task (tensor parallel 2, no P2P) | This is our hardware | Small numeric differences, as with any change of GPU or batch |
+
+**Shared with Ai2** on open-instruct #1964 ([comment](https://github.com/allenai/open-instruct/issues/1964#issuecomment-6247442515), 2026-10-18).
 
 **Results: open-instruct #1964's three tests, 3 runs per stage (2026-10-18).** Full output: `results_1964.txt` (from `analyze_1964.py`).
 

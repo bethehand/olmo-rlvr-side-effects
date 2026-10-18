@@ -18,6 +18,7 @@ def main():
     ap.add_argument("--tp", type=int, default=2)
     ap.add_argument("--max_new_tokens", type=int, default=32768)
     ap.add_argument("--gpu_mem", type=float, default=0.85)
+    ap.add_argument("--seed", type=int, default=None, help="engine seed; None = vLLM default (0)")
     ap.add_argument("--max_num_seqs", type=int, default=None, help="64 for 32B on 4x24 GB: the default 256 runs out of memory at start-up")
     ap.add_argument("--template_from", default=None, help="use this model's chat template (and so its default system prompt), for the system-prompt control")
     ap.add_argument("--dtype", default="auto", help="bfloat16 for checkpoints stored in fp32 (3.1 32B Instruct SFT/DPO), which don't fit 4x24 GB otherwise")
@@ -39,6 +40,8 @@ def main():
     # 0.85 instead of vLLM's default 0.9: on 24 GB cards the default leaves too little room for vLLM's start-up
     # sampler warm-up (OOM). Memory headroom only; sampling is unchanged.
     extra = {"max_num_seqs": args.max_num_seqs} if args.max_num_seqs else {}
+    if args.seed is not None:
+        extra["seed"] = args.seed
     llm = LLM(model=args.model, revision=args.revision, tensor_parallel_size=args.tp, gpu_memory_utilization=args.gpu_mem, dtype=args.dtype, **extra)
     window = llm.llm_engine.model_config.max_model_len
     engine = llm.llm_engine
@@ -58,7 +61,7 @@ def main():
                                     "model": args.model, "revision": args.revision, "response": text,
                                     "finish_reason": c.finish_reason, "n_tokens": len(c.token_ids), "has_think_end": "</think>" in text,
                                     "answer_chars": len(answer), "answer_tokens": len(tok(answer, add_special_tokens=False)["input_ids"]),
-                                    "max_new_tokens": args.max_new_tokens, "dtype": args.dtype, "template_from": args.template_from}) + "\n")
+                                    "max_new_tokens": args.max_new_tokens, "dtype": args.dtype, "template_from": args.template_from, "seed": args.seed}) + "\n")
                 f.flush(); k += 1
                 if k % 25 == 0 or k == len(todo):
                     print(f"{k}/{len(todo)} done in {time.time() - t0:.0f}s", flush=True)

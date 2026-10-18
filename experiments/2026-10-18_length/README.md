@@ -23,7 +23,7 @@ We don't compute the win rate: it needs a paid GPT-4 judge, and #2002 is about l
 - **Our 32,768 counts new tokens only; Ai2's 32K is the whole context**, prompt plus output. This only changes where a runaway output stops, by the prompt's length, and those outputs are reported separately anyway. The longest output that finished normally is 26K tokens. (A first attempt that followed the task config, with no cap and the full 65K window, stalled on 2× 24 GB. A few looping outputs held the KV cache while the normal prompts waited behind them.)
 - vLLM `gpu_memory_utilization` is 0.85, for 24 GB cards.
 - Software is safety-eval's environment: vLLM 0.11.0, transformers 4.57.1.
-- vLLM's default seed (0), as in Ai2's code. Repeats were checked to be distinct outputs.
+- Seeds: from 2026-10-18 17:00 on, a run named `runN` uses seed N (`SEED` / `--seed`; each output row records it). Earlier runs used vLLM's default seed (0), as in Ai2's code: the 7B stages, the control, the DPO repeat, and 32B Instruct SFT and DPO. The DPO repeat was checked to be distinct from the first run (0/805 identical outputs).
 - 32B on 4× 24 GB: `GPU_MEM=0.80 MAX_SEQS=64` (vLLM's defaults run out of memory at start-up), and the 3.1 32B Instruct SFT/DPO checkpoints, stored in fp32, are loaded in bf16.
 - Each 7B model runs on 2× RTX 4090.
 
