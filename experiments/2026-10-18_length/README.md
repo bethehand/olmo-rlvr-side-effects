@@ -8,7 +8,7 @@
 **Protocol: Ai2's.** We follow OLMES `alpaca_eval_v3::olmo3:adapt`, the AlpacaEval setting in Ai2's `olmo3:adapt` suite:
 - 805 AlpacaEval prompts, in the model's own chat template;
 - temperature 0.6, top_p 0.95, one sample per prompt, no stop sequences;
-- OLMES lets generation run to the end of the context window (it asks for 131,072 new tokens, more than the 65,536-token window). **We cap it at 32,768 new tokens**, the cap Ai2's safety-eval uses for Think models; see below.
+- **Generation is capped at 32K**, as in Ai2's own evals. The Olmo 3 report uses "a 32K max context length, a sampling temperature of 0.6 and top-p of 0.95" for all post-trained models. open-instruct's release-eval scripts pass `--oe_eval_max_length 32768 --process_output r1_style --use_hf_tokenizer_template`. The task config alone asks for 131,072 new tokens, but the launcher overrides it.
 
 The answer is the text after the last `</think>`, following OLMES's `r1_style` processor; if there is no `</think>`, the whole output counts as the answer.
 
@@ -20,7 +20,7 @@ The answer is the text after the last `</think>`, following OLMES's `r1_style` p
 We don't compute the win rate: it needs a paid GPT-4 judge, and #2002 is about length.
 
 **Differences from Ai2's runs**
-- **New tokens are capped at 32,768 instead of running to the end of the window.** In the first full run (Think-SFT, 805 prompts, uncapped) 337 prompts finished in 40 minutes, then 1 in the next 20 and none in the 20 after that. A few outputs loop until the end of the window. On 2× 24 GB cards the KV cache holds about two such outputs, so they serialize and the normal prompts wait behind them, at about 44 tokens/s per loop. Outputs that hit the cap count as runaway and are reported on their own. The cap changes only how long those outputs are, and they are excluded from the answer-length statistics anyway.
+- **Our 32,768 counts new tokens only; Ai2's 32K is the whole context**, prompt plus output. This only changes where a runaway output stops, by the prompt's length, and those outputs are reported separately anyway. The longest output that finished normally is 26K tokens. (A first attempt that followed the task config, with no cap and the full 65K window, stalled on 2× 24 GB. A few looping outputs held the KV cache while the normal prompts waited behind them.)
 - vLLM `gpu_memory_utilization` is 0.85, for 24 GB cards.
 - Software is safety-eval's environment: vLLM 0.11.0, transformers 4.57.1.
 - vLLM's default seed (0), as in Ai2's code. Repeats were checked to be distinct outputs.
@@ -48,9 +48,9 @@ Paired over prompts (median per-prompt change [95% CI]):
 - **RL** (DPO → final): answer −633 chars [−697, −579]; thinking +919 tokens [823, 1,018].
 
 What it says, at 7B:
-- **DPO makes the final answers about 45% longer.** Per answer, it adds lines (31 → 38), list items (16 → 20) and bold spans (19 → 26), counted over the 768 prompts finished in all three stages. The SFT checkpoint's different default system prompt doesn't explain it.
-- **RL trims the answers by about 0.6K characters but nearly doubles the thinking**: the mean goes from 1.7K to 3.0K tokens.
-- **Outputs that run to the cap fall from 3% (SFT) to about 1%.**
+- **DPO makes the final answers about 1.5× as long**: the median per-prompt ratio is 1.53, and answers get longer on 96% of prompts. Per answer, it adds lines (31 → 38), list items (16 → 20) and bold spans (19 → 26), counted over the 768 prompts finished in all three stages. The SFT checkpoint's different default system prompt doesn't explain it.
+- **RL trims the answers by about 0.6K characters (shorter on 87% of prompts) but nearly doubles the thinking** (longer on 88%; the mean goes from 1.7K to 3.0K tokens).
+- **Outputs that run to the cap fall from 3% (SFT) to about 1%.** Two very short DPO outputs (95 and 127 tokens) stop without closing `</think>`; they count neither as finished nor as runaway. One DPO output has two `</think>` tags; as in `r1_style`, its answer is the text after the last one.
 
 This is Olmo 3 at 7B, so for #2002, which is about Olmo 3.1, it is related evidence only. The 3.1 32B stages are next (`queues`: Instruct SFT/DPO/final, then the Think stages).
 
