@@ -29,6 +29,8 @@ We don't compute the win rate: it needs a paid GPT-4 judge, and #2002 is about l
 - Prompts reach vLLM as text. For all 10 checkpoints, tokenizing that text gives exactly the chat template's own token ids (no extra BOS), so the model sees the same input either way.
 - Restarts: 7B SFT `run1` was restarted once (its first start used an earlier version of the script and wrote no output), and the first start of each 3.1 32B Instruct run failed before writing any output (GPU memory held by an earlier crashed run). Every output file comes from one uninterrupted engine run (each log shows `0 already written`).
 
+**Shared with Ai2** on open-instruct #2002 ([comment](https://github.com/allenai/open-instruct/issues/2002#issuecomment-6256732503), 2026-10-19).
+
 **First check: 20 prompts, Think-SFT.** 19 of 20 outputs closed `</think>`; 1 looped to the end of the window (65,457 tokens). The median output was 1,550 tokens in total; over the 19 that finished, the median answer was 704 tokens, or 2,723 characters. (This check ran without a cap.)
 
 **Results: Olmo 3 7B Think stages (2026-10-18).** 805 AlpacaEval prompts, one run per stage, plus a repeat of DPO and a system-prompt control. Full output: `results_7b.txt` (from `analyze_length.py`).
