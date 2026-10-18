@@ -1,0 +1,14 @@
+## Olmo 3 / 3.1 32B Think: SFT, DPO, Olmo 3 final, Olmo 3.1 final with Olmo 3's prompt, Olmo 3.1 final
+mean per answer over the 789 prompts finished in all 5 runs
+  Olmo-3-32B-Think-SFT@main_run1       lines  32.4  headers   4.2  list items  16.6  bold spans  19.2  table rows   0.4
+  Olmo-3-32B-Think-DPO@main_run1       lines  41.2  headers   5.4  list items  20.9  bold spans  25.7  table rows   0.5
+  Olmo-3-32B-Think@main_run1           lines  36.1  headers   4.4  list items  18.5  bold spans  22.8  table rows   0.5
+  Olmo-3.1-32B-Think@main_ctrl1        lines  38.6  headers   4.9  list items  19.7  bold spans  24.5  table rows   0.5
+  Olmo-3.1-32B-Think@main_run1         lines  34.4  headers   4.3  list items  17.7  bold spans  21.6  table rows   0.4
+
+## Olmo 3.1 32B Instruct: SFT, DPO, final with DPO's prompt, final
+mean per answer over the 801 prompts finished in all 4 runs
+  Olmo-3.1-32B-Instruct-SFT@main_run1  lines  18.3  headers   1.9  list items   7.2  bold spans   7.5  table rows   0.8
+  Olmo-3.1-32B-Instruct-DPO@main_run1  lines  35.1  headers   4.6  list items  13.9  bold spans  16.3  table rows   1.4
+  Olmo-3.1-32B-Instruct@main_ctrl1     lines  35.6  headers   4.3  list items  13.5  bold spans  13.3  table rows   1.6
+  Olmo-3.1-32B-Instruct@main_run1      lines  32.7  headers   3.3  list items  13.0  bold spans  11.0  table rows   1.2

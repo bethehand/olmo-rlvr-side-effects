@@ -23,7 +23,7 @@ We don't compute the win rate: it needs a paid GPT-4 judge, and #2002 is about l
 - **Our 32,768 counts new tokens only; Ai2's 32K is the whole context**, prompt plus output. This only changes where a runaway output stops, by the prompt's length, and those outputs are reported separately anyway. The longest output that finished normally is 26K tokens. (A first attempt that followed the task config, with no cap and the full 65K window, stalled on 2× 24 GB. A few looping outputs held the KV cache while the normal prompts waited behind them.)
 - vLLM `gpu_memory_utilization` is 0.85, for 24 GB cards.
 - Software is safety-eval's environment: vLLM 0.11.0, transformers 4.57.1.
-- Seeds: from 2026-10-18 17:00 on, a run named `runN` uses seed N (`SEED` / `--seed`; each output row records it). Earlier runs used vLLM's default seed (0), as in Ai2's code: the 7B stages, the control, the DPO repeat, and 32B Instruct SFT and DPO. The DPO repeat was checked to be distinct from the first run (0/805 identical outputs).
+- Seeds: from 2026-10-18 17:00 on, a run named `runN` uses seed N (`SEED` / `--seed`; each output row records it). Earlier runs used vLLM's default seed (0), as in Ai2's code: the 7B stages, the control, the DPO repeat, and 32B Instruct SFT and DPO. The `ctrl1` runs (the system-prompt controls) also use seed 0. The DPO repeat was checked to be distinct from the first run (0/805 identical outputs).
 - 32B on 4× 24 GB: `GPU_MEM=0.80 MAX_SEQS=64` (vLLM's defaults run out of memory at start-up), and the 3.1 32B Instruct SFT/DPO checkpoints, stored in fp32, are loaded in bf16.
 - Each 7B model runs on 2× RTX 4090.
 
@@ -52,18 +52,42 @@ What it says, at 7B:
 - **RL trims the answers by about 0.7K characters (shorter on 87% of prompts) but makes the thinking about 1.7× as long** (median per-prompt ratio 1.72; longer on 88%; the stage median goes from 1.2K to 2.2K tokens).
 - **Outputs that run to the cap fall from 3% (SFT) to about 1%.** Two very short DPO outputs (95 and 127 tokens) stop without closing `</think>`; they count neither as finished nor as runaway. One DPO output has two `</think>` tags; as in `r1_style`, its answer is the text after the last one.
 
-**Results: Olmo 3.1 32B Instruct stages (2026-10-18).** Same 805 prompts, one run per stage. SFT and DPO are fp32 checkpoints, loaded in bf16. Full output: `results_32b_instruct.txt`.
+**Results: Olmo 3.1 32B Instruct stages (2026-10-18/19).** Same 805 prompts, one run per stage, plus a control: the final checkpoint run with DPO's system prompt (checked by rendering: same text and tokens as DPO's). SFT and DPO are fp32 checkpoints, loaded in bf16. Full output: `results_32b_instruct.txt` (from `analyze_length.py`; its header gives the argument order, and each pair of neighbouring runs is one comparison).
 
-| Stage | Hit the 32K cap | Answer chars, median [95% CI] | Answer tokens, median | Default system prompt |
+| Run | Hit the 32K cap | Answer chars, median [95% CI] | Answer tokens, median | System prompt |
 |---|---|---|---|---|
-| SFT | 0.4% | 1,084 [943, 1,251] | 242 | "You are a helpful function-calling AI assistant…" |
-| DPO | 0% | 2,387 [2,244, 2,534] | 544 | same as SFT |
-| Final (RL) | 0% | 2,152 [2,018, 2,345] | 493 | "You are Olmo, a helpful AI assistant built by Ai2…" |
+| SFT | 0.4% | 1,084 [943, 1,251] | 242 | default: "You are a helpful function-calling AI assistant…" |
+| DPO | 0% | 2,387 [2,244, 2,534] | 544 | default, same as SFT |
+| Final with DPO's prompt (control) | 0.1% | 2,373 [2,228, 2,484] | 544 | DPO's |
+| Final (RL) | 0% | 2,152 [2,018, 2,345] | 493 | default: "You are Olmo, a helpful AI assistant built by Ai2…" |
 
-- **DPO** (same system prompt on both sides): +851 chars per prompt [757, 954]. The median per-prompt ratio is 1.64 and answers get longer on 92% of prompts. Per answer, lines go 18 → 35, list items 7 → 14, bold spans 7.5 → 16 and headers 1.9 → 4.6, counted over the 802 prompts finished in all three stages (`format_counts.py`).
-- **RL** (DPO → final): −48 chars [−77, −20], about flat, with fewer bold spans (16 → 11) and headers (4.6 → 3.3). The final checkpoint ships a different default system prompt, so this step is not a clean comparison.
-- It matches 7B: at both sizes, most of the added length comes from DPO.
+- **DPO** (same system prompt on both sides): +851 chars per prompt [757, 954]. The median per-prompt ratio is 1.64 and answers get longer on 92% of prompts. Per answer, lines go 18 → 35, list items 7 → 14, bold spans 7.5 → 16 and headers 1.9 → 4.6, counted over the 802 prompts finished in SFT, DPO and final (`format_counts.py`).
+- **RL** (DPO → final with DPO's prompt, so only the weights differ): −17 chars [−47, 0], flat (median per-prompt ratio 0.99), with fewer bold spans (16 → 13).
+- **System prompt only** (control → final): −39 chars [−68, −5], with fewer bold spans (13 → 11) and headers (4.3 → 3.3). So most of the earlier DPO → final change (−48 chars) was the new prompt. Formatting counts for all four runs (801 prompts): `results_format_32b.txt`.
 
-The 7B results are Olmo 3, so for #2002, which is about Olmo 3.1, they are related evidence only. The Olmo 3 / 3.1 32B Think stages run next.
+**Results: Olmo 3 / 3.1 32B Think stages (2026-10-19).** Same 805 prompts, one run per stage. Olmo 3 32B Think's SFT, DPO and final share the default system prompt "You are a helpful AI assistant.". Olmo 3.1 32B Think (same SFT and DPO, longer RL) ships "You are Olmo, a helpful AI assistant built by Ai2…", so it was also run with Olmo 3's prompt as a control (checked by rendering: same text and tokens as Olmo 3's). Full output: `results_32b_think.txt`.
+
+| Run | Hit the 32K cap | Answer chars, median [95% CI] | Answer tokens, median | Thinking tokens, median / mean | OLMES-style mean chars |
+|---|---|---|---|---|---|
+| SFT | 1.9% | 2,498 [2,367, 2,691] | 598 | 867 / 1,292 | 4,617 |
+| DPO | 0.5% | 3,430 [3,285, 3,530] | 804 | 1,144 / 1,846 | 3,783 |
+| Olmo 3 final (RL) | 0.2% | 2,988 [2,784, 3,148] | 710 | 1,447 / 2,172 | 3,095 |
+| Olmo 3.1 final with Olmo 3's prompt (control) | 0.1% | 3,196 [2,971, 3,381] | 764 | 1,862 / 2,546 | 3,401 |
+| Olmo 3.1 final | 0% | 2,874 [2,662, 3,078] | 701 | 1,723 / 2,344 | 3,007 |
+
+Paired over prompts (median per-prompt change [95% CI]):
+- **DPO** (SFT → DPO, same prompt): answer +724 chars [652, 788], median per-prompt ratio 1.31, longer on 90% of prompts; thinking +285 tokens [252, 329] (ratio 1.36). Per answer, lines go 32 → 41, list items 17 → 21 and bold spans 19 → 26 (789 prompts finished in all five runs).
+- **RL** (DPO → Olmo 3 final, same prompt): answer −310 chars [−352, −261], ratio 0.88, shorter on 74%; thinking +211 tokens [159, 251], ratio 1.19.
+- **3.1's longer RL** (Olmo 3 final → Olmo 3.1 final with Olmo 3's prompt, so only the weights differ): answer +248 chars [204, 298], ratio 1.11, longer on 68%; thinking +246 tokens [175, 310], ratio 1.19.
+- **System prompt only** (control → Olmo 3.1 final): answer −138 chars [−187, −101], ratio 0.94; thinking −86 tokens [−145, −43].
+- **As shipped** (Olmo 3 final → Olmo 3.1 final), the last two cancel: answer +35 chars [−11, 103]; thinking +151 tokens [97, 213].
+
+What the three model sets say together:
+- **DPO adds the most length at every size**: per prompt, about 1.5× at 7B Think, 1.3× at 32B Think and 1.6× at 32B Instruct, mostly as extra lines, lists and bold text.
+- **RL then trims the answers and lengthens the thinking** (7B Think: −0.7K chars, thinking ×1.7; 32B Think: −0.3K chars, thinking ×1.2). For 32B Instruct, which doesn't think, RL leaves length flat.
+- **3.1's longer RL adds answer length back** (+248 chars at 32B Think), and 3.1's new default system prompt hides most of it (−138 chars).
+- **SFT has the most runaway outputs at both sizes** (7B 3.0%, 32B 1.9%). Every runaway checked is a degenerate loop.
+
+The 7B results are Olmo 3, so for #2002, which is about Olmo 3.1, they are related evidence only; both 3.1 models are in the 32B results above.
 
 **Run.** `run_length.sh MODEL_REPO REVISION RUN_NAME GPUS [LIMIT]`. The outputs are answers to benign AlpacaEval prompts; they stay on the GPU machine for now.
