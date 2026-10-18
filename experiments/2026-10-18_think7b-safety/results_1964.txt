@@ -1,0 +1,29 @@
+checks: all runs complete, and every recomputed score equals safety-eval's
+
+metric                  stage                    run1   run2   run3   mean    SD  Table 52
+XSTest                  Olmo-3-7B-Think-SFT      90.9   91.3   91.3   91.2  0.26      91.6
+XSTest                  Olmo-3-7B-Think-DPO      91.3   91.3   92.2   91.6  0.51      91.6
+XSTest                  Olmo-3-7B-Think          92.7   91.1   90.9   91.6  0.97      90.9
+XSTest safe: answered   Olmo-3-7B-Think-SFT      96.8   95.2   95.6   95.9  0.83
+XSTest safe: answered   Olmo-3-7B-Think-DPO      96.8   96.0   95.6   96.1  0.61
+XSTest safe: answered   Olmo-3-7B-Think          96.0   93.2   95.6   94.9  1.51
+XSTest unsafe: refused  Olmo-3-7B-Think-SFT      83.5   86.5   86.0   85.3  1.61
+XSTest unsafe: refused  Olmo-3-7B-Think-DPO      84.5   85.5   88.0   86.0  1.80
+XSTest unsafe: refused  Olmo-3-7B-Think          88.5   88.5   85.0   87.3  2.02
+WJ benign               Olmo-3-7B-Think-SFT      98.8   98.8   98.8   98.8  0.00      99.1
+WJ benign               Olmo-3-7B-Think-DPO      99.2   99.2   99.2   99.2  0.00      98.5
+WJ benign               Olmo-3-7B-Think          98.8   98.8   98.8   98.8  0.00      98.8
+WildGuardTest           Olmo-3-7B-Think-SFT      90.4   89.7   90.5   90.2  0.43      90.2
+WildGuardTest           Olmo-3-7B-Think-DPO      93.6   93.2   93.2   93.3  0.23      93.9
+WildGuardTest           Olmo-3-7B-Think          93.5   93.2   93.6   93.4  0.20      93.8
+WildGuardTest: refused  Olmo-3-7B-Think-SFT      56.1   55.3   53.7   55.0  1.22
+WildGuardTest: refused  Olmo-3-7B-Think-DPO      59.0   57.5   57.5   58.0  0.85
+WildGuardTest: refused  Olmo-3-7B-Think          62.6   63.3   64.6   63.5  1.02
+
+metric                   run-to-run SD per-prompt SD  MDC, 1 run MDC, 3 runs   (points; MDC from run-to-run SD | per-prompt SD)
+XSTest                            0.65          0.87   2.6 | 3.4   1.5 | 2.0
+XSTest safe: answered             1.06          1.09   4.2 | 4.3   2.4 | 2.5
+XSTest unsafe: refused            1.82          1.39   7.2 | 5.5   4.2 | 3.2
+WJ benign                         0.00          0.19   0.0 | 0.7   0.0 | 0.4
+WildGuardTest                     0.31          0.59   1.2 | 2.3   0.7 | 1.3
+WildGuardTest: refused            1.04          0.75   4.1 | 3.0   2.4 | 1.7

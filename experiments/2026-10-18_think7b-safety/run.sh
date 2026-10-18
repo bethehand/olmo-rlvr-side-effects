@@ -26,7 +26,7 @@ export PYTHONPATH=$W/safety-eval   # OLMES pip-installs safety-eval in editable 
 export OPENAI_API_KEY=placeholder-not-used   # safety-eval builds an OpenAI client at import time; these tasks never call it
                                             # (all judges are local), and a real call would fail loudly with this key
 export RAY_TMPDIR=/tmp/ray_$USER CUDA_VISIBLE_DEVICES=$GPUS
-export SAFETY_EVAL_GPU_MEM=0.85   # read by our patch (safety-eval-memory.patch); vLLM's default 0.9 OOMs at start-up on 24 GB cards
+export SAFETY_EVAL_GPU_MEM=0.85   # read by our patch (safety-eval-local-changes.patch); vLLM's default 0.9 OOMs at start-up on 24 GB cards
 tasks() {
   python evaluation/run_all_generation_benchmarks.py \
     --model_name_or_path $MODEL --model_input_template_path_or_name hf --hf_revision main \
@@ -42,3 +42,11 @@ if [ "$SET" = table52 ]; then
   ( flock 8; tasks "$SR" ) 8>$W/queues/strongreject.lock; rc2=$?
 fi
 echo "$NAME $RUN $SET exit=$rc/$rc2 seconds=$(( $(date +%s) - t0 ))" >> $E/logs/done.txt
+# If a task of this set has no metrics file (the run crashed, ran out of memory, ...), queue the same run again at
+# the end of the queue; finished tasks are skipped on the rerun. At most two retries; smoke runs are not retried.
+want="$ISSUE1964"; [ "$SET" = table52 ] && want="$ISSUE1964,$TABLE52_REST,$SR"
+missing=0; for t in $(echo "$want" | tr -d '[]"' | tr ',' ' '); do [ -f "$OUT/metrics.json.$t" ] || missing=$((missing + 1)); done
+if [ "$MODE" = full ] && [ $missing -gt 0 ] && [ "${RETRY:-0}" -lt 2 ]; then
+  ( flock 9; echo "RETRY=$(( ${RETRY:-0} + 1 )) bash $E/run.sh full $MODEL $RUN \$GPUS $SET" >> $W/queues/safety ) 9>$W/queues/safety.lock
+  echo "$NAME $RUN $SET: $missing task(s) missing, queued retry $(( ${RETRY:-0} + 1 ))" >> $E/logs/done.txt
+fi

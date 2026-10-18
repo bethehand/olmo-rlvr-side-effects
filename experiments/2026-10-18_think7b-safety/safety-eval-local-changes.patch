@@ -1,3 +1,20 @@
+diff --git a/evaluation/run_all_generation_benchmarks.py b/evaluation/run_all_generation_benchmarks.py
+index 9558058..b110109 100644
+--- a/evaluation/run_all_generation_benchmarks.py
++++ b/evaluation/run_all_generation_benchmarks.py
+@@ -58,7 +58,11 @@ class GPUTask:
+     hparam_overrides: str
+ 
+ def run(task: GPUTask):
+-    gpu_ids_str = ",".join(map(str, task.gpu_ids))
++    # Local change (olmo-rlvr-side-effects): task.gpu_ids index the devices this process can see. Map them back through
++    # the caller's CUDA_VISIBLE_DEVICES; otherwise a run started on GPUs 2,3 launches its tasks on GPUs 0,1.
++    visible = os.environ.get("CUDA_VISIBLE_DEVICES")
++    ids = visible.split(",") if visible else None
++    gpu_ids_str = ",".join(ids[i] if ids else str(i) for i in task.gpu_ids)
+     print(f"Running {task.task_name} on GPUs {gpu_ids_str}.")
+     command = task.script_format.format(gpu_id=gpu_ids_str, task_name=task.task_name, hparam_overrides=task.hparam_overrides)
+     os.system(command)
 diff --git a/src/classifier_models/strong_reject_logprobs.py b/src/classifier_models/strong_reject_logprobs.py
 index 1d43399..cc1312b 100644
 --- a/src/classifier_models/strong_reject_logprobs.py
@@ -13,7 +30,7 @@ index 1d43399..cc1312b 100644
      @torch.inference_mode()
      def _classify_batch(self, batch: list[dict[str, str]]) -> list[SafetyClassifierOutput]:
 diff --git a/src/generation_utils.py b/src/generation_utils.py
-index 36a7577..e4f8c13 100644
+index 36a7577..0814f27 100644
 --- a/src/generation_utils.py
 +++ b/src/generation_utils.py
 @@ -496,10 +496,22 @@ def load_vllm_model(model_name_or_path,
@@ -39,3 +56,15 @@ index 36a7577..e4f8c13 100644
  def delete_vllm_model(model: LLM):
      print("Deleting vllm model")
      # Import function used for cleanup; could be in two places depending on vllm version
+@@ -657,6 +669,11 @@ def subprocess_inference_with_vllm(
+         kwargs=sampling_args
+     )
+     subprocess.start()
++    # Local change (olmo-rlvr-side-effects): if the vLLM subprocess dies without sending results (e.g. CUDA OOM at
++    # start-up), fail instead of waiting on the pipe forever.
++    while not parent_conn.poll(30):
++        if not subprocess.is_alive():
++            raise RuntimeError(f"vLLM subprocess exited with code {subprocess.exitcode} before returning results")
+     result = parent_conn.recv()
+     subprocess.join()
+     return result

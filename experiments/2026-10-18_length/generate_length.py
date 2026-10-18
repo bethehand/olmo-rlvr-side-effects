@@ -17,11 +17,15 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--tp", type=int, default=2)
     ap.add_argument("--max_new_tokens", type=int, default=32768)
+    ap.add_argument("--template_from", default=None, help="use this model's chat template (and so its default system prompt), for the system-prompt control")
+    ap.add_argument("--dtype", default="auto", help="bfloat16 for checkpoints stored in fp32 (3.1 32B Instruct SFT/DPO), which don't fit 4x24 GB otherwise")
     args = ap.parse_args()
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
     rows = json.load(open(args.prompts))[: args.limit]
     tok = AutoTokenizer.from_pretrained(args.model, revision=args.revision)
+    if args.template_from:
+        tok.chat_template = AutoTokenizer.from_pretrained(args.template_from).chat_template
     texts = [tok.apply_chat_template([{"role": "user", "content": r["instruction"]}], tokenize=False, add_generation_prompt=True) for r in rows]
     done = set()
     if os.path.exists(args.out):
@@ -32,7 +36,7 @@ def main():
         return
     # 0.85 instead of vLLM's default 0.9: on 24 GB cards the default leaves too little room for vLLM's start-up
     # sampler warm-up (OOM). Memory headroom only; sampling is unchanged.
-    llm = LLM(model=args.model, revision=args.revision, tensor_parallel_size=args.tp, gpu_memory_utilization=0.85)
+    llm = LLM(model=args.model, revision=args.revision, tensor_parallel_size=args.tp, gpu_memory_utilization=0.85, dtype=args.dtype)
     window = llm.llm_engine.model_config.max_model_len
     engine = llm.llm_engine
     for i in todo:
@@ -51,7 +55,7 @@ def main():
                                     "model": args.model, "revision": args.revision, "response": text,
                                     "finish_reason": c.finish_reason, "n_tokens": len(c.token_ids), "has_think_end": "</think>" in text,
                                     "answer_chars": len(answer), "answer_tokens": len(tok(answer, add_special_tokens=False)["input_ids"]),
-                                    "max_new_tokens": args.max_new_tokens}) + "\n")
+                                    "max_new_tokens": args.max_new_tokens, "dtype": args.dtype, "template_from": args.template_from}) + "\n")
                 f.flush(); k += 1
                 if k % 25 == 0 or k == len(todo):
                     print(f"{k}/{len(todo)} done in {time.time() - t0:.0f}s", flush=True)
