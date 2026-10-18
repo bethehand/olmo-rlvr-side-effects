@@ -1,4 +1,5 @@
 checks: all runs complete, and every recomputed score equals safety-eval's
+NOT INDEPENDENT (byte-identical outputs between runs): {'Olmo-3-7B-Think-SFT wildjailbreak': '2/3 distinct', 'Olmo-3-7B-Think-DPO wildjailbreak': '1/3 distinct', 'Olmo-3-7B-Think-DPO wildguardtest': '2/3 distinct', 'Olmo-3-7B-Think wildjailbreak': '1/3 distinct'}
 
 metric                  stage                    run1   run2   run3   mean    SD  Table 52
 XSTest                  Olmo-3-7B-Think-SFT      90.9   91.3   91.3   91.2  0.26      91.6
@@ -21,9 +22,9 @@ WildGuardTest: refused  Olmo-3-7B-Think-DPO      59.0   57.5   57.5   58.0  0.85
 WildGuardTest: refused  Olmo-3-7B-Think          62.6   63.3   64.6   63.5  1.02
 
 metric                   run-to-run SD per-prompt SD  MDC, 1 run MDC, 3 runs   (points; MDC from run-to-run SD | per-prompt SD)
-XSTest                            0.65          0.87   2.6 | 3.4   1.5 | 2.0
-XSTest safe: answered             1.06          1.09   4.2 | 4.3   2.4 | 2.5
-XSTest unsafe: refused            1.82          1.39   7.2 | 5.5   4.2 | 3.2
-WJ benign                         0.00          0.19   0.0 | 0.7   0.0 | 0.4
-WildGuardTest                     0.31          0.59   1.2 | 2.3   0.7 | 1.3
-WildGuardTest: refused            1.04          0.75   4.1 | 3.0   2.4 | 1.7
+XSTest                            0.65          0.87   2.6 | 3.4   1.5 | 2.0   from SFT,DPO,final
+XSTest safe: answered             1.06          1.09   4.2 | 4.3   2.4 | 2.5   from SFT,DPO,final
+XSTest unsafe: refused            1.82          1.39   7.2 | 5.5   4.2 | 3.2   from SFT,DPO,final
+WJ benign                 no noise estimate: no stage has 3 distinct runs
+WildGuardTest                     0.34          0.64   1.3 | 2.5   0.8 | 1.5   from SFT,final
+WildGuardTest: refused            1.13          0.84   4.5 | 3.3   2.6 | 1.9   from SFT,final

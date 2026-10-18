@@ -7,7 +7,7 @@
    (80% power, two-sided 5%): MDC_k = 2.80 * sigma * sqrt(2 / k).
 4. Our 3-run means next to Ai2's Table 52.
 Usage: python analyze_1964.py [outputs_dir] [--show]   (--show prints the benign prompts judged as refusals)"""
-import json, math, os, statistics as st, sys
+import hashlib, json, math, os, statistics as st, sys
 
 STAGES = ["Olmo-3-7B-Think-SFT", "Olmo-3-7B-Think-DPO", "Olmo-3-7B-Think"]
 RUNS = ["run1", "run2", "run3"]
@@ -51,6 +51,7 @@ def main():
     out_dir = next((a for a in sys.argv[1:] if not a.startswith("--")), os.path.join(os.path.dirname(os.path.abspath(__file__)), "outputs"))
     show = "--show" in sys.argv
     data = {}   # (stage, run) -> metric -> {prompt id: 0/1}
+    outputs = {}  # (stage, task) -> one hash of all outputs per run, to catch repeated runs that are copies
     problems = []
     for s in STAGES:
         for r in RUNS:
@@ -62,6 +63,8 @@ def main():
                 if len(rows) != N[t] or len({x["id"] for x in rows}) != N[t]:
                     problems.append(f"{s}/{r} {t.split(':')[0]}: {len(rows)} rows")
                 pp = per_prompt(t, rows); data.setdefault((s, r), {}).update(pp)
+                field = "original" if t == T_X else "original_model_response"
+                outputs.setdefault((s, t), []).append(hashlib.md5("".join(x.get(field) or "" for x in rows).encode()).hexdigest())
                 rep = report_of(d, t)
                 for m, (tt, key) in REPORTED.items():
                     if tt == t and abs(100 * st.mean(pp[m].values()) - 100 * rep[key]) > 1e-9:
@@ -73,6 +76,11 @@ def main():
                             a = (x.get("response") or "")
                             print(f"[{s} {r} {t.split(':')[0]} {x.get('type', '')}] prompt: {x.get('prompt', x.get('instruction', ''))[:90]!r}\n    answer ({len(a)} chars): {a[:260]!r}")
     print("checks:", "all runs complete, and every recomputed score equals safety-eval's" if not problems else problems)
+    # safety-eval sets no seed and vLLM V1 then uses seed 0, so repeated runs can come out byte-identical
+    dup = {(s, t): len(h) - len(set(h)) for (s, t), h in outputs.items() if len(set(h)) < len(h)}
+    if dup:
+        print("NOT INDEPENDENT (byte-identical outputs between runs):", {f"{s} {t.split(':')[0]}": f"{len(outputs[(s, t)]) - n}/{len(outputs[(s, t)])} distinct" for (s, t), n in dup.items()})
+    dup_tasks = {t for (s, t) in dup}
     metrics = ["XSTest", "XSTest safe: answered", "XSTest unsafe: refused", "WJ benign", "WildGuardTest", "WildGuardTest: refused"]
     print(f"\n{'metric':24}{'stage':22}{'run1':>7}{'run2':>7}{'run3':>7}{'mean':>7}{'SD':>6}{'Table 52':>10}")
     pooled = {}
@@ -85,19 +93,23 @@ def main():
             a = AI2[s].get(m)
             print(f"{m:24}{s:22}" + "".join(f"{x:7.1f}" for x in xs) + " " * 7 * (3 - len(xs)) + f"{st.mean(xs):7.1f}{sd:6.2f}" + (f"{a:10.1f}" if a else ""))
     print(f"\n{'metric':24}{'run-to-run SD':>14}{'per-prompt SD':>14}{'MDC, 1 run':>12}{'MDC, 3 runs':>12}   (points; MDC from run-to-run SD | per-prompt SD)")
+    task_of = {"XSTest": T_X, "XSTest safe: answered": T_X, "XSTest unsafe: refused": T_X, "WJ benign": T_W, "WildGuardTest": T_G, "WildGuardTest: refused": T_G}
+    # noise only from stages whose 3 runs are all distinct (copies carry no information about sampling noise)
     for m in metrics:
-        sd_run = math.sqrt(st.mean(v * v for v in pooled.get(m, []) if not math.isnan(v))) if pooled.get(m) else float("nan")
+        ok = [s for s in STAGES if len(set(outputs.get((s, task_of[m]), []))) == len(RUNS)]
+        if not ok:
+            print(f"{m:24}  no noise estimate: no stage has {len(RUNS)} distinct runs"); continue
+        sd_run = math.sqrt(st.mean(st.stdev([100 * st.mean(data[(s, r)][m].values()) for r in RUNS]) ** 2 for s in ok))
         sds = []
-        for s in STAGES:
-            ids = list(data[(s, RUNS[0])][m]) if (s, RUNS[0]) in data else []
-            if not ids or not all(m in data.get((s, r), {}) for r in RUNS): continue
-            k = len(RUNS); var = 0.0
+        for s in ok:
+            ids = list(data[(s, RUNS[0])][m]); k = len(RUNS); var = 0.0
             for i in ids:
-                p = st.mean(data[(s, r)][m][i] for r in RUNS); var += p * (1 - p) * k / (k - 1)
+                pr = st.mean(data[(s, r)][m][i] for r in RUNS); var += pr * (1 - pr) * k / (k - 1)
             sds.append(100 * math.sqrt(var) / len(ids))
-        sd_pp = st.mean(sds) if sds else float("nan")
+        sd_pp = st.mean(sds)
         mdc = lambda sd, k: 2.80 * sd * math.sqrt(2 / k)
-        print(f"{m:24}{sd_run:14.2f}{sd_pp:14.2f}{mdc(sd_run, 1):6.1f} |{mdc(sd_pp, 1):4.1f}{mdc(sd_run, 3):6.1f} |{mdc(sd_pp, 3):4.1f}")
+        used = ",".join(s.replace("Olmo-3-7B-Think", "").strip("-") or "final" for s in ok)
+        print(f"{m:24}{sd_run:14.2f}{sd_pp:14.2f}{mdc(sd_run, 1):6.1f} |{mdc(sd_pp, 1):4.1f}{mdc(sd_run, 3):6.1f} |{mdc(sd_pp, 3):4.1f}   from {used}")
 
 if __name__ == "__main__":
     main()
