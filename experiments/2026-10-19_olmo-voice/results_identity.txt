@@ -1,0 +1,41 @@
+== think32b_identity.json: 58 rows
+   system prompt x58: You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and 
+   URLs in answers: 86 (13 distinct)
+       45 https://huggingface.co/allenai
+        8 https://github.com/allenai/Olmo
+        7 https://allenai.org/
+        5 https://github.com/allenai/open-instruct/
+        4 https://allenai.org/olmo
+        3 https://github.com/allenai/OLMo-core
+        3 https://playground.allenai.org/
+        3 https://huggingface.co/allenai/olmo-7b
+        3 https://github.com/allenai/open-instruct
+        2 https://allenai.org
+        1 https://github.com/allenai
+        1 https://huggingface.co/allenai/tulu-2-7b
+        1 https://www.apache.org/licenses/LICENSE-2.0
+   olmo-7b, any form: 11 times in 7 rows
+   allenai/olmo-7b, full id: 7 times in 4 rows
+   7B/13B/30B (sizes and model ids): 21 times in 8 rows
+   December 2024: 19 times in 16 rows
+   Tulu / Tülu: 56 times in 9 rows
+   allennlp: 0 times in 0 rows
+== instruct_identity.json: 69 rows
+   system prompt x57: You are Olmo, a helpful function-calling AI assistant built by Ai2. Your date cutoff is De
+   system prompt x9: (no system turn)
+   system prompt x3: I am Olmo a helpful assistant made by Ai2, the Allen Institute for AI. My training data is
+   URLs in answers: 28 (8 distinct)
+        7 https://github.com/allenai/open-instruct/
+        5 https://huggingface.co/allenai
+        5 https://github.com/allenai/Olmo
+        3 https://github.com/allenai/OLMo-core
+        3 https://allenai.org/
+        2 https://allenai.org/olmo
+        2 https://playground.allenai.org/
+        1 https://allenai.org
+   olmo-7b, any form: 0 times in 0 rows
+   allenai/olmo-7b, full id: 0 times in 0 rows
+   7B/13B/30B (sizes and model ids): 0 times in 0 rows
+   December 2024: 4 times in 4 rows
+   Tulu / Tülu: 20 times in 9 rows
+   allennlp: 0 times in 0 rows

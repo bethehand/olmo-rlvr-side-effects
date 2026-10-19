@@ -1,0 +1,45 @@
+== Broken links per run (counts are link occurrences in answers; broken % = (not found + dead) / (ok + not found + dead))
+run                                    answers w/ URL  URLs   ok notfound dead unknown placeholder  broken% Ai2 URLs
+Olmo-3.1-32B-Instruct-SFT@main_run1                37   130   66       30    5      22           7    34.7%        0
+Olmo-3.1-32B-Instruct-DPO@main_run1                57   206   87       41    7      54          17    35.6%        0
+Olmo-3.1-32B-Instruct@main_ctrl1                   49   230  108       49   16      50           7    37.6%        0
+Olmo-3.1-32B-Instruct@main_run1                    68   225   93       49   13      60          10    40.0%        4
+Olmo-3-32B-Think-SFT@main_run1                     26    86   42       14    2      22           6    27.6%        0
+Olmo-3-32B-Think-DPO@main_run1                     40   166   84       21    9      42          10    26.3%        0
+Olmo-3-32B-Think@main_run1                         31   128   51       20    3      40          14    31.1%        0
+Olmo-3.1-32B-Think@main_ctrl1                      41   148   77       10    9      38          14    19.8%        0
+Olmo-3.1-32B-Think@main_run1                      102   271  149       38    8      69           7    23.6%       27
+Olmo-3-7B-Think-SFT@main_run1                      17    59   25       10    1      15           8    30.6%        0
+Olmo-3-7B-Think-SFT@main_ctrl1                     23    81   18       14    3      39           7    48.6%        0
+Olmo-3-7B-Think-DPO@main_run1                      35   112   38       15    9      32          18    38.7%        0
+Olmo-3-7B-Think-DPO@main_run2                      29    76   34        7    6      20           9    27.7%        0
+Olmo-3-7B-Think@main_run1                          21    83   27       20    4      24           8    47.1%        0
+pooled: 2001 links, {'unknown': 527, 'notfound': 338, 'ok': 899, 'dead': 95, 'placeholder': 142}; broken 433/1332 = 32.5%
+distinct URLs: 1408 {'placeholder': 49, 'unknown': 422, 'ok': 550, 'dead': 76, 'notfound': 311}
+broken links by type: {'other page on a real site': '209 (48%)', 'domain does not exist': '95 (22%)', 'GitHub repo or file': '67 (15%)', 'DOI': '33 (8%)', 'Amazon listing': '22 (5%)', 'site root': '7 (2%)'}
+Ai2 URLs: 31
+   Olmo-3.1-32B-Instruct@main_run1      1 ok        https://github.com/allenai/Olmo#natural-dyeing-with-lichens
+   Olmo-3.1-32B-Instruct@main_run1      2 ok        https://huggingface.co/allenai
+   Olmo-3.1-32B-Instruct@main_run1      1 unknown   https://olmo.ai2.dev/immigration/eb1c
+   Olmo-3.1-32B-Think@main_run1         7 ok        https://allenai.org
+   Olmo-3.1-32B-Think@main_run1         4 ok        https://allenai.org/
+   Olmo-3.1-32B-Think@main_run1         1 ok        https://allenai.org/olmo
+   Olmo-3.1-32B-Think@main_run1        14 ok        https://huggingface.co/allenai
+   Olmo-3.1-32B-Think@main_run1         1 ok        https://huggingface.co/allenai/olmo-7b
+
+== Hand-labeled answers that mention Olmo, Ai2, an Ai2 link or a 2024 cutoff month (selftalk_labels.csv)
+run                                                 unrelated-self unrelated-self with Ai2 URL            unrelated-cutoff                     related              false-positive
+Olmo-3.1-32B-Instruct-SFT@main_run1                              0                           0                           0                           0                           1
+Olmo-3.1-32B-Instruct-DPO@main_run1                              0                           0                           0                           0                           0
+Olmo-3.1-32B-Instruct@main_ctrl1                                 0                           0                           0                           0                           0
+Olmo-3.1-32B-Instruct@main_run1                                 31                           4                           0                          33                           1
+Olmo-3-32B-Think-SFT@main_run1                                   0                           0                           0                           1                           0
+Olmo-3-32B-Think-DPO@main_run1                                   0                           0                           0                           1                           0
+Olmo-3-32B-Think@main_run1                                       0                           0                           0                           0                           0
+Olmo-3.1-32B-Think@main_ctrl1                                    0                           0                           0                           0                           0
+Olmo-3.1-32B-Think@main_run1                                    33                          11                           9                          42                           1
+Olmo-3-7B-Think-SFT@main_run1                                    0                           0                           0                           1                           1
+Olmo-3-7B-Think-SFT@main_ctrl1                                   1                           0                           0                           1                           0
+Olmo-3-7B-Think-DPO@main_run1                                    0                           0                           0                           0                           1
+Olmo-3-7B-Think-DPO@main_run2                                    0                           0                           0                           3                           0
+Olmo-3-7B-Think@main_run1                                        0                           0                           0                           2                           0
