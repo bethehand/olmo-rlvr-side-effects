@@ -7,6 +7,8 @@
 
 No new generation: everything here reuses the 14 AlpacaEval runs of [`../2026-10-18_length`](../2026-10-18_length) (805 prompts, each model's own chat template unless noted, temperature 0.6, top_p 0.95, 32K new tokens, one run each; settings and seeds in that README). The answer is the text after the last `</think>`, or the whole output when there is none (OLMES `r1_style`).
 
+**Shared with Ai2** on open-instruct #2001 ([comment](https://github.com/allenai/open-instruct/issues/2001#issuecomment-6272692332), 2026-10-20).
+
 **System prompt of each run** (default system prompt of the chat template used):
 - 3.1 32B Instruct SFT and DPO, and the 3.1 Instruct final's control (`ctrl1`, DPO's template): "You are a helpful function-calling AI assistant."
 - Olmo 3 32B Think SFT, DPO and final, and the 3.1 32B Think final's control (`ctrl1`, Olmo 3 32B Think's template): "You are a helpful AI assistant."
