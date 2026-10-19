@@ -8,14 +8,15 @@ Ai2 releases every post-training stage of Olmo 3 Think (SFT, DPO, and RL with in
 
 Independent work by [Qirun Li](https://github.com/bethehand). Not affiliated with Ai2.
 
-## Status (2026-10-18)
-- **Running:** Ai2's own safety protocol (OLMES `safety_reasoning::olmo3` → allenai/safety-eval) on the Olmo 3 7B Think stages, 3 runs each, starting with the three tests #1964 names (XSTest, WildJailbreak-benign, WildGuardTest). The first SFT run is within 1 point of the Olmo 3 report's Table 52 on all three. [`experiments/2026-10-18_think7b-safety`](experiments/2026-10-18_think7b-safety)
-- **Running:** answer length across the same stages with Ai2's AlpacaEval setting, for #2002. [`experiments/2026-10-18_length`](experiments/2026-10-18_length)
+## Status (2026-10-19)
+- **Done, shared with Ai2 (#1964):** Ai2's own safety protocol (OLMES `safety_reasoning::olmo3` → allenai/safety-eval) on the Olmo 3 7B Think stages, 3 runs each, for the three tests #1964 names (XSTest, WildJailbreak-benign, WildGuardTest). All means are within 1 point of the Olmo 3 report's Table 52. Run-to-run noise and the smallest change each test can detect are measured too. Reruns without a seed can come out byte-identical. [`experiments/2026-10-18_think7b-safety`](experiments/2026-10-18_think7b-safety) · [comment](https://github.com/allenai/open-instruct/issues/1964#issuecomment-6247442515)
+- **Done, shared with Ai2 (#2002):** answer length across the SFT, DPO and final stages of Olmo 3 7B Think, Olmo 3.1 32B Instruct and Olmo 3 / 3.1 32B Think, with Ai2's AlpacaEval setting and system-prompt controls. DPO adds most of the length (1.3–1.6× per prompt). 3.1's longer RL makes answers about 10% longer, which 3.1's new default system prompt hides. [`experiments/2026-10-18_length`](experiments/2026-10-18_length) · [comment](https://github.com/allenai/open-instruct/issues/2002#issuecomment-6256732503)
 - **Done:** step 0. On RL-Zero, refusal of harmful prompts is off the floor and moves with the data type; over-refusal is at the floor. [`experiments/2026-10-18_step0-floor-check`](experiments/2026-10-18_step0-floor-check)
 - The pre-registration in [`prereg/`](prereg/) is on hold while the plan is re-based on the Think stages. Predictions get written and frozen with a git tag before the main runs.
+- **Next:** the other six Table 52 safety tests on the same stages, then the curve along the Think RL run (plan step 2) and the controlled 1B runs (step 4).
 
 ## Plan
-1. **Replicate:** Ai2's safety numbers for the Olmo 3 7B Think stages (Table 52), with run-to-run noise and the smallest change a given test size can detect; answer length per stage.
+1. **Replicate:** Ai2's safety numbers for the Olmo 3 7B Think stages (Table 52), with run-to-run noise and the smallest change a given test size can detect; answer length per stage. *Done for the three #1964 tests and for answer length; the other six Table 52 tests are next.*
 2. **Curve:** about 8 intermediate checkpoints of the Think RL run, to see where along RL the changes happen.
 3. **Auxiliary:** the RL-Zero single-domain series (Math, Code, IF, General), on measures that aren't at their floor.
 4. **Controlled runs:** OLMo 2 1B with open-instruct's GRPO. Math only, instruction following only, and the official mix, 2 seeds each, to see which data causes which change.
