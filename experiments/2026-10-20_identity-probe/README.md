@@ -1,6 +1,6 @@
 # Identity, cutoff and link probe across the Olmo 3 / 3.1 stages (for open-instruct #2001, #1948, #1964, #1902)
 
-**Shared with Ai2** on open-instruct #2001 ([comment](https://github.com/allenai/open-instruct/issues/2001#issuecomment-6293946727), 2026-10-20).
+**Shared with Ai2** on open-instruct #2001 ([comment](https://github.com/allenai/open-instruct/issues/2001#issuecomment-6293946727), 2026-10-20) and #1948 ([comment](https://github.com/allenai/open-instruct/issues/1948#issuecomment-6294469634), 2026-10-20).
 
 **Question.** [`../2026-10-19_olmo-voice`](../2026-10-19_olmo-voice) found that Olmo 3.1 32B Think and Instruct bring up Olmo, Ai2 or their cutoff in answers to unrelated prompts under the 3.1 release system prompt (44 and 31 of 805) and never under the earlier stage's prompt, and guessed why: the 32B SFT data was tokenized without that sentence, so the model saw it almost only on identity rows. This run tests the guess and measures what #2001, #1948 and #1964 ask about, on every public post-training stage:
 
