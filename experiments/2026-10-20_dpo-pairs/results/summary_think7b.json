@@ -1,0 +1,1066 @@
+{
+ "repo": "allenai/Dolci-Think-DPO-7B",
+ "all": {
+  "n": 150000,
+  "chosen_chars_median": 2012.0,
+  "rejected_chars_median": 1003.0,
+  "pair_ratio_median": 1.766,
+  "pair_ratio_q25": 1.207,
+  "pair_ratio_q75": 2.804,
+  "chosen_longer_pct": 84.4,
+  "chosen_minus_rejected_chars_median": 684.0,
+  "full_pair_ratio_median": 1.556,
+  "chosen_longer_full_pct": 77.6,
+  "chosen_has_think_pct": 100.0,
+  "rejected_has_think_pct": 100.0,
+  "think_chars_median_chosen": 3472.0,
+  "think_chars_median_rejected": 2205.0,
+  "bullets": {
+   "chosen_mean": 9.257,
+   "rejected_mean": 4.813,
+   "chosen_any_pct": 60.9,
+   "rejected_any_pct": 50.6,
+   "chosen_more_pct": 47.6,
+   "rejected_more_pct": 14.1
+  },
+  "bold": {
+   "chosen_mean": 13.158,
+   "rejected_mean": 6.651,
+   "chosen_any_pct": 73.1,
+   "rejected_any_pct": 60.9,
+   "chosen_more_pct": 59.2,
+   "rejected_more_pct": 13.4
+  },
+  "headers": {
+   "chosen_mean": 3.067,
+   "rejected_mean": 1.501,
+   "chosen_any_pct": 49.3,
+   "rejected_any_pct": 33.9,
+   "chosen_more_pct": 38.4,
+   "rejected_more_pct": 7.9
+  },
+  "table_rows": {
+   "chosen_mean": 0.33,
+   "rejected_mean": 0.122,
+   "chosen_any_pct": 3.9,
+   "rejected_any_pct": 0.9,
+   "chosen_more_pct": 3.5,
+   "rejected_more_pct": 0.3
+  },
+  "urls": {
+   "chosen_mean": 0.132,
+   "rejected_mean": 0.054,
+   "chosen_any_pct": 3.5,
+   "rejected_any_pct": 1.4,
+   "chosen_more_pct": 2.9,
+   "rejected_more_pct": 0.5
+  },
+  "olmo_ai2": {
+   "chosen_mean": 0.0,
+   "rejected_mean": 0.0,
+   "chosen_any_pct": 0.0,
+   "rejected_any_pct": 0.0,
+   "chosen_more_pct": 0.0,
+   "rejected_more_pct": 0.0
+  },
+  "emoji": {
+   "chosen_mean": 0.878,
+   "rejected_mean": 0.278,
+   "chosen_any_pct": 17.7,
+   "rejected_any_pct": 5.9,
+   "chosen_more_pct": 15.5,
+   "rejected_more_pct": 1.7
+  },
+  "chosen_tokens_median": 527.0,
+  "rejected_tokens_median": 254.0,
+  "pair_token_ratio_median": 1.793
+ },
+ "by_preference_type": {
+  "delta_learning": {
+   "n": 150000,
+   "chosen_chars_median": 2012.0,
+   "rejected_chars_median": 1003.0,
+   "pair_ratio_median": 1.766,
+   "pair_ratio_q25": 1.207,
+   "pair_ratio_q75": 2.804,
+   "chosen_longer_pct": 84.4,
+   "chosen_minus_rejected_chars_median": 684.0,
+   "full_pair_ratio_median": 1.556,
+   "chosen_longer_full_pct": 77.6,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 3472.0,
+   "think_chars_median_rejected": 2205.0,
+   "bullets": {
+    "chosen_mean": 9.257,
+    "rejected_mean": 4.813,
+    "chosen_any_pct": 60.9,
+    "rejected_any_pct": 50.6,
+    "chosen_more_pct": 47.6,
+    "rejected_more_pct": 14.1
+   },
+   "bold": {
+    "chosen_mean": 13.158,
+    "rejected_mean": 6.651,
+    "chosen_any_pct": 73.1,
+    "rejected_any_pct": 60.9,
+    "chosen_more_pct": 59.2,
+    "rejected_more_pct": 13.4
+   },
+   "headers": {
+    "chosen_mean": 3.067,
+    "rejected_mean": 1.501,
+    "chosen_any_pct": 49.3,
+    "rejected_any_pct": 33.9,
+    "chosen_more_pct": 38.4,
+    "rejected_more_pct": 7.9
+   },
+   "table_rows": {
+    "chosen_mean": 0.33,
+    "rejected_mean": 0.122,
+    "chosen_any_pct": 3.9,
+    "rejected_any_pct": 0.9,
+    "chosen_more_pct": 3.5,
+    "rejected_more_pct": 0.3
+   },
+   "urls": {
+    "chosen_mean": 0.132,
+    "rejected_mean": 0.054,
+    "chosen_any_pct": 3.5,
+    "rejected_any_pct": 1.4,
+    "chosen_more_pct": 2.9,
+    "rejected_more_pct": 0.5
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.878,
+    "rejected_mean": 0.278,
+    "chosen_any_pct": 17.7,
+    "rejected_any_pct": 5.9,
+    "chosen_more_pct": 15.5,
+    "rejected_more_pct": 1.7
+   },
+   "chosen_tokens_median": 527.0,
+   "rejected_tokens_median": 254.0,
+   "pair_token_ratio_median": 1.793
+  }
+ },
+ "by_source": {
+  "ultrafeedback_cleaned_olmo2_7b": {
+   "n": 23202,
+   "chosen_chars_median": 2029.0,
+   "rejected_chars_median": 798.0,
+   "pair_ratio_median": 1.984,
+   "pair_ratio_q25": 1.32,
+   "pair_ratio_q75": 3.142,
+   "chosen_longer_pct": 85.7,
+   "chosen_minus_rejected_chars_median": 847.0,
+   "full_pair_ratio_median": 1.745,
+   "chosen_longer_full_pct": 84.7,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 3289.0,
+   "think_chars_median_rejected": 1869.0,
+   "bullets": {
+    "chosen_mean": 12.037,
+    "rejected_mean": 5.995,
+    "chosen_any_pct": 61.7,
+    "rejected_any_pct": 50.1,
+    "chosen_more_pct": 52.7,
+    "rejected_more_pct": 9.6
+   },
+   "bold": {
+    "chosen_mean": 16.104,
+    "rejected_mean": 7.374,
+    "chosen_any_pct": 76.5,
+    "rejected_any_pct": 62.4,
+    "chosen_more_pct": 64.8,
+    "rejected_more_pct": 10.0
+   },
+   "headers": {
+    "chosen_mean": 3.46,
+    "rejected_mean": 1.557,
+    "chosen_any_pct": 46.9,
+    "rejected_any_pct": 28.6,
+    "chosen_more_pct": 41.0,
+    "rejected_more_pct": 5.9
+   },
+   "table_rows": {
+    "chosen_mean": 0.558,
+    "rejected_mean": 0.199,
+    "chosen_any_pct": 5.7,
+    "rejected_any_pct": 2.4,
+    "chosen_more_pct": 4.9,
+    "rejected_more_pct": 0.8
+   },
+   "urls": {
+    "chosen_mean": 0.251,
+    "rejected_mean": 0.101,
+    "chosen_any_pct": 6.5,
+    "rejected_any_pct": 2.5,
+    "chosen_more_pct": 5.6,
+    "rejected_more_pct": 0.9
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.646,
+    "rejected_mean": 0.139,
+    "chosen_any_pct": 19.0,
+    "rejected_any_pct": 4.7,
+    "chosen_more_pct": 17.4,
+    "rejected_more_pct": 1.7
+   },
+   "chosen_tokens_median": 484.0,
+   "rejected_tokens_median": 190.0,
+   "pair_token_ratio_median": 2.027
+  },
+  "filtered_wc_sample_500k": {
+   "n": 17596,
+   "chosen_chars_median": 2175.5,
+   "rejected_chars_median": 1043.0,
+   "pair_ratio_median": 1.956,
+   "pair_ratio_q25": 1.338,
+   "pair_ratio_q75": 2.938,
+   "chosen_longer_pct": 86.7,
+   "chosen_minus_rejected_chars_median": 925.5,
+   "full_pair_ratio_median": 1.689,
+   "chosen_longer_full_pct": 86.0,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 2789.0,
+   "think_chars_median_rejected": 1818.0,
+   "bullets": {
+    "chosen_mean": 8.035,
+    "rejected_mean": 4.187,
+    "chosen_any_pct": 42.8,
+    "rejected_any_pct": 32.0,
+    "chosen_more_pct": 36.7,
+    "rejected_more_pct": 6.5
+   },
+   "bold": {
+    "chosen_mean": 11.586,
+    "rejected_mean": 5.68,
+    "chosen_any_pct": 58.0,
+    "rejected_any_pct": 45.7,
+    "chosen_more_pct": 49.5,
+    "rejected_more_pct": 7.6
+   },
+   "headers": {
+    "chosen_mean": 2.104,
+    "rejected_mean": 0.789,
+    "chosen_any_pct": 30.3,
+    "rejected_any_pct": 16.0,
+    "chosen_more_pct": 27.0,
+    "rejected_more_pct": 3.5
+   },
+   "table_rows": {
+    "chosen_mean": 0.297,
+    "rejected_mean": 0.495,
+    "chosen_any_pct": 2.8,
+    "rejected_any_pct": 0.7,
+    "chosen_more_pct": 2.7,
+    "rejected_more_pct": 0.4
+   },
+   "urls": {
+    "chosen_mean": 0.177,
+    "rejected_mean": 0.073,
+    "chosen_any_pct": 4.8,
+    "rejected_any_pct": 2.2,
+    "chosen_more_pct": 3.9,
+    "rejected_more_pct": 0.7
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.607,
+    "rejected_mean": 0.41,
+    "chosen_any_pct": 19.3,
+    "rejected_any_pct": 9.2,
+    "chosen_more_pct": 14.1,
+    "rejected_more_pct": 1.8
+   },
+   "chosen_tokens_median": 490.0,
+   "rejected_tokens_median": 247.0,
+   "pair_token_ratio_median": 1.932
+  },
+  "OpenThoughts3-full-filtered-science-no-cot": {
+   "n": 14967,
+   "chosen_chars_median": 2912,
+   "rejected_chars_median": 1696,
+   "pair_ratio_median": 1.814,
+   "pair_ratio_q25": 1.346,
+   "pair_ratio_q75": 2.492,
+   "chosen_longer_pct": 93.1,
+   "chosen_minus_rejected_chars_median": 1264,
+   "full_pair_ratio_median": 1.551,
+   "chosen_longer_full_pct": 73.8,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 13664,
+   "think_chars_median_rejected": 9462,
+   "bullets": {
+    "chosen_mean": 12.477,
+    "rejected_mean": 5.734,
+    "chosen_any_pct": 93.9,
+    "rejected_any_pct": 78.3,
+    "chosen_more_pct": 75.4,
+    "rejected_more_pct": 17.7
+   },
+   "bold": {
+    "chosen_mean": 22.279,
+    "rejected_mean": 9.558,
+    "chosen_any_pct": 98.3,
+    "rejected_any_pct": 92.7,
+    "chosen_more_pct": 83.5,
+    "rejected_more_pct": 13.6
+   },
+   "headers": {
+    "chosen_mean": 4.523,
+    "rejected_mean": 2.164,
+    "chosen_any_pct": 89.7,
+    "rejected_any_pct": 56.5,
+    "chosen_more_pct": 69.6,
+    "rejected_more_pct": 10.4
+   },
+   "table_rows": {
+    "chosen_mean": 0.449,
+    "rejected_mean": 0.049,
+    "chosen_any_pct": 6.6,
+    "rejected_any_pct": 0.7,
+    "chosen_more_pct": 6.3,
+    "rejected_more_pct": 0.3
+   },
+   "urls": {
+    "chosen_mean": 0.048,
+    "rejected_mean": 0.008,
+    "chosen_any_pct": 0.9,
+    "rejected_any_pct": 0.3,
+    "chosen_more_pct": 0.9,
+    "rejected_more_pct": 0.2
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.182,
+    "rejected_mean": 0.041,
+    "chosen_any_pct": 5.9,
+    "rejected_any_pct": 1.5,
+    "chosen_more_pct": 5.5,
+    "rejected_more_pct": 1.0
+   },
+   "chosen_tokens_median": 841,
+   "rejected_tokens_median": 457,
+   "pair_token_ratio_median": 1.919
+  },
+  "flan_v2_converted": {
+   "n": 14057,
+   "chosen_chars_median": 326,
+   "rejected_chars_median": 168,
+   "pair_ratio_median": 1.45,
+   "pair_ratio_q25": 1.0,
+   "pair_ratio_q75": 3.222,
+   "chosen_longer_pct": 69.4,
+   "chosen_minus_rejected_chars_median": 81,
+   "full_pair_ratio_median": 1.383,
+   "chosen_longer_full_pct": 73.5,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 1849,
+   "think_chars_median_rejected": 1393,
+   "bullets": {
+    "chosen_mean": 1.147,
+    "rejected_mean": 0.747,
+    "chosen_any_pct": 21.9,
+    "rejected_any_pct": 22.1,
+    "chosen_more_pct": 17.4,
+    "rejected_more_pct": 13.6
+   },
+   "bold": {
+    "chosen_mean": 2.035,
+    "rejected_mean": 0.991,
+    "chosen_any_pct": 50.4,
+    "rejected_any_pct": 31.4,
+    "chosen_more_pct": 39.4,
+    "rejected_more_pct": 11.0
+   },
+   "headers": {
+    "chosen_mean": 0.179,
+    "rejected_mean": 0.119,
+    "chosen_any_pct": 4.8,
+    "rejected_any_pct": 3.3,
+    "chosen_more_pct": 3.8,
+    "rejected_more_pct": 1.8
+   },
+   "table_rows": {
+    "chosen_mean": 0.015,
+    "rejected_mean": 0.001,
+    "chosen_any_pct": 0.1,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.1,
+    "rejected_more_pct": 0.0
+   },
+   "urls": {
+    "chosen_mean": 0.001,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.041,
+    "rejected_mean": 0.005,
+    "chosen_any_pct": 1.3,
+    "rejected_any_pct": 0.2,
+    "chosen_more_pct": 1.2,
+    "rejected_more_pct": 0.1
+   },
+   "chosen_tokens_median": 73,
+   "rejected_tokens_median": 43,
+   "pair_token_ratio_median": 1.433
+  },
+  "Wildchat-1M-gpt-4.1-regenerated-english": {
+   "n": 13955,
+   "chosen_chars_median": 2625,
+   "rejected_chars_median": 1222,
+   "pair_ratio_median": 2.06,
+   "pair_ratio_q25": 1.473,
+   "pair_ratio_q75": 2.997,
+   "chosen_longer_pct": 92.6,
+   "chosen_minus_rejected_chars_median": 1230,
+   "full_pair_ratio_median": 1.769,
+   "chosen_longer_full_pct": 88.2,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 3128,
+   "think_chars_median_rejected": 1899,
+   "bullets": {
+    "chosen_mean": 9.917,
+    "rejected_mean": 4.607,
+    "chosen_any_pct": 54.6,
+    "rejected_any_pct": 40.5,
+    "chosen_more_pct": 47.1,
+    "rejected_more_pct": 8.0
+   },
+   "bold": {
+    "chosen_mean": 14.879,
+    "rejected_mean": 7.891,
+    "chosen_any_pct": 71.6,
+    "rejected_any_pct": 58.7,
+    "chosen_more_pct": 60.7,
+    "rejected_more_pct": 9.3
+   },
+   "headers": {
+    "chosen_mean": 2.683,
+    "rejected_mean": 1.002,
+    "chosen_any_pct": 39.2,
+    "rejected_any_pct": 20.4,
+    "chosen_more_pct": 34.8,
+    "rejected_more_pct": 5.0
+   },
+   "table_rows": {
+    "chosen_mean": 0.227,
+    "rejected_mean": 0.048,
+    "chosen_any_pct": 2.7,
+    "rejected_any_pct": 0.7,
+    "chosen_more_pct": 2.6,
+    "rejected_more_pct": 0.3
+   },
+   "urls": {
+    "chosen_mean": 0.192,
+    "rejected_mean": 0.05,
+    "chosen_any_pct": 4.6,
+    "rejected_any_pct": 1.8,
+    "chosen_more_pct": 3.8,
+    "rejected_more_pct": 0.7
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.591,
+    "rejected_mean": 1.062,
+    "chosen_any_pct": 19.8,
+    "rejected_any_pct": 6.8,
+    "chosen_more_pct": 16.2,
+    "rejected_more_pct": 2.1
+   },
+   "chosen_tokens_median": 639,
+   "rejected_tokens_median": 288,
+   "pair_token_ratio_median": 2.037
+  },
+  "valpy_if_qwq_reasoning_verified_no_reasoning": {
+   "n": 11101,
+   "chosen_chars_median": 910,
+   "rejected_chars_median": 412,
+   "pair_ratio_median": 1.847,
+   "pair_ratio_q25": 1.126,
+   "pair_ratio_q75": 4.058,
+   "chosen_longer_pct": 80.2,
+   "chosen_minus_rejected_chars_median": 345,
+   "full_pair_ratio_median": 1.247,
+   "chosen_longer_full_pct": 62.8,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 2502,
+   "think_chars_median_rejected": 2032,
+   "bullets": {
+    "chosen_mean": 2.872,
+    "rejected_mean": 2.803,
+    "chosen_any_pct": 34.2,
+    "rejected_any_pct": 25.9,
+    "chosen_more_pct": 23.3,
+    "rejected_more_pct": 11.4
+   },
+   "bold": {
+    "chosen_mean": 6.057,
+    "rejected_mean": 2.728,
+    "chosen_any_pct": 45.1,
+    "rejected_any_pct": 27.1,
+    "chosen_more_pct": 36.9,
+    "rejected_more_pct": 10.9
+   },
+   "headers": {
+    "chosen_mean": 0.829,
+    "rejected_mean": 0.562,
+    "chosen_any_pct": 17.6,
+    "rejected_any_pct": 12.4,
+    "chosen_more_pct": 12.7,
+    "rejected_more_pct": 5.6
+   },
+   "table_rows": {
+    "chosen_mean": 0.056,
+    "rejected_mean": 0.011,
+    "chosen_any_pct": 0.6,
+    "rejected_any_pct": 0.2,
+    "chosen_more_pct": 0.5,
+    "rejected_more_pct": 0.1
+   },
+   "urls": {
+    "chosen_mean": 0.016,
+    "rejected_mean": 0.173,
+    "chosen_any_pct": 0.9,
+    "rejected_any_pct": 0.4,
+    "chosen_more_pct": 0.7,
+    "rejected_more_pct": 0.2
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.21,
+    "rejected_mean": 0.029,
+    "chosen_any_pct": 3.3,
+    "rejected_any_pct": 0.9,
+    "chosen_more_pct": 3.2,
+    "rejected_more_pct": 0.6
+   },
+   "chosen_tokens_median": 251,
+   "rejected_tokens_median": 104,
+   "pair_token_ratio_median": 1.875
+  },
+  "correct-python-sft-187k": {
+   "n": 9005,
+   "chosen_chars_median": 2371,
+   "rejected_chars_median": 1438,
+   "pair_ratio_median": 1.584,
+   "pair_ratio_q25": 1.235,
+   "pair_ratio_q75": 2.433,
+   "chosen_longer_pct": 89.4,
+   "chosen_minus_rejected_chars_median": 909,
+   "full_pair_ratio_median": 1.422,
+   "chosen_longer_full_pct": 72.0,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 13527,
+   "think_chars_median_rejected": 7994,
+   "bullets": {
+    "chosen_mean": 10.732,
+    "rejected_mean": 6.148,
+    "chosen_any_pct": 90.5,
+    "rejected_any_pct": 71.8,
+    "chosen_more_pct": 67.1,
+    "rejected_more_pct": 22.2
+   },
+   "bold": {
+    "chosen_mean": 8.897,
+    "rejected_mean": 4.855,
+    "chosen_any_pct": 89.3,
+    "rejected_any_pct": 67.2,
+    "chosen_more_pct": 65.8,
+    "rejected_more_pct": 22.2
+   },
+   "headers": {
+    "chosen_mean": 6.031,
+    "rejected_mean": 3.345,
+    "chosen_any_pct": 94.7,
+    "rejected_any_pct": 81.3,
+    "chosen_more_pct": 68.9,
+    "rejected_more_pct": 18.9
+   },
+   "table_rows": {
+    "chosen_mean": 0.714,
+    "rejected_mean": 0.011,
+    "chosen_any_pct": 8.8,
+    "rejected_any_pct": 0.1,
+    "chosen_more_pct": 8.7,
+    "rejected_more_pct": 0.1
+   },
+   "urls": {
+    "chosen_mean": 0.056,
+    "rejected_mean": 0.021,
+    "chosen_any_pct": 1.4,
+    "rejected_any_pct": 0.7,
+    "chosen_more_pct": 1.1,
+    "rejected_more_pct": 0.1
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 2.913,
+    "rejected_mean": 0.838,
+    "chosen_any_pct": 58.9,
+    "rejected_any_pct": 23.0,
+    "chosen_more_pct": 53.9,
+    "rejected_more_pct": 6.0
+   },
+   "chosen_tokens_median": 578,
+   "rejected_tokens_median": 349,
+   "pair_token_ratio_median": 1.595
+  },
+  "tulu-3-sft-personas-math": {
+   "n": 7252,
+   "chosen_chars_median": 2591.0,
+   "rejected_chars_median": 2148.0,
+   "pair_ratio_median": 1.214,
+   "pair_ratio_q25": 1.034,
+   "pair_ratio_q75": 1.427,
+   "chosen_longer_pct": 79.0,
+   "chosen_minus_rejected_chars_median": 438.0,
+   "full_pair_ratio_median": 1.043,
+   "chosen_longer_full_pct": 53.6,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 23761.0,
+   "think_chars_median_rejected": 24387.5,
+   "bullets": {
+    "chosen_mean": 9.974,
+    "rejected_mean": 9.207,
+    "chosen_any_pct": 97.2,
+    "rejected_any_pct": 97.7,
+    "chosen_more_pct": 48.1,
+    "rejected_more_pct": 40.9
+   },
+   "bold": {
+    "chosen_mean": 14.691,
+    "rejected_mean": 10.405,
+    "chosen_any_pct": 98.5,
+    "rejected_any_pct": 98.7,
+    "chosen_more_pct": 67.1,
+    "rejected_more_pct": 26.3
+   },
+   "headers": {
+    "chosen_mean": 4.616,
+    "rejected_mean": 3.842,
+    "chosen_any_pct": 99.6,
+    "rejected_any_pct": 98.9,
+    "chosen_more_pct": 42.4,
+    "rejected_more_pct": 22.2
+   },
+   "table_rows": {
+    "chosen_mean": 0.305,
+    "rejected_mean": 0.043,
+    "chosen_any_pct": 3.5,
+    "rejected_any_pct": 0.7,
+    "chosen_more_pct": 3.2,
+    "rejected_more_pct": 0.4
+   },
+   "urls": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.121,
+    "rejected_mean": 0.016,
+    "chosen_any_pct": 7.1,
+    "rejected_any_pct": 0.8,
+    "chosen_more_pct": 7.0,
+    "rejected_more_pct": 0.7
+   },
+   "chosen_tokens_median": 875.0,
+   "rejected_tokens_median": 711.0,
+   "pair_token_ratio_median": 1.205
+  },
+  "Wildchat-1m-gpt-4.1-regeneration-not-english": {
+   "n": 5220,
+   "chosen_chars_median": 1883.5,
+   "rejected_chars_median": 801.5,
+   "pair_ratio_median": 2.117,
+   "pair_ratio_q25": 1.436,
+   "pair_ratio_q75": 3.13,
+   "chosen_longer_pct": 89.6,
+   "chosen_minus_rejected_chars_median": 915.5,
+   "full_pair_ratio_median": 1.766,
+   "chosen_longer_full_pct": 88.5,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 1723.0,
+   "think_chars_median_rejected": 1079.0,
+   "bullets": {
+    "chosen_mean": 16.193,
+    "rejected_mean": 6.895,
+    "chosen_any_pct": 74.4,
+    "rejected_any_pct": 58.8,
+    "chosen_more_pct": 65.3,
+    "rejected_more_pct": 9.7
+   },
+   "bold": {
+    "chosen_mean": 17.832,
+    "rejected_mean": 9.147,
+    "chosen_any_pct": 75.4,
+    "rejected_any_pct": 67.3,
+    "chosen_more_pct": 65.6,
+    "rejected_more_pct": 10.8
+   },
+   "headers": {
+    "chosen_mean": 4.074,
+    "rejected_mean": 1.763,
+    "chosen_any_pct": 57.4,
+    "rejected_any_pct": 31.4,
+    "chosen_more_pct": 49.3,
+    "rejected_more_pct": 6.9
+   },
+   "table_rows": {
+    "chosen_mean": 0.557,
+    "rejected_mean": 0.078,
+    "chosen_any_pct": 6.8,
+    "rejected_any_pct": 1.1,
+    "chosen_more_pct": 6.5,
+    "rejected_more_pct": 0.4
+   },
+   "urls": {
+    "chosen_mean": 0.192,
+    "rejected_mean": 0.039,
+    "chosen_any_pct": 5.8,
+    "rejected_any_pct": 1.7,
+    "chosen_more_pct": 5.3,
+    "rejected_more_pct": 0.6
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.615,
+    "rejected_mean": 0.181,
+    "chosen_any_pct": 22.2,
+    "rejected_any_pct": 9.1,
+    "chosen_more_pct": 17.6,
+    "rejected_more_pct": 3.0
+   },
+   "chosen_tokens_median": 1012.0,
+   "rejected_tokens_median": 397.0,
+   "pair_token_ratio_median": 2.112
+  },
+  "evol_codealpaca_heval_decontaminated": {
+   "n": 5171,
+   "chosen_chars_median": 3058,
+   "rejected_chars_median": 1635,
+   "pair_ratio_median": 1.891,
+   "pair_ratio_q25": 1.471,
+   "pair_ratio_q75": 2.534,
+   "chosen_longer_pct": 95.9,
+   "chosen_minus_rejected_chars_median": 1374,
+   "full_pair_ratio_median": 1.602,
+   "chosen_longer_full_pct": 80.6,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 8536,
+   "think_chars_median_rejected": 5294,
+   "bullets": {
+    "chosen_mean": 15.139,
+    "rejected_mean": 8.131,
+    "chosen_any_pct": 97.5,
+    "rejected_any_pct": 88.4,
+    "chosen_more_pct": 80.1,
+    "rejected_more_pct": 14.4
+   },
+   "bold": {
+    "chosen_mean": 16.718,
+    "rejected_mean": 8.931,
+    "chosen_any_pct": 97.5,
+    "rejected_any_pct": 86.8,
+    "chosen_more_pct": 80.0,
+    "rejected_more_pct": 15.1
+   },
+   "headers": {
+    "chosen_mean": 7.216,
+    "rejected_mean": 4.131,
+    "chosen_any_pct": 96.2,
+    "rejected_any_pct": 84.6,
+    "chosen_more_pct": 80.1,
+    "rejected_more_pct": 11.1
+   },
+   "table_rows": {
+    "chosen_mean": 1.015,
+    "rejected_mean": 0.113,
+    "chosen_any_pct": 13.5,
+    "rejected_any_pct": 1.4,
+    "chosen_more_pct": 13.2,
+    "rejected_more_pct": 0.9
+   },
+   "urls": {
+    "chosen_mean": 0.295,
+    "rejected_mean": 0.113,
+    "chosen_any_pct": 11.2,
+    "rejected_any_pct": 6.6,
+    "chosen_more_pct": 7.7,
+    "rejected_more_pct": 1.5
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 3.018,
+    "rejected_mean": 0.672,
+    "chosen_any_pct": 59.1,
+    "rejected_any_pct": 18.6,
+    "chosen_more_pct": 55.4,
+    "rejected_more_pct": 3.8
+   },
+   "chosen_tokens_median": 770,
+   "rejected_tokens_median": 401,
+   "pair_token_ratio_median": 1.927
+  },
+  "tulu_v3.9_wildjailbreak_decontaminated_50k": {
+   "n": 3885,
+   "chosen_chars_median": 3275,
+   "rejected_chars_median": 1503,
+   "pair_ratio_median": 2.15,
+   "pair_ratio_q25": 1.438,
+   "pair_ratio_q75": 2.932,
+   "chosen_longer_pct": 84.0,
+   "chosen_minus_rejected_chars_median": 1700,
+   "full_pair_ratio_median": 1.962,
+   "chosen_longer_full_pct": 84.4,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 3019,
+   "think_chars_median_rejected": 1746,
+   "bullets": {
+    "chosen_mean": 15.863,
+    "rejected_mean": 7.271,
+    "chosen_any_pct": 76.8,
+    "rejected_any_pct": 65.7,
+    "chosen_more_pct": 68.9,
+    "rejected_more_pct": 13.2
+   },
+   "bold": {
+    "chosen_mean": 20.373,
+    "rejected_mean": 8.349,
+    "chosen_any_pct": 84.9,
+    "rejected_any_pct": 80.7,
+    "chosen_more_pct": 73.9,
+    "rejected_more_pct": 17.8
+   },
+   "headers": {
+    "chosen_mean": 4.471,
+    "rejected_mean": 1.221,
+    "chosen_any_pct": 59.5,
+    "rejected_any_pct": 22.3,
+    "chosen_more_pct": 55.6,
+    "rejected_more_pct": 7.7
+   },
+   "table_rows": {
+    "chosen_mean": 0.062,
+    "rejected_mean": 0.003,
+    "chosen_any_pct": 0.7,
+    "rejected_any_pct": 0.1,
+    "chosen_more_pct": 0.7,
+    "rejected_more_pct": 0.1
+   },
+   "urls": {
+    "chosen_mean": 0.639,
+    "rejected_mean": 0.11,
+    "chosen_any_pct": 12.1,
+    "rejected_any_pct": 3.0,
+    "chosen_more_pct": 11.3,
+    "rejected_more_pct": 0.8
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.355,
+    "rejected_mean": 0.048,
+    "chosen_any_pct": 14.1,
+    "rejected_any_pct": 2.0,
+    "chosen_more_pct": 13.3,
+    "rejected_more_pct": 1.2
+   },
+   "chosen_tokens_median": 691,
+   "rejected_tokens_median": 304,
+   "pair_token_ratio_median": 2.227
+  },
+  "tulu_v3.9_synthetic_finalresp_wildguardmixtrain_decontaminated_50k": {
+   "n": 3884,
+   "chosen_chars_median": 3131.0,
+   "rejected_chars_median": 1632.0,
+   "pair_ratio_median": 1.842,
+   "pair_ratio_q25": 1.287,
+   "pair_ratio_q75": 2.635,
+   "chosen_longer_pct": 83.1,
+   "chosen_minus_rejected_chars_median": 1369.0,
+   "full_pair_ratio_median": 1.724,
+   "chosen_longer_full_pct": 84.0,
+   "chosen_has_think_pct": 100.0,
+   "rejected_has_think_pct": 100.0,
+   "think_chars_median_chosen": 2840.0,
+   "think_chars_median_rejected": 1760.0,
+   "bullets": {
+    "chosen_mean": 11.005,
+    "rejected_mean": 6.982,
+    "chosen_any_pct": 63.4,
+    "rejected_any_pct": 51.2,
+    "chosen_more_pct": 53.5,
+    "rejected_more_pct": 15.4
+   },
+   "bold": {
+    "chosen_mean": 16.15,
+    "rejected_mean": 9.186,
+    "chosen_any_pct": 81.5,
+    "rejected_any_pct": 77.7,
+    "chosen_more_pct": 65.3,
+    "rejected_more_pct": 22.2
+   },
+   "headers": {
+    "chosen_mean": 2.907,
+    "rejected_mean": 1.069,
+    "chosen_any_pct": 44.2,
+    "rejected_any_pct": 19.3,
+    "chosen_more_pct": 40.0,
+    "rejected_more_pct": 8.5
+   },
+   "table_rows": {
+    "chosen_mean": 0.094,
+    "rejected_mean": 0.02,
+    "chosen_any_pct": 1.0,
+    "rejected_any_pct": 0.3,
+    "chosen_more_pct": 1.0,
+    "rejected_more_pct": 0.2
+   },
+   "urls": {
+    "chosen_mean": 0.224,
+    "rejected_mean": 0.052,
+    "chosen_any_pct": 6.5,
+    "rejected_any_pct": 2.1,
+    "chosen_more_pct": 5.9,
+    "rejected_more_pct": 1.1
+   },
+   "olmo_ai2": {
+    "chosen_mean": 0.0,
+    "rejected_mean": 0.0,
+    "chosen_any_pct": 0.0,
+    "rejected_any_pct": 0.0,
+    "chosen_more_pct": 0.0,
+    "rejected_more_pct": 0.0
+   },
+   "emoji": {
+    "chosen_mean": 0.428,
+    "rejected_mean": 0.115,
+    "chosen_any_pct": 19.8,
+    "rejected_any_pct": 5.9,
+    "chosen_more_pct": 16.7,
+    "rejected_more_pct": 1.6
+   },
+   "chosen_tokens_median": 701.0,
+   "rejected_tokens_median": 344.0,
+   "pair_token_ratio_median": 1.907
+  }
+ },
+ "model_pairs_top": [
+  {
+   "chosen_model": "qwen3-reasoning-32b",
+   "rejected_model": "qwen3-reasoning-0.6b",
+   "n": 150000,
+   "pair_ratio_median": 1.766,
+   "chosen_longer_pct": 84.4
+  }
+ ]
+}

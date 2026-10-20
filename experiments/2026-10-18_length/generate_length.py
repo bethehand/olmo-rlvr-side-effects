@@ -22,6 +22,7 @@ def main():
     ap.add_argument("--max_num_seqs", type=int, default=None, help="64 for 32B on 4x24 GB: the default 256 runs out of memory at start-up")
     ap.add_argument("--template_from", default=None, help="use this model's chat template (and so its default system prompt), for the system-prompt control")
     ap.add_argument("--dtype", default="auto", help="bfloat16 for checkpoints stored in fp32 (3.1 32B Instruct SFT/DPO), which don't fit 4x24 GB otherwise")
+    ap.add_argument("--system_file", default=None, help="file whose text replaces the template's default system block (control for the default system prompt; same block shape)")
     args = ap.parse_args()
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
@@ -30,6 +31,16 @@ def main():
     if args.template_from:
         tok.chat_template = AutoTokenizer.from_pretrained(args.template_from).chat_template
     texts = [tok.apply_chat_template([{"role": "user", "content": r["instruction"]}], tokenize=False, add_generation_prompt=True) for r in rows]
+    if args.system_file:
+        # control for the template's default system prompt: render with the default, then swap the text of the system block
+        # (passing a system message instead would change the block's shape: the 3.1 Think template appends the no-functions
+        # sentence to an explicit system message, the 3.1 Instruct template drops it)
+        sys_msg = open(args.system_file).read().strip()
+        def swap(t):
+            a = t.index("<|im_start|>system\n") + len("<|im_start|>system\n"); b = t.index("<|im_end|>", a)
+            return t[:a] + sys_msg + t[b:]
+        texts = [swap(t) for t in texts]
+        print("system block replaced from file; first rendered prompt starts:", repr(texts[0][:300]), flush=True)
     done = set()
     if os.path.exists(args.out):
         done = {json.loads(l)["index"] for l in open(args.out) if l.strip()}
@@ -61,7 +72,7 @@ def main():
                                     "model": args.model, "revision": args.revision, "response": text,
                                     "finish_reason": c.finish_reason, "n_tokens": len(c.token_ids), "has_think_end": "</think>" in text,
                                     "answer_chars": len(answer), "answer_tokens": len(tok(answer, add_special_tokens=False)["input_ids"]),
-                                    "max_new_tokens": args.max_new_tokens, "dtype": args.dtype, "template_from": args.template_from, "seed": args.seed}) + "\n")
+                                    "max_new_tokens": args.max_new_tokens, "dtype": args.dtype, "template_from": args.template_from, "seed": args.seed, "system_file": args.system_file}) + "\n")
                 f.flush(); k += 1
                 if k % 25 == 0 or k == len(todo):
                     print(f"{k}/{len(todo)} done in {time.time() - t0:.0f}s", flush=True)

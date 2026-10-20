@@ -63,7 +63,7 @@ Link counts are noisy: the two 7B DPO runs (same model and settings) give 112 an
 
 | Run | unrelated-self (with an Ai2 link) | unrelated-cutoff | related | false-positive |
 |---|---|---|---|---|
-| 3.1 32B Think final, release prompt | 33 (11) | 9 | 42 | 1 |
+| 3.1 32B Think final, release prompt | 35 (11) | 9 | 40 | 1 |
 | 3.1 32B Think final, Olmo 3's prompt | 0 | 0 | 0 | 0 |
 | 3.1 32B Instruct final, release prompt | 31 (4) | 0 | 33 | 1 |
 | 3.1 32B Instruct final, DPO's prompt | 0 | 0 | 0 | 0 |
