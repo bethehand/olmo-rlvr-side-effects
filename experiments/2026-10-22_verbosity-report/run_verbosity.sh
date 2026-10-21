@@ -2,7 +2,7 @@
 # GS01 driver: verbosity reports for the 14 AlpacaEval runs (2026-10-18_length outputs), one report per model family,
 # reference = that family's SFT run1; plus one table over every 805-prompt file. CPU only.
 set -u
-W=/mnt/nvme0/looped/oi_work; O=$W/experiments/2026-10-18_length/outputs; E=$W/experiments/2026-10-23_verbosity-report
+W=/mnt/nvme0/looped/oi_work; O=$W/experiments/2026-10-18_length/outputs; E=$W/experiments/2026-10-22_verbosity-report
 mkdir -p $E/results; source $W/env.sh >/dev/null; cd $W/safety-eval && source .venv-se/bin/activate
 export HF_HUB_OFFLINE=1 PYTHONDONTWRITEBYTECODE=1 TOKENIZERS_PARALLELISM=false
 TOK=allenai/Olmo-3-7B-Think

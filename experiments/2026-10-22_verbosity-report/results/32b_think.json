@@ -17,8 +17,8 @@
   "long_answer_tokens": 500,
   "long_answer_chars": 2000,
   "per_dataset": true,
-  "out_md": "/mnt/nvme0/looped/oi_work/experiments/2026-10-23_verbosity-report/results/32b_think.md",
-  "out_json": "/mnt/nvme0/looped/oi_work/experiments/2026-10-23_verbosity-report/results/32b_think.json"
+  "out_md": "/mnt/nvme0/looped/oi_work/experiments/2026-10-22_verbosity-report/results/32b_think.md",
+  "out_json": "/mnt/nvme0/looped/oi_work/experiments/2026-10-22_verbosity-report/results/32b_think.json"
  },
  "results": {
   "Olmo-3-32B-Think-SFT@main_run1": {
