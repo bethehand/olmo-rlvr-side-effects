@@ -1,6 +1,6 @@
 # safety-eval's vLLM seed: does `--seed` do what the PR says? (2026-10-21)
 
-One check behind the `--seed` PR to [allenai/safety-eval](https://github.com/allenai/safety-eval) (link added once the PR is open). Claim: without a seed, vLLM's V1 engine uses 0 every time, so a rerun over the same prompts is a byte-identical copy; a seed per run gives independent samples; the same seed reproduces a run.
+One check behind the `--seed` PR to [allenai/safety-eval](https://github.com/allenai/safety-eval) ([PR #15](https://github.com/allenai/safety-eval/pull/15), opened 2026-10-21). Claim: without a seed, vLLM's V1 engine uses 0 every time, so a rerun over the same prompts is a byte-identical copy; a seed per run gives independent samples; the same seed reproduces a run.
 
 **Setup.** One RTX 4090, vLLM 0.11.0, safety-eval `main` (060cc90) plus the PR patch in a separate worktree. `allenai/Olmo-3-7B-Think-SFT` with its own chat template, 8 benign prompts (listed in `seed_check.py`), temperature 0.7, top_p 0.95, 256 new tokens, one sample per prompt. Each run is a fresh engine in its own process through the patched `create_and_inference_with_vllm`; the only addition is memory settings for a 24 GB card (`gpu_memory_utilization` 0.85, `max_model_len` 4096, `max_num_seqs` 16). Six runs: no seed ×2, `--seed 0`, `--seed 1` ×2, `--seed 2`; 40–75 s each.
 
