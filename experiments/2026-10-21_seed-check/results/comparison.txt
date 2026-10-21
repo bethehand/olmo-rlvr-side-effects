@@ -1,0 +1,16 @@
+8 prompts; identical outputs per pair:
+    none_a vs none_b   seeds None / None: 8/8 identical
+    none_a vs s0       seeds None / 0   : 8/8 identical
+    none_a vs s1_a     seeds None / 1   : 0/8 identical
+    none_a vs s1_b     seeds None / 1   : 0/8 identical
+    none_a vs s2       seeds None / 2   : 0/8 identical
+    none_b vs s0       seeds None / 0   : 8/8 identical
+    none_b vs s1_a     seeds None / 1   : 0/8 identical
+    none_b vs s1_b     seeds None / 1   : 0/8 identical
+    none_b vs s2       seeds None / 2   : 0/8 identical
+        s0 vs s1_a     seeds    0 / 1   : 0/8 identical
+        s0 vs s1_b     seeds    0 / 1   : 0/8 identical
+        s0 vs s2       seeds    0 / 2   : 0/8 identical
+      s1_a vs s1_b     seeds    1 / 1   : 8/8 identical
+      s1_a vs s2       seeds    1 / 2   : 0/8 identical
+      s1_b vs s2       seeds    1 / 2   : 0/8 identical
