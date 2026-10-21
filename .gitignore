@@ -12,3 +12,4 @@ experiments/*/logs/
 # benchmark prompts are rebuilt by each experiment's build script (some sources are gated)
 experiments/*/prompts.jsonl
 experiments/*/smoke_prompts.jsonl
+experiments/*/tokenizer.json

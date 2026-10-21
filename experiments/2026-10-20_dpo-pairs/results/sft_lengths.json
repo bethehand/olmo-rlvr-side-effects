@@ -1,0 +1,185 @@
+{
+ "allenai/Dolci-Think-SFT-7B": {
+  "rows_total": 2268178,
+  "sampled": 4000,
+  "pages": 40,
+  "answer_chars_median": 1516,
+  "answer_tokens_median": 452,
+  "answer_tokens_q25": 213,
+  "answer_tokens_q75": 657,
+  "answer_tokens_mean": 514,
+  "with_thinking": 4000,
+  "thinking_tokens_median": 2683.5,
+  "top_sources": {
+   "saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2": {
+    "n": 1000,
+    "answer_tokens_median": 523
+   },
+   "saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-de": {
+    "n": 900,
+    "answer_tokens_median": 180
+   },
+   "allenai/persona-precise-if-r1-final-content-filtered-chinese": {
+    "n": 500,
+    "answer_tokens_median": 263
+   },
+   "allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chines": {
+    "n": 400,
+    "answer_tokens_median": 768
+   },
+   "saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2": {
+    "n": 300,
+    "answer_tokens_median": 212
+   },
+   "allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-": {
+    "n": 300,
+    "answer_tokens_median": 586
+   },
+   "allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-fil": {
+    "n": 200,
+    "answer_tokens_median": 708
+   },
+   "allenai/wildchat-r1-p2-repetition-filter": {
+    "n": 200,
+    "answer_tokens_median": 678
+   },
+   "allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chine": {
+    "n": 100,
+    "answer_tokens_median": 303
+   },
+   "allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered": {
+    "n": 100,
+    "answer_tokens_median": 262
+   }
+  },
+  "note": "values transcribed from the first run's printout (run 1, 2026-10-22; seed 2002, 40 pages); source names truncated to 60 chars there"
+ },
+ "allenai/Dolci-Think-SFT-32B": {
+  "rows_total": 2253684,
+  "sampled": 4000,
+  "pages": 40,
+  "answer_chars_median": 1622,
+  "answer_tokens_median": 489,
+  "answer_tokens_q25": 272,
+  "answer_tokens_q75": 663,
+  "answer_tokens_mean": 537,
+  "with_thinking": 4000,
+  "thinking_tokens_median": 6270.0,
+  "top_sources": {
+   "Dolci Think OpenThoughts3 Math": {
+    "n": 1341,
+    "answer_tokens_median": 541
+   },
+   "Dolci Think Python Algorithms": {
+    "n": 817,
+    "answer_tokens_median": 212
+   },
+   "Persona Precise IF": {
+    "n": 364,
+    "answer_tokens_median": 308
+   },
+   "Nemotron Code": {
+    "n": 220,
+    "answer_tokens_median": 851
+   },
+   "Dolci Think Precise IF": {
+    "n": 211,
+    "answer_tokens_median": 204
+   },
+   "Wildchat": {
+    "n": 200,
+    "answer_tokens_median": 715
+   },
+   "Aya": {
+    "n": 192,
+    "answer_tokens_median": 632
+   },
+   "Dolci Think OpenThoughts3 STEM": {
+    "n": 176,
+    "answer_tokens_median": 664
+   },
+   "SYNTHETIC-2-SFT-Verified": {
+    "n": 166,
+    "answer_tokens_median": 587
+   },
+   "Dolci Think OpenThoughts3 Code": {
+    "n": 150,
+    "answer_tokens_median": 516
+   },
+   "WildGuardMix": {
+    "n": 73,
+    "answer_tokens_median": 330
+   },
+   "WildJailbreak": {
+    "n": 62,
+    "answer_tokens_median": 336
+   }
+  },
+  "note": "values transcribed from the first run's printout (run 1, 2026-10-22; seed 2002, 40 pages); source names truncated to 60 chars there"
+ },
+ "allenai/Dolci-Instruct-SFT": {
+  "rows_total": 2152112,
+  "sampled": 2000,
+  "pages": 20,
+  "answer_chars_median": 578.0,
+  "answer_chars_q25": 200,
+  "answer_chars_q75": 1536,
+  "answer_tokens_median": 177.5,
+  "answer_tokens_q25": 56,
+  "answer_tokens_q75": 443,
+  "answer_tokens_mean": 322.7195,
+  "with_thinking": 1,
+  "thinking_chars_median": 911,
+  "thinking_tokens_median": 273,
+  "top_sources": {
+   "Verifiable Reasoning": {
+    "n": 400,
+    "answer_tokens_median": 173.5
+   },
+   "Dolci Instruct Tool Use": {
+    "n": 300,
+    "answer_tokens_median": 85.5
+   },
+   "Dolci Instruct Python Algorithms": {
+    "n": 201,
+    "answer_tokens_median": 165
+   },
+   "Logic Puzzles": {
+    "n": 166,
+    "answer_tokens_median": 7.0
+   },
+   "Tulu 3 Persona MATH": {
+    "n": 148,
+    "answer_tokens_median": 903.0
+   },
+   "Dolci Instruct Precise IF": {
+    "n": 124,
+    "answer_tokens_median": 247.0
+   },
+   "Evol CodeAlpaca": {
+    "n": 111,
+    "answer_tokens_median": 333
+   },
+   "Dolci Instruct OpenThoughts3+ Science": {
+    "n": 109,
+    "answer_tokens_median": 694
+   },
+   "Aya": {
+    "n": 86,
+    "answer_tokens_median": 58.5
+   },
+   "FLAN": {
+    "n": 86,
+    "answer_tokens_median": 21.0
+   },
+   "OpenMathInstruct 2": {
+    "n": 55,
+    "answer_tokens_median": 140
+   },
+   "WildGuardMix": {
+    "n": 49,
+    "answer_tokens_median": 84
+   }
+  }
+ }
+}
