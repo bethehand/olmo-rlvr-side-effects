@@ -45,5 +45,6 @@ The Instruct set has the weakest length preference and the Instruct model made t
 
 ## Files
 - `analyze_dpo.py`: the measurement (run on GS01 against the Hugging Face cache; ~10 min on CPU for the three sets). `tabulate_dpo.py`: the tables in `results/tables.md`.
+- `check_system_olmo.py`, `list_olmo_mentions.py` (added 2026-10-21, run on the full sets): none of the 609,922 pairs has a system turn (Think sets: exactly a user and an assistant message per side; Instruct: 2–16 messages, no system role). Olmo/Ai2 is mentioned in 18 of the 1,219,844 final answers (31 assistant messages counting thinking blocks and earlier turns), never as self-identification: the ARC "AI2 Reasoning Challenge", the Allen Institute in lists of labs, a surname, a variable name, and two Instruct chats that ask about OLMo and get wrong answers. Output: `results/system_turns_and_mentions.txt`, `results/olmo_mentions_in_context.txt`.
 - `results/summary_*.json`: per set, per preference type, per source and per model pair. `results/pairs_*.parquet`: one row per pair (lengths, tokens, formatting counts, models, source).
 - `verify_dpo.py`, `verify_fmt.py`: independent re-checks on random samples.
