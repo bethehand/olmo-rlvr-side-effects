@@ -1,0 +1,637 @@
+{
+ "args": {
+  "files": [
+   "Olmo-3-32B-Think-SFT@main_run1.jsonl",
+   "Olmo-3-32B-Think-SFT@main_rel1.jsonl",
+   "Olmo-3-32B-Think-SFT@main_rob1.jsonl",
+   "Olmo-3-32B-Think-DPO@main_run1.jsonl",
+   "Olmo-3-32B-Think-DPO@main_rel1.jsonl",
+   "Olmo-3-32B-Think@main_run1.jsonl",
+   "Olmo-3-32B-Think@main_rel1.jsonl",
+   "Olmo-3.1-32B-Think@main_run1.jsonl",
+   "Olmo-3.1-32B-Think@main_ctrl1.jsonl"
+  ],
+  "reference": "Olmo-3-32B-Think-SFT@main_run1.jsonl",
+  "tokenizer": "allenai/Olmo-3-7B-Think",
+  "short_prompt_chars": 120,
+  "long_answer_tokens": 500,
+  "long_answer_chars": 2000,
+  "per_dataset": true,
+  "out_md": "/mnt/nvme0/looped/oi_work/experiments/2026-10-23_verbosity-report/results/32b_think.md",
+  "out_json": "/mnt/nvme0/looped/oi_work/experiments/2026-10-23_verbosity-report/results/32b_think.json"
+ },
+ "results": {
+  "Olmo-3-32B-Think-SFT@main_run1": {
+   "summary": {
+    "n": 805,
+    "finished": 790,
+    "runaway": 15,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 598.0,
+    "length_q25": 301,
+    "length_q75": 824,
+    "length_mean": 594.7037974683544,
+    "answer_chars_median": 2498.5,
+    "short_prompts": 473,
+    "over_answer": 301,
+    "long_cut": 500,
+    "lines_mean": 32.42911392405063,
+    "thinking_median": 864.0,
+    "list items mean": 16.58607594936709,
+    "list items any%": 84.55696202531645,
+    "bold spans mean": 19.11772151898734,
+    "bold spans any%": 93.67088607594937,
+    "headings mean": 4.177215189873418,
+    "headings any%": 64.0506329113924,
+    "table rows mean": 0.369620253164557,
+    "table rows any%": 3.1645569620253164,
+    "URLs mean": 0.10759493670886076,
+    "URLs any%": 3.1645569620253164,
+    "emoji mean": 0.5037974683544304,
+    "emoji any%": 25.696202531645568
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 687
+    },
+    "koala": {
+     "n": 153,
+     "median": 702
+    },
+    "oasst": {
+     "n": 182,
+     "median": 605.5
+    },
+    "selfinstruct": {
+     "n": 246,
+     "median": 349.5
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 779.0
+    }
+   },
+   "vs_reference": {
+    "common": 790,
+    "ratio_median": 1.0,
+    "ratio_q25": 1.0,
+    "ratio_q75": 1.0,
+    "longer_pct": 0.0,
+    "delta_median": 0.0,
+    "lines delta": 0,
+    "list items delta": 0,
+    "bold spans delta": 0,
+    "headings delta": 0,
+    "table rows delta": 0,
+    "URLs delta": 0,
+    "emoji delta": 0
+   }
+  },
+  "Olmo-3-32B-Think-SFT@main_rel1": {
+   "summary": {
+    "n": 805,
+    "finished": 793,
+    "runaway": 12,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 580,
+    "length_q25": 312,
+    "length_q75": 826,
+    "length_mean": 592.1134930643127,
+    "answer_chars_median": 2421,
+    "short_prompts": 477,
+    "over_answer": 293,
+    "long_cut": 500,
+    "lines_mean": 32.16519546027743,
+    "thinking_median": 679,
+    "list items mean": 16.220680958385877,
+    "list items any%": 85.37200504413619,
+    "bold spans mean": 18.56998738965952,
+    "bold spans any%": 93.82093316519546,
+    "headings mean": 3.8751576292559897,
+    "headings any%": 65.82597730138714,
+    "table rows mean": 0.37578814627994955,
+    "table rows any%": 4.16141235813367,
+    "URLs mean": 0.27742749054224464,
+    "URLs any%": 9.079445145018916,
+    "emoji mean": 0.7276166456494325,
+    "emoji any%": 41.36191677175284
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 674
+    },
+    "koala": {
+     "n": 154,
+     "median": 672.5
+    },
+    "oasst": {
+     "n": 185,
+     "median": 616
+    },
+    "selfinstruct": {
+     "n": 245,
+     "median": 355
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 785.5
+    }
+   },
+   "vs_reference": {
+    "common": 782,
+    "ratio_median": 1.0,
+    "ratio_q25": 0.8265503875968992,
+    "ratio_q75": 1.1669085631349783,
+    "longer_pct": 49.61636828644501,
+    "delta_median": 0.0,
+    "lines delta": -0.6445012787723785,
+    "list items delta": -0.49744245524296676,
+    "bold spans delta": -0.7250639386189258,
+    "headings delta": -0.3375959079283887,
+    "table rows delta": 0.0038363171355498722,
+    "URLs delta": 0.170076726342711,
+    "emoji delta": 0.20332480818414322
+   }
+  },
+  "Olmo-3-32B-Think-SFT@main_rob1": {
+   "summary": {
+    "n": 805,
+    "finished": 798,
+    "runaway": 7,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 559.5,
+    "length_q25": 285,
+    "length_q75": 797,
+    "length_mean": 558.375939849624,
+    "answer_chars_median": 2407.5,
+    "short_prompts": 476,
+    "over_answer": 279,
+    "long_cut": 500,
+    "lines_mean": 30.62280701754386,
+    "thinking_median": 808.0,
+    "list items mean": 15.4937343358396,
+    "list items any%": 81.57894736842105,
+    "bold spans mean": 17.86842105263158,
+    "bold spans any%": 92.4812030075188,
+    "headings mean": 3.7593984962406015,
+    "headings any%": 58.02005012531328,
+    "table rows mean": 0.29448621553884713,
+    "table rows any%": 3.1328320802005014,
+    "URLs mean": 0.09523809523809523,
+    "URLs any%": 3.2581453634085213,
+    "emoji mean": 0.5513784461152882,
+    "emoji any%": 31.453634085213032
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 655
+    },
+    "koala": {
+     "n": 155,
+     "median": 613
+    },
+    "oasst": {
+     "n": 186,
+     "median": 598.0
+    },
+    "selfinstruct": {
+     "n": 248,
+     "median": 319.0
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 758.0
+    }
+   },
+   "vs_reference": {
+    "common": 786,
+    "ratio_median": 0.9374600893997446,
+    "ratio_q25": 0.78125,
+    "ratio_q75": 1.112044817927171,
+    "longer_pct": 40.458015267175576,
+    "delta_median": -22.5,
+    "lines delta": -1.8587786259541985,
+    "list items delta": -1.1017811704834606,
+    "bold spans delta": -1.3307888040712468,
+    "headings delta": -0.4287531806615776,
+    "table rows delta": -0.07633587786259542,
+    "URLs delta": -0.013994910941475827,
+    "emoji delta": 0.10178117048346055
+   }
+  },
+  "Olmo-3-32B-Think-DPO@main_run1": {
+   "summary": {
+    "n": 805,
+    "finished": 801,
+    "runaway": 4,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 804,
+    "length_q25": 470,
+    "length_q75": 1037,
+    "length_mean": 773.3620474406991,
+    "answer_chars_median": 3430,
+    "short_prompts": 478,
+    "over_answer": 370,
+    "long_cut": 500,
+    "lines_mean": 41.28838951310861,
+    "thinking_median": 1141,
+    "list items mean": 21.01123595505618,
+    "list items any%": 88.38951310861424,
+    "bold spans mean": 25.685393258426966,
+    "bold spans any%": 96.75405742821474,
+    "headings mean": 5.403245942571785,
+    "headings any%": 74.28214731585518,
+    "table rows mean": 0.5106117353308365,
+    "table rows any%": 4.9937578027465666,
+    "URLs mean": 0.20724094881398253,
+    "URLs any%": 4.9937578027465666,
+    "emoji mean": 0.7890137328339576,
+    "emoji any%": 34.332084893882644
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 923
+    },
+    "koala": {
+     "n": 155,
+     "median": 853
+    },
+    "oasst": {
+     "n": 185,
+     "median": 830
+    },
+    "selfinstruct": {
+     "n": 252,
+     "median": 533.5
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 960.0
+    }
+   },
+   "vs_reference": {
+    "common": 790,
+    "ratio_median": 1.3165525114155252,
+    "ratio_q25": 1.1391304347826088,
+    "ratio_q75": 1.5991678224687933,
+    "longer_pct": 89.49367088607595,
+    "delta_median": 169.5,
+    "lines delta": 8.729113924050633,
+    "list items delta": 4.318987341772152,
+    "bold spans delta": 6.50379746835443,
+    "headings delta": 1.2164556962025317,
+    "table rows delta": 0.14430379746835442,
+    "URLs delta": 0.1,
+    "emoji delta": 0.25316455696202533
+   }
+  },
+  "Olmo-3-32B-Think-DPO@main_rel1": {
+   "summary": {
+    "n": 805,
+    "finished": 799,
+    "runaway": 6,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 818,
+    "length_q25": 486,
+    "length_q75": 1091,
+    "length_mean": 804.8973717146433,
+    "answer_chars_median": 3376,
+    "short_prompts": 477,
+    "over_answer": 377,
+    "long_cut": 500,
+    "lines_mean": 42.584480600750936,
+    "thinking_median": 1061,
+    "list items mean": 21.484355444305383,
+    "list items any%": 90.4881101376721,
+    "bold spans mean": 27.04881101376721,
+    "bold spans any%": 97.74718397997496,
+    "headings mean": 5.391739674593242,
+    "headings any%": 79.47434292866083,
+    "table rows mean": 0.690863579474343,
+    "table rows any%": 7.008760951188986,
+    "URLs mean": 0.39424280350438046,
+    "URLs any%": 11.013767209011265,
+    "emoji mean": 1.1063829787234043,
+    "emoji any%": 51.43929912390488
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 915
+    },
+    "koala": {
+     "n": 156,
+     "median": 933.5
+    },
+    "oasst": {
+     "n": 184,
+     "median": 846.0
+    },
+    "selfinstruct": {
+     "n": 250,
+     "median": 532.0
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 994.0
+    }
+   },
+   "vs_reference": {
+    "common": 787,
+    "ratio_median": 1.3860182370820668,
+    "ratio_q25": 1.1846846846846846,
+    "ratio_q75": 1.6734693877551021,
+    "longer_pct": 89.70775095298602,
+    "delta_median": 194,
+    "lines delta": 10.0571791613723,
+    "list items delta": 4.74587039390089,
+    "bold spans delta": 7.853875476493012,
+    "headings delta": 1.2020330368487928,
+    "table rows delta": 0.3202033036848793,
+    "URLs delta": 0.27064803049555275,
+    "emoji delta": 0.6035578144853876
+   }
+  },
+  "Olmo-3-32B-Think@main_run1": {
+   "summary": {
+    "n": 805,
+    "finished": 803,
+    "runaway": 2,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 710,
+    "length_q25": 344,
+    "length_q75": 957,
+    "length_mean": 679.0884184308842,
+    "answer_chars_median": 2988,
+    "short_prompts": 479,
+    "over_answer": 334,
+    "long_cut": 500,
+    "lines_mean": 36.19925280199253,
+    "thinking_median": 1444,
+    "list items mean": 18.642590286425904,
+    "list items any%": 84.55790784557908,
+    "bold spans mean": 22.68244084682441,
+    "bold spans any%": 92.40348692403487,
+    "headings mean": 4.425902864259029,
+    "headings any%": 67.74595267745953,
+    "table rows mean": 0.4533001245330012,
+    "table rows any%": 3.8605230386052303,
+    "URLs mean": 0.15940224159402241,
+    "URLs any%": 3.8605230386052303,
+    "emoji mean": 0.726027397260274,
+    "emoji any%": 29.016189290161893
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 820
+    },
+    "koala": {
+     "n": 156,
+     "median": 789.5
+    },
+    "oasst": {
+     "n": 188,
+     "median": 731.5
+    },
+    "selfinstruct": {
+     "n": 250,
+     "median": 384.0
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 887.0
+    }
+   },
+   "vs_reference": {
+    "common": 789,
+    "ratio_median": 1.151702786377709,
+    "ratio_q25": 0.976911976911977,
+    "ratio_q75": 1.3573298429319371,
+    "longer_pct": 72.3700887198986,
+    "delta_median": 70,
+    "lines delta": 3.6070975918884662,
+    "list items delta": 1.897338403041825,
+    "bold spans delta": 3.55893536121673,
+    "headings delta": 0.2370088719898606,
+    "table rows delta": 0.08745247148288973,
+    "URLs delta": 0.051964512040557666,
+    "emoji delta": 0.19771863117870722
+   }
+  },
+  "Olmo-3-32B-Think@main_rel1": {
+   "summary": {
+    "n": 805,
+    "finished": 802,
+    "runaway": 3,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 701.5,
+    "length_q25": 345,
+    "length_q75": 1031,
+    "length_mean": 704,
+    "answer_chars_median": 2886.5,
+    "short_prompts": 479,
+    "over_answer": 321,
+    "long_cut": 500,
+    "lines_mean": 36.53117206982544,
+    "thinking_median": 1384.5,
+    "list items mean": 18.47007481296758,
+    "list items any%": 84.03990024937656,
+    "bold spans mean": 22.699501246882793,
+    "bold spans any%": 91.89526184538653,
+    "headings mean": 4.410224438902743,
+    "headings any%": 71.19700748129675,
+    "table rows mean": 0.4613466334164589,
+    "table rows any%": 5.236907730673317,
+    "URLs mean": 0.3167082294264339,
+    "URLs any%": 10.723192019950124,
+    "emoji mean": 0.8977556109725686,
+    "emoji any%": 43.765586034912715
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 851
+    },
+    "koala": {
+     "n": 156,
+     "median": 815.5
+    },
+    "oasst": {
+     "n": 186,
+     "median": 775.5
+    },
+    "selfinstruct": {
+     "n": 251,
+     "median": 393
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 958.5
+    }
+   },
+   "vs_reference": {
+    "common": 788,
+    "ratio_median": 1.2012702433034002,
+    "ratio_q25": 0.9827586206896551,
+    "ratio_q75": 1.4235668789808917,
+    "longer_pct": 72.84263959390863,
+    "delta_median": 102.0,
+    "lines delta": 4.0152284263959395,
+    "list items delta": 1.7868020304568528,
+    "bold spans delta": 3.552030456852792,
+    "headings delta": 0.23096446700507614,
+    "table rows delta": 0.09517766497461928,
+    "URLs delta": 0.19289340101522842,
+    "emoji delta": 0.3350253807106599
+   }
+  },
+  "Olmo-3.1-32B-Think@main_run1": {
+   "summary": {
+    "n": 805,
+    "finished": 805,
+    "runaway": 0,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 701,
+    "length_q25": 340,
+    "length_q75": 1049,
+    "length_mean": 716.1403726708074,
+    "answer_chars_median": 2874,
+    "short_prompts": 480,
+    "over_answer": 314,
+    "long_cut": 500,
+    "lines_mean": 34.58012422360248,
+    "thinking_median": 1720,
+    "list items mean": 17.772670807453416,
+    "list items any%": 85.09316770186335,
+    "bold spans mean": 21.43229813664596,
+    "bold spans any%": 90.55900621118012,
+    "headings mean": 4.273291925465839,
+    "headings any%": 74.28571428571429,
+    "table rows mean": 0.422360248447205,
+    "table rows any%": 5.46583850931677,
+    "URLs mean": 0.33664596273291925,
+    "URLs any%": 12.670807453416149,
+    "emoji mean": 0.8894409937888199,
+    "emoji any%": 47.95031055900621
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 826
+    },
+    "koala": {
+     "n": 156,
+     "median": 887.0
+    },
+    "oasst": {
+     "n": 188,
+     "median": 760.0
+    },
+    "selfinstruct": {
+     "n": 252,
+     "median": 382.0
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 997.5
+    }
+   },
+   "vs_reference": {
+    "common": 790,
+    "ratio_median": 1.2352551962218015,
+    "ratio_q25": 0.8985655737704918,
+    "ratio_q75": 1.5346420323325636,
+    "longer_pct": 68.60759493670886,
+    "delta_median": 114.0,
+    "lines delta": 2.008860759493671,
+    "list items delta": 1.1088607594936708,
+    "bold spans delta": 2.3,
+    "headings delta": 0.08354430379746836,
+    "table rows delta": 0.04810126582278481,
+    "URLs delta": 0.2189873417721519,
+    "emoji delta": 0.37088607594936707
+   }
+  },
+  "Olmo-3.1-32B-Think@main_ctrl1": {
+   "summary": {
+    "n": 805,
+    "finished": 804,
+    "runaway": 1,
+    "thinking_model": true,
+    "unit": "answer_tokens",
+    "length_median": 764.0,
+    "length_q25": 402,
+    "length_q75": 1038,
+    "length_mean": 745.044776119403,
+    "answer_chars_median": 3196.0,
+    "short_prompts": 480,
+    "over_answer": 349,
+    "long_cut": 500,
+    "lines_mean": 38.601990049751244,
+    "thinking_median": 1859.5,
+    "list items mean": 19.730099502487562,
+    "list items any%": 88.68159203980099,
+    "bold spans mean": 24.412935323383085,
+    "bold spans any%": 93.40796019900498,
+    "headings mean": 4.818407960199005,
+    "headings any%": 76.61691542288557,
+    "table rows mean": 0.47512437810945274,
+    "table rows any%": 4.72636815920398,
+    "URLs mean": 0.18407960199004975,
+    "URLs any%": 5.099502487562189,
+    "emoji mean": 0.6853233830845771,
+    "emoji any%": 38.80597014925373
+   },
+   "per_dataset": {
+    "helpful_base": {
+     "n": 129,
+     "median": 897
+    },
+    "koala": {
+     "n": 156,
+     "median": 858.0
+    },
+    "oasst": {
+     "n": 188,
+     "median": 779.0
+    },
+    "selfinstruct": {
+     "n": 251,
+     "median": 451
+    },
+    "vicuna": {
+     "n": 80,
+     "median": 1003.0
+    }
+   },
+   "vs_reference": {
+    "common": 790,
+    "ratio_median": 1.2789233729295635,
+    "ratio_q25": 1.0442764578833694,
+    "ratio_q75": 1.5398230088495575,
+    "longer_pct": 78.22784810126582,
+    "delta_median": 142.5,
+    "lines delta": 6.172151898734177,
+    "list items delta": 3.09746835443038,
+    "bold spans delta": 5.205063291139241,
+    "headings delta": 0.6632911392405063,
+    "table rows delta": 0.11012658227848102,
+    "URLs delta": 0.0759493670886076,
+    "emoji delta": 0.18354430379746836
+   }
+  }
+ }
+}
