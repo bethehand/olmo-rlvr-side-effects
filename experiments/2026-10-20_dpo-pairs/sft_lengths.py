@@ -2,12 +2,16 @@
 rejected answers? Samples rows from the three Dolci SFT sets through the Hugging Face datasets-server (random
 100-row pages), measures the last assistant message (answer after the last </think>, and the thinking block) in
 characters and Olmo 3 tokens, and writes results/sft_lengths.json and results/sft_lengths.md.
-Usage: python sft_lengths.py PAGES  (PAGES random pages of 100 rows per set; needs tokenizer.json next to it)"""
+Usage: python sft_lengths.py PAGES [OUT_JSON] [ONLY_SUBSTRING]  (PAGES random pages of 100 rows per set; needs tokenizer.json next to it)
+The sets are stored sorted by source, so each 100-row page comes from one source: the sample is PAGES clusters, and the
+per-row (source, tokens) list is saved so the overall figures can be re-weighted with exact source shares."""
 import json, os, random, statistics, sys, time, urllib.request, urllib.parse
 from tokenizers import Tokenizer
 
 SETS = {"allenai/Dolci-Think-SFT-7B": "dataset_source", "allenai/Dolci-Think-SFT-32B": "source", "allenai/Dolci-Instruct-SFT": "source_dataset"}
 PAGES = int(sys.argv[1]) if len(sys.argv) > 1 else 40
+OUT = sys.argv[2] if len(sys.argv) > 2 else "results/sft_lengths.json"
+ONLY = sys.argv[3] if len(sys.argv) > 3 else ""
 tok = Tokenizer.from_file("tokenizer.json")
 random.seed(2002)
 
@@ -34,15 +38,16 @@ def q(xs, p):
     xs = sorted(xs); return xs[min(len(xs) - 1, int(p * len(xs)))]
 
 
-OUT = "results/sft_lengths.json"
 out = json.load(open(OUT)) if os.path.exists(OUT) else {}
 for ds, src_col in SETS.items():
+    if ONLY and ONLY not in ds:
+        continue
     if ds in out:
         print(f"== {ds}: already sampled, skipping"); continue
     size = get(f"https://datasets-server.huggingface.co/size?dataset={urllib.parse.quote(ds)}")
     n_rows = size["size"]["configs"][0]["num_rows"]
     offsets = sorted(random.sample(range(0, n_rows - 100), PAGES))
-    ans_chars, ans_toks, think_chars, think_toks, by_src = [], [], [], [], {}
+    ans_chars, ans_toks, think_chars, think_toks, by_src, rows_out = [], [], [], [], {}, []
     for off in offsets:
         page = get(f"https://datasets-server.huggingface.co/rows?dataset={urllib.parse.quote(ds)}&config=default&split=train&offset={off}&length=100")
         for row in page["rows"]:
@@ -56,6 +61,7 @@ for ds, src_col in SETS.items():
             if thinking:
                 think_chars.append(len(thinking)); think_toks.append(len(tok.encode(thinking, add_special_tokens=False).ids))
             by_src.setdefault(str(r.get(src_col)), []).append(a_t)
+            rows_out.append((str(r.get(src_col)), a_t, len(answer)))
         print(f"   {ds}: page at offset {off} done ({len(ans_chars)} rows so far)", flush=True)
         time.sleep(0.3)
     res = dict(rows_total=n_rows, sampled=len(ans_chars), pages=PAGES,
@@ -63,7 +69,8 @@ for ds, src_col in SETS.items():
                answer_tokens_median=statistics.median(ans_toks), answer_tokens_q25=q(ans_toks, .25), answer_tokens_q75=q(ans_toks, .75), answer_tokens_mean=statistics.mean(ans_toks),
                with_thinking=len(think_chars), thinking_chars_median=statistics.median(think_chars) if think_chars else None,
                thinking_tokens_median=statistics.median(think_toks) if think_toks else None,
-               top_sources={s: dict(n=len(v), answer_tokens_median=statistics.median(v)) for s, v in sorted(by_src.items(), key=lambda kv: -len(kv[1]))[:12]})
+               top_sources={s: dict(n=len(v), answer_tokens_median=statistics.median(v)) for s, v in sorted(by_src.items(), key=lambda kv: -len(kv[1]))[:40]},
+               rows=rows_out, offsets=offsets)
     out[ds] = res
     json.dump(out, open(OUT, "w"), indent=1)  # save after each set, so a failed set does not lose the others
     print(f"== {ds}: {n_rows:,} rows, sampled {len(ans_chars)} | answer median {res['answer_chars_median']:.0f} chars / {res['answer_tokens_median']:.0f} tokens (IQR {res['answer_tokens_q25']}–{res['answer_tokens_q75']}), mean {res['answer_tokens_mean']:.0f} | thinking median {res['thinking_tokens_median']} tokens in {len(think_chars)} rows")
