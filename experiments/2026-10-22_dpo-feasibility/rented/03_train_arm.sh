@@ -16,7 +16,7 @@ TAG=arm_${ARM}_seed${SEED}; OUTD=$OUT/$TAG; mkdir -p "$OUTD"
 nvidia-smi --query-gpu=timestamp,index,memory.used --format=csv,noheader -l 30 > "$LOGS/${TAG}_gpu.csv" 2>/dev/null &
 GP=$!; t0=$(date +%s)
 accelerate launch --mixed_precision bf16 --num_processes "$NGPU" --use_deepspeed \
-  --deepspeed_config_file configs/ds_configs/stage3_no_offloading_accelerate.conf \
+  --deepspeed_config_file "${DS_CONF:-configs/ds_configs/stage3_no_offloading_accelerate.conf}" \
   open_instruct/dpo_tune_cache.py \
   --exp_name "$TAG" --do_not_randomize_output_dir --output_dir "$OUTD" \
   --model_name_or_path allenai/Olmo-3-7B-Think-SFT --tokenizer_name allenai/Olmo-3-7B-Think-SFT \
@@ -25,7 +25,7 @@ accelerate launch --mixed_precision bf16 --num_processes "$NGPU" --use_deepspeed
   --chat_template_name olmo_thinker --max_seq_length 16384 \
   --per_device_train_batch_size 1 --gradient_accumulation_steps "$ACC" \
   --learning_rate 8e-8 --lr_scheduler_type linear --warmup_ratio 0.0 --weight_decay 0.0 --num_epochs 1 \
-  --loss_type dpo_norm --beta 5 --activation_memory_budget "${ACT_BUDGET:-0.1}" --attn_implementation flash_2 \
+  --loss_type dpo_norm --beta 5 --activation_memory_budget 0.5 --attn_implementation flash_2 \
   --checkpointing_steps 100 --keep_last_n_checkpoints 1 \
   --logging_steps 10 --seed "$SEED" $EXTRA \
   --no_push_to_hub --no_try_launch_beaker_eval_jobs --no_try_auto_save_to_beaker \

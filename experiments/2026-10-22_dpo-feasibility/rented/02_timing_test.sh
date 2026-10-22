@@ -10,14 +10,15 @@ MODE=${1:-concat}; EXTRA=""; [ "$MODE" = sep ] && EXTRA="--no_concatenated_forwa
 PRICE=${PRICE_PER_HOUR:-15.96}
 [ "$NGPU" -gt 0 ] || { echo "no GPU visible"; exit 2; }
 ACC=$((32 / NGPU))        # effective batch 32 on any GPU count (see README for why not Ai2's 128)
-export ACT_BUDGET=${ACT_BUDGET:-0.1}   # activation checkpointing budget; 0.5 OOMed on 3 x 80 GB (78 GB peak, 6.1 GB logits alloc in backward)
+# --activation_memory_budget < 1 just turns on HF per-layer gradient checkpointing for this model (dpo_tune_cache.py:377); the value itself is unused
+# DS_CONF: DeepSpeed config; the pipeline switches to the optimizer-offload config (ds_stage3_offload_optimizer.conf) when the no-offload peak does not fit
 run_one() {               # $1 = number of pairs (64 | 256); prints "rc seconds peak_mib" as its last line
   local n=$1 tag=timing_${MODE}_$1 outd=$OUT/timing_${MODE}_$1
   rm -rf "$outd"
   nvidia-smi --query-gpu=timestamp,index,memory.used --format=csv,noheader -l 5 > "$LOGS/${tag}_gpu.csv" 2>/dev/null &
   local gp=$! t0=$(date +%s)
   accelerate launch --mixed_precision bf16 --num_processes "$NGPU" --use_deepspeed \
-    --deepspeed_config_file configs/ds_configs/stage3_no_offloading_accelerate.conf \
+    --deepspeed_config_file "${DS_CONF:-configs/ds_configs/stage3_no_offloading_accelerate.conf}" \
     open_instruct/dpo_tune_cache.py \
     --exp_name "$tag" --do_not_randomize_output_dir --output_dir "$outd" \
     --model_name_or_path allenai/Olmo-3-7B-Think-SFT --tokenizer_name allenai/Olmo-3-7B-Think-SFT \
@@ -26,7 +27,7 @@ run_one() {               # $1 = number of pairs (64 | 256); prints "rc seconds 
     --chat_template_name olmo_thinker --max_seq_length 16384 \
     --per_device_train_batch_size 1 --gradient_accumulation_steps "$ACC" \
     --learning_rate 8e-8 --lr_scheduler_type linear --warmup_ratio 0.0 --weight_decay 0.0 --num_epochs 1 \
-    --loss_type dpo_norm --beta 5 --activation_memory_budget "${ACT_BUDGET:-0.1}" --attn_implementation flash_2 \
+    --loss_type dpo_norm --beta 5 --activation_memory_budget 0.5 --attn_implementation flash_2 \
     --logging_steps 1 --seed 1 $EXTRA \
     --no_push_to_hub --no_try_launch_beaker_eval_jobs --no_try_auto_save_to_beaker \
     > "$LOGS/${tag}.log" 2>&1
