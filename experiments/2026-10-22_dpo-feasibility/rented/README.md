@@ -58,6 +58,7 @@ chosen before the full runs.
 | `03_train_arm.sh <arm> <seed> [concat\|sep]` | GPU pod | one full run; checkpoint every 100 steps, keep the last; re-running the same command resumes |
 | `04_push_model.sh <arm> <seed>` | GPU pod | upload the final weights to a private model repo `<account>/olmo3-7b-think-dpo-arm_<X>_seed<N>` |
 | `rebuild_arms_from_ids.py` | node (called by the bootstrap when the private repo is missing) | rebuild A and B from the public dataset and `../arms/arm_*_ids.json`, plus the timing subsets |
+| `05_pipeline.sh [budget]` | GPU pod | unattended sequence: timing test (concat, falls back to sep), budget gate, arm A, push, arm B, push |
 | `upload_arms_from_gs01.sh` | the box that holds the arms | upload A, B and the timing subsets to a private dataset repo `<account>/dolci-think-dpo-arms` |
 
 Sequence: `01_bootstrap.sh` → `02_timing_test.sh concat` → read `$WS/logs/timing_summary.txt`
