@@ -13,11 +13,12 @@ cd "$OI"; git fetch -q origin; git checkout -q ff32794a3          # same commit 
 uv python install 3.12 -q
 uv sync -q                                                         # default groups dev+cuda12: torch 2.10.0+cu128, deepspeed 0.18.4, prebuilt flash-attn 2.8.3 (uv.lock)
 source .venv/bin/activate
-python - <<'PY'
-import torch, flash_attn, deepspeed, transformers, accelerate
-print("torch", torch.__version__, "cuda_ok", torch.cuda.is_available(), "gpus", torch.cuda.device_count())
-print("flash_attn", flash_attn.__version__, "deepspeed", deepspeed.__version__,
+python - <<'PY' || echo "version check failed: expected on a CPU-only pod, the GPU pod re-checks"
+import torch, transformers, accelerate
+print("torch", torch.__version__, "cuda_ok", torch.cuda.is_available(), "gpus", torch.cuda.device_count(),
       "transformers", transformers.__version__, "accelerate", accelerate.__version__)
+import flash_attn, deepspeed
+print("flash_attn", flash_attn.__version__, "deepspeed", deepspeed.__version__)
 PY
 hf download allenai/Olmo-3-7B-Think-SFT --quiet >/dev/null && echo "model cached in $HF_HUB_CACHE"
 if hf download "$HF_USER/dolci-think-dpo-arms" --repo-type dataset --local-dir "$ARMS" --quiet >/dev/null 2>&1 \
