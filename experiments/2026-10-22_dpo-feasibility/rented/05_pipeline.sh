@@ -20,7 +20,8 @@ if [ "$NGPU" -ge 8 ]; then
   if [ "$rc" != 0 ] || [ "${PEAK:-0}" -gt 75000 ]; then log "concat rc=$rc peak=${PEAK:-?} -> sep"; MODE=sep; run_timing sep; rc=$?; fi
 else
   MODE=sep        # below 8 x 80 GB the concatenated forward's logits peak does not fit
-  log "gpus=$NGPU -> sep mode (effective batch $(( (32 / NGPU) * NGPU )))"
+  if [ "$NGPU" -lt 4 ]; then export DS_CONF="$HERE_CONF"; fi   # measured: no-offload peaks at 77-78 GB on 3 x 80 GB
+  log "gpus=$NGPU -> sep mode (effective batch $(( (32 / NGPU) * NGPU ))), ds_conf=${DS_CONF:-no-offload}, omp_threads=$OMP_NUM_THREADS"
   run_timing sep; rc=$?
 fi
 if [ "$rc" != 0 ] || [ "${PEAK:-0}" -gt 75000 ]; then

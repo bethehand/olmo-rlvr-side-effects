@@ -67,6 +67,11 @@ Sequence: `01_bootstrap.sh` → `02_timing_test.sh concat` → read `$WS/logs/ti
 → `03_train_arm.sh B 1` → `04_push_model.sh B 1` → stop the pod.
 
 Notes
+- `patches/save_generation_config.patch` (applied by the bootstrap to the open-instruct clone): with transformers 5.4 the
+  final `save_pretrained` raised `GenerationConfig is invalid` because the eos-only generation config that
+  `save_with_accelerate` builds was set on the DeepSpeed wrapper, not on the model being saved; the patch copies it over.
+  Ai2's environment (transformers 4.57) only warned.
+- `OMP_NUM_THREADS` is set per rank (≤ 48) so DeepSpeed's CPU Adam is parallel when optimizer states are offloaded.
 - The Hugging Face token is read from the shell (`export HF_TOKEN=…`) and never written to disk.
 - The reference-logprob cache is keyed by model, data, `max_seq_length`, loss type and forward mode,
   not by seed (`compute_reference_cache_hash`), so a second seed of the same arm skips that pass.

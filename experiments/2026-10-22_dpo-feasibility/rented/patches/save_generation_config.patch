@@ -1,0 +1,12 @@
+--- a/open_instruct/model_utils.py
++++ b/open_instruct/model_utils.py
+@@ -663,6 +663,9 @@ def save_with_accelerate(
+         )
+ 
+     unwrapped_model: transformers.PreTrainedModel = accelerator.unwrap_model(model)
++    # transformers >= 5 refuses to save a generation config whose sampling fields contradict do_sample; the
++    # config set above lands on the accelerate/DeepSpeed wrapper, so copy it onto the model that is saved.
++    unwrapped_model.generation_config = model.generation_config
+     if model_attribute_to_save is not None:
+         unwrapped_model = getattr(unwrapped_model, model_attribute_to_save)
+     # When doing multi-gpu training, we need to use accelerator.get_state_dict(model) to get the state_dict.

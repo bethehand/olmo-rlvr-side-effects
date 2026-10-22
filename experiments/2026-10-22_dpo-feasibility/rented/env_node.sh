@@ -24,4 +24,8 @@ export VENV=$UV_PROJECT_ENVIRONMENT
 export HF_USER=${HF_USER:-CHANGE_ME}
 NGPU=$(nvidia-smi -L 2>/dev/null | wc -l | tr -d ' ')
 export NGPU=${NGPU:-0}
+# DeepSpeed's CPU Adam (used when optimizer states are offloaded) is OpenMP-parallel; torchrun sets
+# OMP_NUM_THREADS=1 unless it is already set, which made one optimizer step take ~20 s on 224 vCPUs.
+_t=$(( $(nproc) / (NGPU > 0 ? NGPU : 1) )); [ "$_t" -gt 48 ] && _t=48; [ "$_t" -lt 1 ] && _t=1
+export OMP_NUM_THREADS=${OMP_NUM_THREADS:-$_t}
 mkdir -p "$UV_CACHE_DIR" "$UV_PYTHON_INSTALL_DIR" "$HF_HUB_CACHE" "$HF_DATASETS_CACHE" "$REFERENCE_LOGPROBS_CACHE_PATH" "$ARMS" "$OUT" "$LOGS" "$CACHE"
