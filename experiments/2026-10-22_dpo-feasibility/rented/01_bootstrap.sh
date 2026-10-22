@@ -3,7 +3,7 @@
 # Requires in the shell: export HF_TOKEN=<token>   (never written to disk by these scripts)
 #                        export HF_USER=<account>  (or edit env_node.sh)
 set -euo pipefail
-cd "$(dirname "$0")"; source ./env_node.sh
+HERE=$(cd "$(dirname "$0")" && pwd); cd "$HERE"; source ./env_node.sh
 : "${HF_TOKEN:?export HF_TOKEN=<your Hugging Face token> first}"
 [ "$HF_USER" != CHANGE_ME ] || { echo "export HF_USER=<account> first"; exit 2; }
 command -v git >/dev/null || { apt-get update -qq && apt-get install -y -qq git curl; }
@@ -20,7 +20,13 @@ print("flash_attn", flash_attn.__version__, "deepspeed", deepspeed.__version__,
       "transformers", transformers.__version__, "accelerate", accelerate.__version__)
 PY
 hf download allenai/Olmo-3-7B-Think-SFT --quiet >/dev/null && echo "model cached in $HF_HUB_CACHE"
-hf download "$HF_USER/dolci-think-dpo-arms" --repo-type dataset --local-dir "$ARMS" --quiet >/dev/null && echo "arms in $ARMS"
+if hf download "$HF_USER/dolci-think-dpo-arms" --repo-type dataset --local-dir "$ARMS" --quiet >/dev/null 2>&1 \
+   && [ "$(wc -l < "$ARMS/arm_A.jsonl" 2>/dev/null | tr -d ' ')" = 20000 ] && [ "$(wc -l < "$ARMS/arm_B.jsonl" 2>/dev/null | tr -d ' ')" = 20000 ]; then
+  echo "arms downloaded from $HF_USER/dolci-think-dpo-arms"
+else
+  echo "private arms repo unavailable or incomplete: rebuilding A and B from the public dataset and the id lists"
+  python "$HERE/rebuild_arms_from_ids.py" "$ARMS" A B
+fi
 ls -la "$ARMS"; df -h "$WS" | tail -1
 nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv 2>/dev/null || true
 echo "bootstrap done $(date -u +%FT%TZ) open-instruct=$(git rev-parse --short HEAD)" | tee -a "$LOGS/bootstrap.txt"
