@@ -27,3 +27,9 @@ From the per-pair table of [`../2026-10-20_dpo-pairs`](../2026-10-20_dpo-pairs) 
 | D Ai2's cap | chosen ≤ rejected + 100 tokens | 1.08 | 59% | 107 / 90 | 1.22 |
 
 Why B is a ratio rule and not the report's 100-token cap: on the Think pairs the cap selects pairs where both answers are short (D: medians 107 / 90 tokens against 523 / 253), so a model trained on it would learn "short" directly. The ratio rule keeps the chosen length (B's chosen-length distribution equals A's by construction) and removes most of the gap. B vs C then differs only in the rejected side; A vs C differs in the source mix (B leans to math, 13% against 5%, where pairs are naturally more balanced). D is kept as a fourth arm to show what the report's rule does to Think data. The thinking-length ratio also falls under the rule (1.44 → 1.19), which cannot be separated and is noted.
+
+## Rented-node scripts (`rented/`)
+
+The training itself runs on a rented 4 × 80 GB node; `rented/README.md` has the recipe table (two
+deviations from Ai2's script: 20,000 pairs per arm, effective batch 32), the cost-first order of runs
+(A and B first, C only if they differ, extra seeds only if the gap is small) and the scripts.
