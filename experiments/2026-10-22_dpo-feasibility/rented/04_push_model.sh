@@ -11,3 +11,6 @@ hf upload "$REPO" "$SRC" . --repo-type model --private \
   --exclude "step_*/**" --exclude "*.pt" --exclude "*_gpu.csv" \
   --commit-message "DPO $TAG: Ai2 7B Think recipe (dpo_norm, beta 5, lr 8e-8, 16K) on a 20,000-pair arm"
 echo "$TAG -> https://huggingface.co/$REPO (private) $(date -u +%FT%TZ)" | tee -a "$LOGS/pushed.txt"
+# The upload succeeded (set -e), so the ~100 GB step_* checkpoint (optimizer states included) is no longer
+# needed; the volume must hold two checkpoints of the next arm while a new one is being written.
+rm -rf "$SRC"/step_* && echo "removed $TAG step_* checkpoints; volume: $(df -h "$WS" | tail -1 | awk '{print $3" used of "$2}')"
