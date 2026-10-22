@@ -5,7 +5,7 @@
 # (model load, tokenization, final save) removed.
 # Usage: 02_timing_test.sh [concat|sep]      PRICE_PER_HOUR=15.96 is the default (4x H100 SXM, Secure Cloud)
 set -uo pipefail
-cd "$(dirname "$0")"; source ./env_node.sh; source "$OI/.venv/bin/activate"; cd "$OI"
+cd "$(dirname "$0")"; source ./env_node.sh; source "$VENV/bin/activate"; cd "$OI"
 MODE=${1:-concat}; EXTRA=""; [ "$MODE" = sep ] && EXTRA="--no_concatenated_forward"
 PRICE=${PRICE_PER_HOUR:-15.96}
 [ "$NGPU" -gt 0 ] || { echo "no GPU visible"; exit 2; }

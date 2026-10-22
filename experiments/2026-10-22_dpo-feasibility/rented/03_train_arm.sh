@@ -4,7 +4,7 @@
 # Re-running the same command after an interruption resumes from the last checkpoint in the output
 # directory: the trainer picks it up by itself (get_last_checkpoint_path in open_instruct/utils.py).
 set -uo pipefail
-cd "$(dirname "$0")"; source ./env_node.sh; source "$OI/.venv/bin/activate"; cd "$OI"
+cd "$(dirname "$0")"; source ./env_node.sh; source "$VENV/bin/activate"; cd "$OI"
 ARM=${1:?arm letter A|B|C|D}; SEED=${2:?training seed}; MODE=${3:-concat}
 EXTRA=""; [ "$MODE" = sep ] && EXTRA="--no_concatenated_forward"
 [ "$NGPU" -gt 0 ] || { echo "no GPU visible"; exit 2; }

@@ -10,9 +10,11 @@ command -v git >/dev/null || { apt-get update -qq && apt-get install -y -qq git 
 command -v uv  >/dev/null || curl -LsSf https://astral.sh/uv/install.sh | sh
 [ -d "$OI/.git" ] || git clone -q https://github.com/allenai/open-instruct "$OI"
 cd "$OI"; git fetch -q origin; git checkout -q ff32794a3          # same commit as the GS01 feasibility runs
+[ -L .venv ] && rm -f .venv                                        # a symlink left by a run before the venv was pinned to the volume
 uv python install 3.12 -q
-uv sync -q                                                         # default groups dev+cuda12: torch 2.10.0+cu128, deepspeed 0.18.4, prebuilt flash-attn 2.8.3 (uv.lock)
-source .venv/bin/activate
+uv sync -q --link-mode copy                                        # default groups dev+cuda12: torch 2.10.0+cu128, deepspeed 0.18.4, prebuilt flash-attn 2.8.3 (uv.lock)
+source "$VENV/bin/activate"
+echo "python: $(readlink -f "$(command -v python)")"
 python - <<'PY' || echo "version check failed: expected on a CPU-only pod, the GPU pod re-checks"
 import torch, transformers, accelerate
 print("torch", torch.__version__, "cuda_ok", torch.cuda.is_available(), "gpus", torch.cuda.device_count(),
