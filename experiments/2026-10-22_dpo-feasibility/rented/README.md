@@ -28,7 +28,7 @@ Ai2's reference is `scripts/train/olmo3/7b_think_dpo.sh` in open-instruct at com
 | `max_seq_length` | 16,384 | same |
 | Chat template | `olmo_thinker` | same |
 | Effective batch | 1 × 4 accumulation × 32 GPUs = 128 | 1 × (32 / #GPUs) accumulation × #GPUs = 32 (30 on 3 GPUs) |
-| Gradient checkpointing | `--gradient_checkpointing` | `--activation_memory_budget 0.5` (the flag the feasibility runs used at this commit) |
+| Gradient checkpointing | `--gradient_checkpointing` (full per-layer) | `--activation_memory_budget 0.1` (budget mode, close to full checkpointing; 0.5 peaked at 78 GB on 3 × 80 GB and OOMed in the first backward) |
 | DeepSpeed | `stage3_no_offloading_accelerate.conf` | same |
 | Hardware | 32 × H100 (4 nodes) | 4 × H100 SXM 80 GB (8 also works; accumulation adjusts) |
 

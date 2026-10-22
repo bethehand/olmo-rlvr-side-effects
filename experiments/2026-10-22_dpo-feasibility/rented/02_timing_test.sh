@@ -10,6 +10,7 @@ MODE=${1:-concat}; EXTRA=""; [ "$MODE" = sep ] && EXTRA="--no_concatenated_forwa
 PRICE=${PRICE_PER_HOUR:-15.96}
 [ "$NGPU" -gt 0 ] || { echo "no GPU visible"; exit 2; }
 ACC=$((32 / NGPU))        # effective batch 32 on any GPU count (see README for why not Ai2's 128)
+export ACT_BUDGET=${ACT_BUDGET:-0.1}   # activation checkpointing budget; 0.5 OOMed on 3 x 80 GB (78 GB peak, 6.1 GB logits alloc in backward)
 run_one() {               # $1 = number of pairs (64 | 256); prints "rc seconds peak_mib" as its last line
   local n=$1 tag=timing_${MODE}_$1 outd=$OUT/timing_${MODE}_$1
   rm -rf "$outd"
@@ -25,7 +26,7 @@ run_one() {               # $1 = number of pairs (64 | 256); prints "rc seconds 
     --chat_template_name olmo_thinker --max_seq_length 16384 \
     --per_device_train_batch_size 1 --gradient_accumulation_steps "$ACC" \
     --learning_rate 8e-8 --lr_scheduler_type linear --warmup_ratio 0.0 --weight_decay 0.0 --num_epochs 1 \
-    --loss_type dpo_norm --beta 5 --activation_memory_budget 0.5 --attn_implementation flash_2 \
+    --loss_type dpo_norm --beta 5 --activation_memory_budget "${ACT_BUDGET:-0.1}" --attn_implementation flash_2 \
     --logging_steps 1 --seed 1 $EXTRA \
     --no_push_to_hub --no_try_launch_beaker_eval_jobs --no_try_auto_save_to_beaker \
     > "$LOGS/${tag}.log" 2>&1
