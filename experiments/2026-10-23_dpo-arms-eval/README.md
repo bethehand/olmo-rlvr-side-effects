@@ -367,3 +367,4 @@ tokens but not its answers.
   `tokenizer_config.json` that carry the transformers 4.x keys next to the 5.x ones (the fix of 2026-10-23, so a 4.57 user does not
   get the silent θ = 10000 fallback); the per-sample generations of all six models (held-out, IFEval, GSM8K, the 805 prompts for
   run1 and the second seed) uploaded as the public dataset `icedduck/olmo3-7b-think-dpo-arms-eval-outputs` (28 files, 226 MB).
+- 2026-10-26 01:57 CST: **posted to #2002** by the user: https://github.com/allenai/open-instruct/issues/2002#issuecomment-6401130433 (the short version: TL;DR, setup, length and capability tables, a three-sentence judge paragraph, the cause and the suggested fix, repo link).
