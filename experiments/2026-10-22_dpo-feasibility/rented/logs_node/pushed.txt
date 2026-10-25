@@ -1,0 +1,3 @@
+arm_A_seed1 -> https://huggingface.co/icedduck/olmo3-7b-think-dpo-arm_A_seed1 (private) 2026-10-22T20:19:16Z
+arm_B_seed1 -> https://huggingface.co/icedduck/olmo3-7b-think-dpo-arm_B_seed1 (private) 2026-10-23T06:46:35Z
+arm_Bp_seed1 -> https://huggingface.co/icedduck/olmo3-7b-think-dpo-arm_Bp_seed1 (private) 2026-10-23T15:52:58Z

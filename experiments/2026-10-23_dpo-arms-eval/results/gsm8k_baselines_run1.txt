@@ -1,0 +1,4 @@
+# GSM8K test (1,319 problems), one sample per problem (temp 0.6, top_p 0.95, seed 1, 32K cap), answer after the last </think>, score_gsm8k.py with the extraction routes of 2026-10-23 (boxed > #### > answer marker > bold number > last number); 2026-10-23 10:45 CST
+Olmo-3-7B-Think-SFT@main_run1.jsonl: n=1319 acc=0.946 [0.933, 0.957]  hit cap=2  no number=0  extraction routes={'bold': 22, 'boxed': 1288, 'lastnum': 6, 'marker': 3}
+Olmo-3-7B-Think-DPO@main_run1.jsonl: n=1319 acc=0.908 [0.891, 0.922]  hit cap=0  no number=2  extraction routes={'bold': 591, 'boxed': 625, 'lastnum': 42, 'marker': 61}
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1.jsonl: n=1319 diff=-0.039 [-0.053, -0.025]

@@ -1,0 +1,3 @@
+2026-10-22T11:00:44Z pipeline start gpus=3 price=11.97 budget=500
+2026-10-22T11:00:44Z gpus=3 -> sep mode (effective batch 30)
+2026-10-22T11:07:45Z timing failed in sep mode

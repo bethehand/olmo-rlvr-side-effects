@@ -1,0 +1,5 @@
+# IFEval (541 prompts), one sample per prompt (temp 0.6, top_p 0.95, seed 1, 32K cap), answer after the last </think>, Google's checkers with langdetect and random seeded; 2026-10-23 03:38:44 CST
+Olmo-3-7B-Think-SFT@main_run1.jsonl: n=541  prompt strict=0.765 [0.728, 0.799]  prompt loose=0.808 [0.772, 0.839]  instruction strict=0.843 loose=0.872  hit cap=23
+Olmo-3-7B-Think-DPO@main_run1.jsonl: n=541  prompt strict=0.719 [0.680, 0.755]  prompt loose=0.778 [0.741, 0.811]  instruction strict=0.808 loose=0.850  hit cap=3
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1.jsonl, prompt strict: n=541 diff=-0.046 [-0.081, -0.011]
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1.jsonl, prompt loose: n=541 diff=-0.030 [-0.065, +0.006]

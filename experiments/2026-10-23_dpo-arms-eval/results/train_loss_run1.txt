@@ -1,0 +1,5 @@
+# Training loss of the three arms from the rented node's logs (../2026-10-22_dpo-feasibility/rented/logs_node/arm_*_seed1.log), train_loss_table.py. Same recipe for all arms (667 steps, effective batch 30, LR 8e-8 linear, beta 5, length-normalised DPO loss); only the pair selection differs. 2026-10-25 06:05 CST.
+arm   | logged steps | mean loss steps 1-220 | steps 221-440 | steps 441-667 | last five logged | exp(-loss) last third
+  A   |   66 (to step 660) | 0.662 | 0.562 | 0.499 | 0.498, 0.486, 0.487, 0.495, 0.501 | 0.607
+  B   |   66 (to step 660) | 0.675 | 0.611 | 0.566 | 0.556, 0.547, 0.562, 0.561, 0.560 | 0.568
+  B'  |   66 (to step 660) | 0.673 | 0.607 | 0.562 | 0.556, 0.544, 0.553, 0.552, 0.565 | 0.570

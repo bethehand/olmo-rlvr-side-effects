@@ -1,0 +1,3 @@
+2026-10-22T11:10:01Z pipeline start gpus=3 price=11.97 budget=500
+2026-10-22T11:10:01Z gpus=3 -> sep mode, activation budget 0.1 (effective batch 30)
+2026-10-22T11:14:18Z sep timing rc=1 peak=78217 MiB at budget 0.1 -> retrying with budget 0.0 (recompute everything)

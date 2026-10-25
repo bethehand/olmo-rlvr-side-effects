@@ -25,6 +25,7 @@ Ai2's reference is `scripts/train/olmo3/7b_think_dpo.sh` in open-instruct at com
 | Data | Dolci-Think-DPO-7B, 150,000 pairs, 1 epoch | 20,000-pair arms drawn from the same set by `../build_arms.py`, 1 epoch |
 | Loss | `dpo_norm`, β = 5 | same |
 | Learning rate / schedule / weight decay | 8e-8, linear, 0 | same |
+| Warmup ratio | 0.1 (Olmo 3 report, Table 48; the pinned script leaves the default) | 0.0 — **deviation found 2026-10-23**, see below |
 | `max_seq_length` | 16,384 | same |
 | Chat template | `olmo_thinker` | same |
 | Effective batch | 1 × 4 accumulation × 32 GPUs = 128 | 1 × (32 / #GPUs) accumulation × #GPUs = 32 (30 on 3 GPUs) |
@@ -33,9 +34,10 @@ Ai2's reference is `scripts/train/olmo3/7b_think_dpo.sh` in open-instruct at com
 | DeepSpeed | `stage3_no_offloading_accelerate.conf` | same |
 | Hardware | 32 × H100 (4 nodes) | 4 × H100 SXM 80 GB (8 also works; accumulation adjusts) |
 
-Two deviations, both reported with the results:
+The recipe is confirmed against the primary source, Table 48 of the Olmo 3 report (arXiv 2512.13961: 7B Thinking DPO, 150K pairs, 1 epoch, β 5, LR 8.0e-8, linear decay, warmup 0.1, 32 GPUs, batch 128, 16K; length-normalized DPO loss). Three deviations, all reported with the results:
 
 1. **20,000 pairs per arm instead of 150,000.** The arms are the experiment.
+3. **No warmup instead of a 0.1 warmup ratio** (`--warmup_ratio 0.0`; noticed only when the report was checked on 2026-10-23, after both arms had trained). With linear decay over 667 steps this makes the total learning-rate mass about 5% larger than the paper's schedule; the next run uses 0.1.
 2. **Effective batch 32 instead of 128.** With 13 % of Ai2's data, batch 128 would give 156
    optimizer steps against Ai2's ≈ 1,170; batch 32 gives 625, keeping the number of updates in the
    same order of magnitude while every other hyperparameter stays as published.
@@ -70,10 +72,15 @@ Notes
 - `patches/save_generation_config.patch` (applied by the bootstrap to the open-instruct clone): with transformers 5.4 the
   final `save_pretrained` raised `GenerationConfig is invalid` because the eos-only generation config that
   `save_with_accelerate` builds was set on the DeepSpeed wrapper, not on the model being saved; the patch copies it over.
-  Ai2's environment (transformers 4.57) only warned.
+  open-instruct at this commit requires transformers >= 5.4, so Ai2 runs the same save path; models saved this way need `../../2026-10-23_dpo-arms-eval/fix_tf5_compat.py` before they load correctly under transformers 4.57 / vLLM 0.11 (see that directory's compatibility note).
 - `OMP_NUM_THREADS` is set per rank (≤ 48) so DeepSpeed's CPU Adam is parallel when optimizer states are offloaded.
 - The Hugging Face token is read from the shell (`export HF_TOKEN=…`) and never written to disk.
 - The reference-logprob cache is keyed by model, data, `max_seq_length`, loss type and forward mode,
   not by seed (`compute_reference_cache_hash`), so a second seed of the same arm skips that pass.
 - Each run writes `run_info.txt` (commit, GPUs, mode, wall time) next to the weights; logs and GPU
   memory traces go to `$WS/logs`.
+
+## Arm B' (2026-10-23)
+`06_train_bprime.sh` waits for the A/B pipeline's `PIPELINE DONE`, rebuilds `arm_Bp.jsonl` from `../arms/arm_Bp_ids.json`
+(`rebuild_arms_from_ids.py $ARMS Bp`), trains `arm_Bp_seed1` with the same command as A and B, pushes it, and writes `BPRIME DONE`.
+Launched 2026-10-23 13:25 CST on the same 3 × H100 pod; B' is the last run on it.

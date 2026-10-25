@@ -28,6 +28,29 @@ From the per-pair table of [`../2026-10-20_dpo-pairs`](../2026-10-20_dpo-pairs) 
 
 Why B is a ratio rule and not the report's 100-token cap: on the Think pairs the cap selects pairs where both answers are short (D: medians 107 / 90 tokens against 523 / 253), so a model trained on it would learn "short" directly. The ratio rule keeps the chosen length (B's chosen-length distribution equals A's by construction) and removes most of the gap. B vs C then differs only in the rejected side; A vs C differs in the source mix (B leans to math, 13% against 5%, where pairs are naturally more balanced). D is kept as a fourth arm to show what the report's rule does to Think data. The thinking-length ratio also falls under the rule (1.44 → 1.19), which cannot be separated and is noted.
 
+## Arm B' (approved and queued 2026-10-23 13:25, pre-registered before training; `build_arm_bprime.py`, `arms/arm_Bp_ids.json`, `arms/arm_Bp_summary.md`)
+
+B matched A on chosen-length decile only, so selecting small-gap pairs also changed the prompt population (math sources 19.7% vs
+8.4%, median prompt 710 vs 482 chars). B' repeats B with the selection matched to A cell by cell on **source x chosen-length decile x
+prompt-length tercile** (19,215 of 20,000 pairs filled at that level; 469 topped up within source x decile, 316 within decile).
+Result: source mix within 0.3 points of A on every major source, prompt median 535 chars, math 9.0%; what still differs from A is
+tied to the manipulation itself: rejected-answer length (467 vs 253 median tokens), chosen/rejected thinking-length ratio
+(1.26 vs 1.44; the thinking gap in characters is about the same, ~1,150), and the rejected answers' list-style formatting. B' shares
+2,688 pairs with A. Training recipe identical to A and B (including `--warmup_ratio 0.0`, kept for internal consistency although
+the Olmo 3 report uses 0.1), training seed 1.
+
+Pre-registered reading (805-prompt paired answer-length change is primary; B', B and A are all compared with Think-SFT under the
+training template):
+- B' ≈ 0 and B ≈ 0 while A ≈ +37: the answer-length gap drives the shift; B and B' replicate each other on different pair samples.
+- B' ≈ A and B ≈ 0: B's effect came from its prompt population, not the gap.
+- B' ≈ 0 and B ≈ A: the gap matters and B's math-heavy population masked it.
+- all three ≈ A: at this dose (13% of Ai2's pairs) the gap is not the driver.
+Held-out, IFEval, GSM8K and the judge follow the plan in `../2026-10-23_dpo-arms-eval`.
+
+`build_arm_prompts.py ARM_IDS.json OUT.jsonl` rebuilds an arm's prompts (last user turn of the chosen conversation) from the public
+dataset for the prompt-overlap check against the evaluation sets; for B' (2026-10-25) the overlap is 0 with all four sets, and the
+2,688 prompts shared with A are byte-identical to A's file (`../2026-10-23_dpo-arms-eval/results/arms_data_checks.txt`).
+
 ## Rented-node scripts (`rented/`)
 
 The training itself runs on a rented 4 × 80 GB node; `rented/README.md` has the recipe table (two

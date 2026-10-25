@@ -1,0 +1,294 @@
+2026-10-22 09:57:42.827 DEBUG Persistent cache disabled, using in-memory JIT cache
+2026-10-22 09:57:42.827 DEBUG Persistent cache disabled, using in-memory JIT cache
+2026-10-22 09:57:42.827 DEBUG Persistent cache disabled, using in-memory JIT cache
+2026-10-22 09:57:42.827 DEBUG Persistent cache disabled, using in-memory JIT cache
+2026-10-22 09:57:42.827 DEBUG Persistent cache disabled, using in-memory JIT cache
+usage: dpo_tune_cache.py [-h]
+                         [--try_launch_beaker_eval_jobs [TRY_LAUNCH_BEAKER_EVAL_JOBS]]
+                         [--no_try_launch_beaker_eval_jobs]
+                         [--try_auto_save_to_beaker [TRY_AUTO_SAVE_TO_BEAKER]]
+                         [--no_try_auto_save_to_beaker]
+                         [--gs_bucket_path GS_BUCKET_PATH]
+                         [--oe_eval_tasks OE_EVAL_TASKS [OE_EVAL_TASKS ...]]
+                         [--oe_eval_max_length OE_EVAL_MAX_LENGTH]
+                         [--oe_eval_gpu_multiplier OE_EVAL_GPU_MULTIPLIER]
+                         [--eval_workspace EVAL_WORKSPACE]
+                         [--eval_priority EVAL_PRIORITY]
+                         [--output_dir OUTPUT_DIR]
+                         [--checkpointing_steps CHECKPOINTING_STEPS]
+                         [--ephemeral_save_interval EPHEMERAL_SAVE_INTERVAL]
+                         [--keep_last_n_checkpoints KEEP_LAST_N_CHECKPOINTS]
+                         [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+                         [--push_to_hub [PUSH_TO_HUB]] [--no_push_to_hub]
+                         [--hf_repo_id HF_REPO_ID]
+                         [--hf_repo_revision HF_REPO_REVISION]
+                         [--hf_repo_url HF_REPO_URL]
+                         [--logging_steps LOGGING_STEPS]
+                         [--with_tracking [WITH_TRACKING]]
+                         [--wandb_project WANDB_PROJECT]
+                         [--wandb_entity WANDB_ENTITY]
+                         [--report_to REPORT_TO [REPORT_TO ...]]
+                         [--wandb_group_name WANDB_GROUP_NAME]
+                         [--use_lora [USE_LORA]] [--lora_rank LORA_RANK]
+                         [--lora_alpha LORA_ALPHA]
+                         [--lora_dropout LORA_DROPOUT]
+                         [--mixer_list MIXER_LIST [MIXER_LIST ...]]
+                         [--mixer_list_splits MIXER_LIST_SPLITS [MIXER_LIST_SPLITS ...]]
+                         [--transform_fn TRANSFORM_FN [TRANSFORM_FN ...]]
+                         [--target_columns TARGET_COLUMNS [TARGET_COLUMNS ...]]
+                         [--cache_mode {hf,local}]
+                         [--local_cache_dir LOCAL_CACHE_DIR]
+                         [--skip_cache [SKIP_CACHE]]
+                         [--cache_dataset_only [CACHE_DATASET_ONLY]]
+                         [--config_hash CONFIG_HASH] [--hf_entity HF_ENTITY]
+                         [--num_epochs NUM_EPOCHS]
+                         [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                         [--gradient_accumulation_steps GRADIENT_ACCUMULATION_STEPS]
+                         [--learning_rate LEARNING_RATE]
+                         [--warmup_ratio WARMUP_RATIO]
+                         [--weight_decay WEIGHT_DECAY]
+                         [--max_grad_norm MAX_GRAD_NORM]
+                         [--max_seq_length MAX_SEQ_LENGTH]
+                         [--over_length_strategy OVER_LENGTH_STRATEGY]
+                         [--lr_scheduler_type LR_SCHEDULER_TYPE]
+                         [--max_train_steps MAX_TRAIN_STEPS]
+                         [--activation_memory_budget ACTIVATION_MEMORY_BUDGET]
+                         [--activation_checkpointing_mode {budget,selected_modules}]
+                         [--activation_checkpointing_modules ACTIVATION_CHECKPOINTING_MODULES [ACTIVATION_CHECKPOINTING_MODULES ...]]
+                         [--compile_model [COMPILE_MODEL]]
+                         [--no_compile_model]
+                         [--fused_optimizer [FUSED_OPTIMIZER]]
+                         [--no_fused_optimizer] [--cp_degree CP_DEGREE]
+                         [--cp_strategy {llama3,zig_zag,ulysses}]
+                         [--use_8bit_optimizer [USE_8BIT_OPTIMIZER]]
+                         [--dpo_use_paged_optimizer [DPO_USE_PAGED_OPTIMIZER]]
+                         [--optimizer_type OPTIMIZER_TYPE]
+                         [--optimizer_kwargs OPTIMIZER_KWARGS]
+                         [--tensor_parallel_degree TENSOR_PARALLEL_DEGREE]
+                         [--context_parallel_degree CONTEXT_PARALLEL_DEGREE]
+                         [--cache_logprobs_only [CACHE_LOGPROBS_ONLY]]
+                         [--fsdp_shard_degree FSDP_SHARD_DEGREE]
+                         [--fsdp_num_replicas FSDP_NUM_REPLICAS] [--beta BETA]
+                         [--loss_type {dpo,dpo_norm,simpo,wpo}]
+                         [--gamma_beta_ratio GAMMA_BETA_RATIO]
+                         [--label_smoothing LABEL_SMOOTHING]
+                         [--load_balancing_loss [LOAD_BALANCING_LOSS]]
+                         [--load_balancing_weight LOAD_BALANCING_WEIGHT]
+                         [--concatenated_forward [CONCATENATED_FORWARD]]
+                         [--no_concatenated_forward] [--packing [PACKING]]
+                         --model_name_or_path MODEL_NAME_OR_PATH
+                         [--config_name CONFIG_NAME]
+                         [--attn_implementation {torch,flash_2,flash_3,flash_4,te}]
+                         [--loss_implementation {default,fused_linear}]
+                         [--model_revision MODEL_REVISION]
+                         [--low_cpu_mem_usage [LOW_CPU_MEM_USAGE]]
+                         [--rope_scaling_factor ROPE_SCALING_FACTOR]
+                         [--rope_scaling_beta_fast ROPE_SCALING_BETA_FAST]
+                         [--rope_scaling_beta_slow ROPE_SCALING_BETA_SLOW]
+                         [--rope_scaling_old_context_len ROPE_SCALING_OLD_CONTEXT_LEN]
+                         [--exp_name EXP_NAME] [--run_name RUN_NAME]
+                         [--seed SEED] [--data_loader_seed DATA_LOADER_SEED]
+                         [--do_not_randomize_output_dir [DO_NOT_RANDOMIZE_OUTPUT_DIR]]
+                         [--send_slack_alerts [SEND_SLACK_ALERTS]]
+                         [--additional_model_arguments ADDITIONAL_MODEL_ARGUMENTS]
+                         [--sync_each_batch [SYNC_EACH_BATCH]]
+                         [--dataset_name DATASET_NAME]
+                         [--dataset_mixer DATASET_MIXER]
+                         [--dataset_mix_dir DATASET_MIX_DIR]
+                         [--dataset_config_name DATASET_CONFIG_NAME]
+                         [--max_train_samples MAX_TRAIN_SAMPLES]
+                         [--preprocessing_num_workers PREPROCESSING_NUM_WORKERS]
+                         [--overwrite_cache [OVERWRITE_CACHE]]
+                         [--use_qlora [USE_QLORA]] [--timeout TIMEOUT]
+                         [--save_to_hub SAVE_TO_HUB]
+                         [--use_liger_kernel [USE_LIGER_KERNEL]]
+                         [--profiling [PROFILING]]
+                         [--hf_metadata_dataset HF_METADATA_DATASET]
+                         [--zero_stage ZERO_STAGE]
+                         [--offload_optimizer [OFFLOAD_OPTIMIZER]]
+                         [--offload_param [OFFLOAD_PARAM]]
+                         [--zero_hpz_partition_size ZERO_HPZ_PARTITION_SIZE]
+                         [--tokenizer_name_or_path TOKENIZER_NAME_OR_PATH]
+                         [--tokenizer_revision TOKENIZER_REVISION]
+                         [--trust_remote_code [TRUST_REMOTE_CODE]]
+                         [--use_fast [USE_FAST]] [--no_use_fast]
+                         [--chat_template_name CHAT_TEMPLATE_NAME]
+                         [--add_bos [ADD_BOS]]
+                         [--get_tokenizer_fn GET_TOKENIZER_FN]
+                         [--reserved_slot_tokens RESERVED_SLOT_TOKENS [RESERVED_SLOT_TOKENS ...]]
+                         [--tokenizer_files_hash TOKENIZER_FILES_HASH [TOKENIZER_FILES_HASH ...]]
+                         [--use_slow_tokenizer [USE_SLOW_TOKENIZER]]
+                         [--tokenizer_name TOKENIZER_NAME]
+                         [--ground_truths_key GROUND_TRUTHS_KEY]
+                         [--sft_messages_key SFT_MESSAGES_KEY]
+
+options:
+  -h, --help            show this help message and exit
+  --try_launch_beaker_eval_jobs [TRY_LAUNCH_BEAKER_EVAL_JOBS], --try-launch-beaker-eval-jobs [TRY_LAUNCH_BEAKER_EVAL_JOBS]
+  --no_try_launch_beaker_eval_jobs, --no-try-launch-beaker-eval-jobs
+  --try_auto_save_to_beaker [TRY_AUTO_SAVE_TO_BEAKER], --try-auto-save-to-beaker [TRY_AUTO_SAVE_TO_BEAKER]
+  --no_try_auto_save_to_beaker, --no-try-auto-save-to-beaker
+  --gs_bucket_path GS_BUCKET_PATH, --gs-bucket-path GS_BUCKET_PATH
+  --oe_eval_tasks OE_EVAL_TASKS [OE_EVAL_TASKS ...], --oe-eval-tasks OE_EVAL_TASKS [OE_EVAL_TASKS ...]
+  --oe_eval_max_length OE_EVAL_MAX_LENGTH, --oe-eval-max-length OE_EVAL_MAX_LENGTH
+  --oe_eval_gpu_multiplier OE_EVAL_GPU_MULTIPLIER, --oe-eval-gpu-multiplier OE_EVAL_GPU_MULTIPLIER
+  --eval_workspace EVAL_WORKSPACE, --eval-workspace EVAL_WORKSPACE
+  --eval_priority EVAL_PRIORITY, --eval-priority EVAL_PRIORITY
+  --output_dir OUTPUT_DIR, --output-dir OUTPUT_DIR
+  --checkpointing_steps CHECKPOINTING_STEPS, --checkpointing-steps CHECKPOINTING_STEPS
+  --ephemeral_save_interval EPHEMERAL_SAVE_INTERVAL, --ephemeral-save-interval EPHEMERAL_SAVE_INTERVAL
+  --keep_last_n_checkpoints KEEP_LAST_N_CHECKPOINTS, --keep-last-n-checkpoints KEEP_LAST_N_CHECKPOINTS
+  --resume_from_checkpoint RESUME_FROM_CHECKPOINT, --resume-from-checkpoint RESUME_FROM_CHECKPOINT
+                        If the training should continue from a checkpoint
+                        folder. (default: None)
+  --push_to_hub [PUSH_TO_HUB], --push-to-hub [PUSH_TO_HUB]
+  --no_push_to_hub, --no-push-to-hub
+  --hf_repo_id HF_REPO_ID, --hf-repo-id HF_REPO_ID
+  --hf_repo_revision HF_REPO_REVISION, --hf-repo-revision HF_REPO_REVISION
+  --hf_repo_url HF_REPO_URL, --hf-repo-url HF_REPO_URL
+  --logging_steps LOGGING_STEPS, --logging-steps LOGGING_STEPS
+  --with_tracking [WITH_TRACKING], --with-tracking [WITH_TRACKING]
+  --wandb_project WANDB_PROJECT, --wandb-project WANDB_PROJECT
+  --wandb_entity WANDB_ENTITY, --wandb-entity WANDB_ENTITY
+  --report_to REPORT_TO [REPORT_TO ...], --report-to REPORT_TO [REPORT_TO ...]
+  --wandb_group_name WANDB_GROUP_NAME, --wandb-group-name WANDB_GROUP_NAME
+  --use_lora [USE_LORA], --use-lora [USE_LORA]
+  --lora_rank LORA_RANK, --lora-rank LORA_RANK
+  --lora_alpha LORA_ALPHA, --lora-alpha LORA_ALPHA
+  --lora_dropout LORA_DROPOUT, --lora-dropout LORA_DROPOUT
+  --mixer_list MIXER_LIST [MIXER_LIST ...], --mixer-list MIXER_LIST [MIXER_LIST ...]
+  --mixer_list_splits MIXER_LIST_SPLITS [MIXER_LIST_SPLITS ...], --mixer-list-splits MIXER_LIST_SPLITS [MIXER_LIST_SPLITS ...]
+  --transform_fn TRANSFORM_FN [TRANSFORM_FN ...], --transform-fn TRANSFORM_FN [TRANSFORM_FN ...]
+  --target_columns TARGET_COLUMNS [TARGET_COLUMNS ...], --target-columns TARGET_COLUMNS [TARGET_COLUMNS ...]
+  --cache_mode {hf,local}, --cache-mode {hf,local}
+  --local_cache_dir LOCAL_CACHE_DIR, --local-cache-dir LOCAL_CACHE_DIR
+  --skip_cache [SKIP_CACHE], --skip-cache [SKIP_CACHE]
+  --cache_dataset_only [CACHE_DATASET_ONLY], --cache-dataset-only [CACHE_DATASET_ONLY]
+  --config_hash CONFIG_HASH, --config-hash CONFIG_HASH
+  --hf_entity HF_ENTITY, --hf-entity HF_ENTITY
+  --num_epochs NUM_EPOCHS, --num-epochs NUM_EPOCHS
+  --per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE, --per-device-train-batch-size PER_DEVICE_TRAIN_BATCH_SIZE
+  --gradient_accumulation_steps GRADIENT_ACCUMULATION_STEPS, --gradient-accumulation-steps GRADIENT_ACCUMULATION_STEPS
+  --learning_rate LEARNING_RATE, --learning-rate LEARNING_RATE
+  --warmup_ratio WARMUP_RATIO, --warmup-ratio WARMUP_RATIO
+  --weight_decay WEIGHT_DECAY, --weight-decay WEIGHT_DECAY
+  --max_grad_norm MAX_GRAD_NORM, --max-grad-norm MAX_GRAD_NORM
+  --max_seq_length MAX_SEQ_LENGTH, --max-seq-length MAX_SEQ_LENGTH
+                        The maximum total input sequence length after
+                        tokenization. Sequences longer than this will be
+                        truncated, (default: None)
+  --over_length_strategy OVER_LENGTH_STRATEGY, --over-length-strategy OVER_LENGTH_STRATEGY
+  --lr_scheduler_type LR_SCHEDULER_TYPE, --lr-scheduler-type LR_SCHEDULER_TYPE
+  --max_train_steps MAX_TRAIN_STEPS, --max-train-steps MAX_TRAIN_STEPS
+  --activation_memory_budget ACTIVATION_MEMORY_BUDGET, --activation-memory-budget ACTIVATION_MEMORY_BUDGET
+  --activation_checkpointing_mode {budget,selected_modules}, --activation-checkpointing-mode {budget,selected_modules}
+  --activation_checkpointing_modules ACTIVATION_CHECKPOINTING_MODULES [ACTIVATION_CHECKPOINTING_MODULES ...], --activation-checkpointing-modules ACTIVATION_CHECKPOINTING_MODULES [ACTIVATION_CHECKPOINTING_MODULES ...]
+  --compile_model [COMPILE_MODEL], --compile-model [COMPILE_MODEL]
+  --no_compile_model, --no-compile-model
+  --fused_optimizer [FUSED_OPTIMIZER], --fused-optimizer [FUSED_OPTIMIZER]
+  --no_fused_optimizer, --no-fused-optimizer
+  --cp_degree CP_DEGREE, --cp-degree CP_DEGREE
+  --cp_strategy {llama3,zig_zag,ulysses}, --cp-strategy {llama3,zig_zag,ulysses}
+  --use_8bit_optimizer [USE_8BIT_OPTIMIZER], --use-8bit-optimizer [USE_8BIT_OPTIMIZER]
+  --dpo_use_paged_optimizer [DPO_USE_PAGED_OPTIMIZER], --dpo-use-paged-optimizer [DPO_USE_PAGED_OPTIMIZER]
+  --optimizer_type OPTIMIZER_TYPE, --optimizer-type OPTIMIZER_TYPE
+  --optimizer_kwargs OPTIMIZER_KWARGS, --optimizer-kwargs OPTIMIZER_KWARGS
+  --tensor_parallel_degree TENSOR_PARALLEL_DEGREE, --tensor-parallel-degree TENSOR_PARALLEL_DEGREE
+  --context_parallel_degree CONTEXT_PARALLEL_DEGREE, --context-parallel-degree CONTEXT_PARALLEL_DEGREE
+  --cache_logprobs_only [CACHE_LOGPROBS_ONLY], --cache-logprobs-only [CACHE_LOGPROBS_ONLY]
+  --fsdp_shard_degree FSDP_SHARD_DEGREE, --fsdp-shard-degree FSDP_SHARD_DEGREE
+  --fsdp_num_replicas FSDP_NUM_REPLICAS, --fsdp-num-replicas FSDP_NUM_REPLICAS
+  --beta BETA
+  --loss_type {dpo,dpo_norm,simpo,wpo}, --loss-type {dpo,dpo_norm,simpo,wpo}
+  --gamma_beta_ratio GAMMA_BETA_RATIO, --gamma-beta-ratio GAMMA_BETA_RATIO
+  --label_smoothing LABEL_SMOOTHING, --label-smoothing LABEL_SMOOTHING
+  --load_balancing_loss [LOAD_BALANCING_LOSS], --load-balancing-loss [LOAD_BALANCING_LOSS]
+  --load_balancing_weight LOAD_BALANCING_WEIGHT, --load-balancing-weight LOAD_BALANCING_WEIGHT
+  --concatenated_forward [CONCATENATED_FORWARD], --concatenated-forward [CONCATENATED_FORWARD]
+  --no_concatenated_forward, --no-concatenated-forward
+  --packing [PACKING]
+  --model_name_or_path MODEL_NAME_OR_PATH, --model-name-or-path MODEL_NAME_OR_PATH
+  --config_name CONFIG_NAME, --config-name CONFIG_NAME
+  --attn_implementation {torch,flash_2,flash_3,flash_4,te}, --attn-implementation {torch,flash_2,flash_3,flash_4,te}
+  --loss_implementation {default,fused_linear}, --loss-implementation {default,fused_linear}
+  --model_revision MODEL_REVISION, --model-revision MODEL_REVISION
+  --low_cpu_mem_usage [LOW_CPU_MEM_USAGE], --low-cpu-mem-usage [LOW_CPU_MEM_USAGE]
+  --rope_scaling_factor ROPE_SCALING_FACTOR, --rope-scaling-factor ROPE_SCALING_FACTOR
+  --rope_scaling_beta_fast ROPE_SCALING_BETA_FAST, --rope-scaling-beta-fast ROPE_SCALING_BETA_FAST
+  --rope_scaling_beta_slow ROPE_SCALING_BETA_SLOW, --rope-scaling-beta-slow ROPE_SCALING_BETA_SLOW
+  --rope_scaling_old_context_len ROPE_SCALING_OLD_CONTEXT_LEN, --rope-scaling-old-context-len ROPE_SCALING_OLD_CONTEXT_LEN
+  --exp_name EXP_NAME, --exp-name EXP_NAME
+  --run_name RUN_NAME, --run-name RUN_NAME
+  --seed SEED
+  --data_loader_seed DATA_LOADER_SEED, --data-loader-seed DATA_LOADER_SEED
+  --do_not_randomize_output_dir [DO_NOT_RANDOMIZE_OUTPUT_DIR], --do-not-randomize-output-dir [DO_NOT_RANDOMIZE_OUTPUT_DIR]
+  --send_slack_alerts [SEND_SLACK_ALERTS], --send-slack-alerts [SEND_SLACK_ALERTS]
+  --additional_model_arguments ADDITIONAL_MODEL_ARGUMENTS, --additional-model-arguments ADDITIONAL_MODEL_ARGUMENTS
+                        A dictionary of additional model args used to
+                        construct the model. (default: {})
+  --sync_each_batch [SYNC_EACH_BATCH], --sync-each-batch [SYNC_EACH_BATCH]
+  --dataset_name DATASET_NAME, --dataset-name DATASET_NAME
+                        The name of the dataset to use (via the datasets
+                        library). (default: None)
+  --dataset_mixer DATASET_MIXER, --dataset-mixer DATASET_MIXER
+                        A dictionary of datasets (local or HF) to sample from.
+                        (default: None)
+  --dataset_mix_dir DATASET_MIX_DIR, --dataset-mix-dir DATASET_MIX_DIR
+                        The directory to save the mixed dataset to disk.
+                        (default: None)
+  --dataset_config_name DATASET_CONFIG_NAME, --dataset-config-name DATASET_CONFIG_NAME
+                        The configuration name of the dataset to use (via the
+                        datasets library). (default: None)
+  --max_train_samples MAX_TRAIN_SAMPLES, --max-train-samples MAX_TRAIN_SAMPLES
+                        For debugging purposes or quicker training, truncate
+                        the number of training examples to this value if set.
+                        (default: None)
+  --preprocessing_num_workers PREPROCESSING_NUM_WORKERS, --preprocessing-num-workers PREPROCESSING_NUM_WORKERS
+                        The number of processes to use for the preprocessing.
+                        (default: None)
+  --overwrite_cache [OVERWRITE_CACHE], --overwrite-cache [OVERWRITE_CACHE]
+                        Overwrite the cached training and evaluation sets
+                        (default: False)
+  --use_qlora [USE_QLORA], --use-qlora [USE_QLORA]
+                        Use qLoRA training - initializes model in quantized
+                        form. Not compatible with deepspeed. (default: False)
+  --timeout TIMEOUT     Timeout for the training process in seconds.Useful if
+                        tokenization process is long. Default is 1800 seconds
+                        (30 minutes). (default: 1800)
+  --save_to_hub SAVE_TO_HUB, --save-to-hub SAVE_TO_HUB
+                        Save the model to the Hub under this name. E.g
+                        allenai/your-model (default: None)
+  --use_liger_kernel [USE_LIGER_KERNEL], --use-liger-kernel [USE_LIGER_KERNEL]
+                        Whether to use LigerKernel for training. (default:
+                        False)
+  --profiling [PROFILING]
+                        Enable torch profiler to trace training steps.
+                        (default: False)
+  --hf_metadata_dataset HF_METADATA_DATASET, --hf-metadata-dataset HF_METADATA_DATASET
+  --zero_stage ZERO_STAGE, --zero-stage ZERO_STAGE
+                        DeepSpeed ZeRO optimization stage (0, 1, 2, or 3). If
+                        None, DeepSpeed config must be provided via accelerate
+                        launch. (default: None)
+  --offload_optimizer [OFFLOAD_OPTIMIZER], --offload-optimizer [OFFLOAD_OPTIMIZER]
+                        Offload optimizer states to CPU to save GPU memory.
+                        Only used if zero_stage is set. (default: False)
+  --offload_param [OFFLOAD_PARAM], --offload-param [OFFLOAD_PARAM]
+                        Offload parameters to CPU to save GPU memory. Only
+                        used with zero_stage 3. (default: False)
+  --zero_hpz_partition_size ZERO_HPZ_PARTITION_SIZE, --zero-hpz-partition-size ZERO_HPZ_PARTITION_SIZE
+                        Hierarchical partition size for ZeRO stage 3. Only
+                        used with zero_stage 3. (default: 8)
+  --tokenizer_name_or_path TOKENIZER_NAME_OR_PATH, --tokenizer-name-or-path TOKENIZER_NAME_OR_PATH
+  --tokenizer_revision TOKENIZER_REVISION, --tokenizer-revision TOKENIZER_REVISION
+  --trust_remote_code [TRUST_REMOTE_CODE], --trust-remote-code [TRUST_REMOTE_CODE]
+  --use_fast [USE_FAST], --use-fast [USE_FAST]
+  --no_use_fast, --no-use-fast
+  --chat_template_name CHAT_TEMPLATE_NAME, --chat-template-name CHAT_TEMPLATE_NAME
+  --add_bos [ADD_BOS], --add-bos [ADD_BOS]
+  --get_tokenizer_fn GET_TOKENIZER_FN, --get-tokenizer-fn GET_TOKENIZER_FN
+  --reserved_slot_tokens RESERVED_SLOT_TOKENS [RESERVED_SLOT_TOKENS ...], --reserved-slot-tokens RESERVED_SLOT_TOKENS [RESERVED_SLOT_TOKENS ...]
+  --tokenizer_files_hash TOKENIZER_FILES_HASH [TOKENIZER_FILES_HASH ...], --tokenizer-files-hash TOKENIZER_FILES_HASH [TOKENIZER_FILES_HASH ...]
+  --use_slow_tokenizer [USE_SLOW_TOKENIZER], --use-slow-tokenizer [USE_SLOW_TOKENIZER]
+  --tokenizer_name TOKENIZER_NAME, --tokenizer-name TOKENIZER_NAME
+  --ground_truths_key GROUND_TRUTHS_KEY, --ground-truths-key GROUND_TRUTHS_KEY
+  --sft_messages_key SFT_MESSAGES_KEY, --sft-messages-key SFT_MESSAGES_KEY

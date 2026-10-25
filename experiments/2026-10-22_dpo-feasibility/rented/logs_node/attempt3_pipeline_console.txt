@@ -1,0 +1,16 @@
+2026-10-22T11:17:41Z pipeline start gpus=3 price=11.97 budget=500
+2026-10-22T11:17:41Z gpus=3 -> sep mode (effective batch 30)
+64-pair run failed (exit 1), see /workspace/logs/timing_sep_64.log
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 8182)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+2026-10-22T11:21:49Z no-offload rc=1 peak=77085 MiB -> retrying with optimizer states offloaded to CPU
+64-pair run failed (exit 1), see /workspace/logs/timing_sep_64.log
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 9351)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+2026-10-22T11:29:03Z timing failed with optimizer offload too (peak=52779)

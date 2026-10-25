@@ -7,21 +7,21 @@ MODEL=$1 REV=$2 RUN=$3 GPUS=$4 LIMIT=${5:-} MAXTOK=${6:-32768}
 W=/mnt/nvme0/looped/oi_work; source $W/env.sh >/dev/null
 E=$W/experiments/2026-10-18_length; cd $E; mkdir -p outputs logs
 P=$(ls $HF_HUB_CACHE/datasets--tatsu-lab--alpaca_eval/snapshots/*/alpaca_eval.json | head -1)
-NAME=${MODEL#allenai/}@$REV
+NAME=$(echo "${MODEL#allenai/}" | tr "/" "_")@$REV   # org/ prefixes other than allenai/ become org_
 # Seed: runN uses N (override with SEED=...), so repeated runs are independent samples. Without a seed, vLLM V1 uses 0
 # and a rerun can come out as a byte-identical copy (seen on 2026-10-18).
 [ -z "${SEED:-}" ] && case "$RUN" in run[0-9]*) SEED=${RUN#run};; esac
 export CUDA_VISIBLE_DEVICES=$GPUS RAY_TMPDIR=/tmp/ray_$USER
 NG=$(echo $GPUS | tr ',' '\n' | wc -l)
 # Before starting: clear orphaned vLLM workers of ours on these GPUs (a crashed engine can leave its workers behind,
-# reparented to init, still holding memory), then wait up to 10 min for the GPUs to be free.
+# reparented to init, still holding memory), then wait up to 8 h for the GPUs to be free (other runs of ours may still hold them).
 uuids=$(nvidia-smi --query-gpu=index,uuid --format=csv,noheader | awk -F', ' -v g=",$GPUS," 'index(g, "," $1 ",") {print $2}')
 nvidia-smi --query-compute-apps=pid,gpu_uuid --format=csv,noheader | while IFS=', ' read pid uuid; do
   echo "$uuids" | grep -q "$uuid" || continue
   [ "$(ps -o user= -p $pid 2>/dev/null)" = "$USER" ] && [ "$(ps -o ppid= -p $pid 2>/dev/null | tr -d ' ')" = 1 ] \
     && ps -o comm= -p $pid | grep -q "^VLLM::" && { echo "$(date '+%F %T') killing orphaned $pid on $uuid" >> logs/${NAME}_$RUN.log; kill -9 $pid; }
 done
-for i in $(seq 1 60); do
+for i in $(seq 1 2880); do
   busy=$(nvidia-smi --query-gpu=index,memory.used --format=csv,noheader,nounits | awk -F', ' -v g=",$GPUS," 'index(g, "," $1 ",") && $2 > 1000' | wc -l)
   [ "$busy" -eq 0 ] && break; sleep 10
 done

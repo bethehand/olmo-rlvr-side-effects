@@ -1,0 +1,10 @@
+# INVALID (kept as the record of an artifact): arm A's rows here were generated with a config that loaded as rope_theta 10000 and no YaRN under transformers 4.57 (see the README compatibility note, 2026-10-23 10:45). The baseline rows are valid.
+# IFEval, first 200 prompts (index < 200), one sample each (temp 0.6, top_p 0.95, seed 1). Arm A generated with the 8K cap; the baselines' 32K outputs re-capped at 8K after the fact with truncate_to_cap.py (SFT 9, DPO 5 of these 200 were cut). Google's checkers, seeded. 2026-10-23 08:28 CST.
+# A cap-hit output has no </think>, so the checked 'answer' is the whole runaway text; a few of those still pass a checker by accident, which is why A's prompt accuracy (0.175) exceeds its share of normally finished outputs (22/200).
+Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl: n=200  prompt strict=0.735 [0.670, 0.791]  prompt loose=0.780 [0.718, 0.832]  instruction strict=0.824 loose=0.852  hit cap=9
+Olmo-3-7B-Think-DPO@main_run1_cap8k_first200.jsonl: n=200  prompt strict=0.685 [0.618, 0.745]  prompt loose=0.745 [0.680, 0.800]  instruction strict=0.792 loose=0.833  hit cap=5
+icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl: n=200  prompt strict=0.175 [0.129, 0.234]  prompt loose=0.180 [0.133, 0.239]  instruction strict=0.349 loose=0.358  hit cap=178
+  Olmo-3-7B-Think-DPO@main_run1_cap8k_first200.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl, prompt strict: n=200 diff=-0.050 [-0.110, +0.010]
+  Olmo-3-7B-Think-DPO@main_run1_cap8k_first200.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl, prompt loose: n=200 diff=-0.035 [-0.095, +0.025]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl, prompt strict: n=200 diff=-0.560 [-0.630, -0.485]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl, prompt loose: n=200 diff=-0.600 [-0.670, -0.530]

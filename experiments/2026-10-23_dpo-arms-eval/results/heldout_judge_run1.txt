@@ -1,0 +1,70 @@
+# analyze_heldout.py --judgments judgments/heldout_run1.jsonl on the held-out set (150 prompts: 50 short, 50 detail, 50 open), run1 outputs of the six models. Judge Qwen3-32B (bf16, tp 4, non-thinking, greedy, max 400 tokens; answers cut at 6,000 tokens), pairwise in both orders (a win needs both orders; everything else is a tie), rubric coverage per detail answer. 2,400 records in 2,012 s on GS01 (judge_all.sh, 05:57–06:30); 31 records unparsed, all rubric (hence n < 50 in the coverage block); every pairwise record parsed. 2026-10-25 06:40 CST; judge_stats.py block regenerated 10:15 with the near-equal-length stratum.
+== pairwise (Qwen3-32B judge, both orders; a win needs both orders)
+  Olmo-3-7B-Think-SFT_tmplA  vs  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1
+     short  n= 50  Olmo-3-7B-Think-SF wins 11 (0.22)  ties/disagree 18 (0.36)  icedduck_olmo3-7b- wins 21 (0.42)  orders agree 0.64
+     detail n= 50  Olmo-3-7B-Think-SF wins 8 (0.16)  ties/disagree 31 (0.62)  icedduck_olmo3-7b- wins 11 (0.22)  orders agree 0.38
+     open   n= 50  Olmo-3-7B-Think-SF wins 8 (0.16)  ties/disagree 25 (0.50)  icedduck_olmo3-7b- wins 17 (0.34)  orders agree 0.50
+     all    n=150  Olmo-3-7B-Think-SF wins 27 (0.18)  ties/disagree 74 (0.49)  icedduck_olmo3-7b- wins 49 (0.33)  orders agree 0.51
+  Olmo-3-7B-Think-SFT_tmplA  vs  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1
+     short  n= 50  Olmo-3-7B-Think-SF wins 12 (0.24)  ties/disagree 21 (0.42)  icedduck_olmo3-7b- wins 17 (0.34)  orders agree 0.58
+     detail n= 50  Olmo-3-7B-Think-SF wins 9 (0.18)  ties/disagree 27 (0.54)  icedduck_olmo3-7b- wins 14 (0.28)  orders agree 0.46
+     open   n= 50  Olmo-3-7B-Think-SF wins 11 (0.22)  ties/disagree 19 (0.38)  icedduck_olmo3-7b- wins 20 (0.40)  orders agree 0.62
+     all    n=150  Olmo-3-7B-Think-SF wins 32 (0.21)  ties/disagree 67 (0.45)  icedduck_olmo3-7b- wins 51 (0.34)  orders agree 0.55
+  Olmo-3-7B-Think-SFT_tmplA  vs  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1
+     short  n= 50  Olmo-3-7B-Think-SF wins 10 (0.20)  ties/disagree 19 (0.38)  icedduck_olmo3-7b- wins 21 (0.42)  orders agree 0.62
+     detail n= 50  Olmo-3-7B-Think-SF wins 11 (0.22)  ties/disagree 27 (0.54)  icedduck_olmo3-7b- wins 12 (0.24)  orders agree 0.46
+     open   n= 50  Olmo-3-7B-Think-SF wins 14 (0.28)  ties/disagree 19 (0.38)  icedduck_olmo3-7b- wins 17 (0.34)  orders agree 0.62
+     all    n=150  Olmo-3-7B-Think-SF wins 35 (0.23)  ties/disagree 65 (0.43)  icedduck_olmo3-7b- wins 50 (0.33)  orders agree 0.57
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1  vs  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1
+     short  n= 50  icedduck_olmo3-7b- wins 16 (0.32)  ties/disagree 21 (0.42)  icedduck_olmo3-7b- wins 13 (0.26)  orders agree 0.58
+     detail n= 50  icedduck_olmo3-7b- wins 10 (0.20)  ties/disagree 29 (0.58)  icedduck_olmo3-7b- wins 11 (0.22)  orders agree 0.42
+     open   n= 50  icedduck_olmo3-7b- wins 8 (0.16)  ties/disagree 31 (0.62)  icedduck_olmo3-7b- wins 11 (0.22)  orders agree 0.38
+     all    n=150  icedduck_olmo3-7b- wins 34 (0.23)  ties/disagree 81 (0.54)  icedduck_olmo3-7b- wins 35 (0.23)  orders agree 0.46
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1  vs  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1
+     short  n= 50  icedduck_olmo3-7b- wins 22 (0.44)  ties/disagree 11 (0.22)  icedduck_olmo3-7b- wins 17 (0.34)  orders agree 0.78
+     detail n= 50  icedduck_olmo3-7b- wins 13 (0.26)  ties/disagree 30 (0.60)  icedduck_olmo3-7b- wins 7 (0.14)  orders agree 0.40
+     open   n= 50  icedduck_olmo3-7b- wins 14 (0.28)  ties/disagree 28 (0.56)  icedduck_olmo3-7b- wins 8 (0.16)  orders agree 0.44
+     all    n=150  icedduck_olmo3-7b- wins 49 (0.33)  ties/disagree 69 (0.46)  icedduck_olmo3-7b- wins 32 (0.21)  orders agree 0.54
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1  vs  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1
+     short  n= 50  icedduck_olmo3-7b- wins 18 (0.36)  ties/disagree 16 (0.32)  icedduck_olmo3-7b- wins 16 (0.32)  orders agree 0.68
+     detail n= 50  icedduck_olmo3-7b- wins 13 (0.26)  ties/disagree 26 (0.52)  icedduck_olmo3-7b- wins 11 (0.22)  orders agree 0.48
+     open   n= 50  icedduck_olmo3-7b- wins 14 (0.28)  ties/disagree 25 (0.50)  icedduck_olmo3-7b- wins 11 (0.22)  orders agree 0.50
+     all    n=150  icedduck_olmo3-7b- wins 45 (0.30)  ties/disagree 67 (0.45)  icedduck_olmo3-7b- wins 38 (0.25)  orders agree 0.55
+  Olmo-3-7B-Think-SFT_run1  vs  Olmo-3-7B-Think-DPO_run1
+     short  n= 50  Olmo-3-7B-Think-SF wins 2 (0.04)  ties/disagree 14 (0.28)  Olmo-3-7B-Think-DP wins 34 (0.68)  orders agree 0.72
+     detail n= 50  Olmo-3-7B-Think-SF wins 2 (0.04)  ties/disagree 10 (0.20)  Olmo-3-7B-Think-DP wins 38 (0.76)  orders agree 0.80
+     open   n= 50  Olmo-3-7B-Think-SF wins 3 (0.06)  ties/disagree 4 (0.08)  Olmo-3-7B-Think-DP wins 43 (0.86)  orders agree 0.92
+     all    n=150  Olmo-3-7B-Think-SF wins 7 (0.05)  ties/disagree 28 (0.19)  Olmo-3-7B-Think-DP wins 115 (0.77)  orders agree 0.81
+
+== rubric coverage on detail questions (share of points covered): mean [95% CI]
+  Olmo-3-7B-Think-SFT_tmplA                  0.995 [0.985, 1.000] n=41
+  Olmo-3-7B-Think-SFT_run1                   0.988 [0.972, 1.000] n=43
+  Olmo-3-7B-Think-DPO_run1                   0.992 [0.979, 1.000] n=48
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 0.986 [0.971, 0.997] n=47
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1 0.992 [0.979, 1.000] n=45
+  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1 0.996 [0.989, 1.000] n=45
+
+== judge_stats.py: win-share intervals, sign tests, the judge's preference for the longer answer, and decided prompts with near-equal lengths
+pair: n, wins (x / ties / y), y − x win share [95% CI], sign test z over decided prompts, share of decided prompts won by the longer answer
+  SFT_tmplA vs arm_A   n=150   27 /  74 /  49  +0.147 [+0.033, +0.253]  z=+2.52  longer wins 51/76 = 0.67
+             when SFT_tmplA is longer: SFT_tmplA wins 15, arm_A wins 13;  when arm_A is longer: SFT_tmplA wins 12, arm_A wins 36
+             lengths within 20 % of each other: SFT_tmplA wins 18, arm_A wins 24 (of 42 decided)
+  SFT_tmplA vs arm_B   n=150   32 /  67 /  51  +0.127 [+0.007, +0.240]  z=+2.09  longer wins 50/83 = 0.60
+             when SFT_tmplA is longer: SFT_tmplA wins 15, arm_B wins 16;  when arm_B is longer: SFT_tmplA wins 17, arm_B wins 35
+             lengths within 20 % of each other: SFT_tmplA wins 19, arm_B wins 27 (of 46 decided)
+  SFT_tmplA vs arm_Bp  n=150   35 /  65 /  50  +0.100 [-0.020, +0.213]  z=+1.63  longer wins 50/85 = 0.59
+             when SFT_tmplA is longer: SFT_tmplA wins 19, arm_Bp wins 19;  when arm_Bp is longer: SFT_tmplA wins 16, arm_Bp wins 31
+             lengths within 20 % of each other: SFT_tmplA wins 21, arm_Bp wins 25 (of 46 decided)
+      arm_A vs arm_B   n=150   34 /  81 /  35  +0.007 [-0.107, +0.120]  z=+0.12  longer wins 57/69 = 0.83
+             when arm_A is longer: arm_A wins 26, arm_B wins 4;  when arm_B is longer: arm_A wins 8, arm_B wins 31
+             lengths within 20 % of each other: arm_A wins 20, arm_B wins 19 (of 39 decided)
+      arm_A vs arm_Bp  n=150   49 /  69 /  32  -0.113 [-0.227, +0.007]  z=-1.89  longer wins 59/81 = 0.73
+             when arm_A is longer: arm_A wins 36, arm_Bp wins 9;  when arm_Bp is longer: arm_A wins 13, arm_Bp wins 23
+             lengths within 20 % of each other: arm_A wins 33, arm_Bp wins 20 (of 53 decided)
+      arm_B vs arm_Bp  n=150   45 /  67 /  38  -0.047 [-0.167, +0.067]  z=-0.77  longer wins 69/83 = 0.83
+             when arm_B is longer: arm_B wins 39, arm_Bp wins 8;  when arm_Bp is longer: arm_B wins 6, arm_Bp wins 30
+             lengths within 20 % of each other: arm_B wins 22, arm_Bp wins 20 (of 42 decided)
+        SFT vs DPO     n=150    7 /  28 / 115  +0.720 [+0.633, +0.800]  z=+9.78  longer wins 114/122 = 0.93
+             when SFT is longer: SFT wins 2, DPO wins 3;  when DPO is longer: SFT wins 5, DPO wins 112
+             lengths within 20 % of each other: SFT wins 3, DPO wins 22 (of 25 decided)
+arm-vs-arm pairs pooled: the longer answer won 185 of 233 decided prompts = 0.79

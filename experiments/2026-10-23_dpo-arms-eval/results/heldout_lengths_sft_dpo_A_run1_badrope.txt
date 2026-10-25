@@ -1,0 +1,18 @@
+# INVALID (kept as the record of an artifact): arm A's rows here were generated with a config that loaded as rope_theta 10000 and no YaRN under transformers 4.57 (see the README compatibility note, 2026-10-23 10:45). The baseline rows are valid.
+# analyze_heldout.py on heldout run1 outputs: Think-SFT, Think-DPO (32K cap; neither exceeds 8K tokens on this set) and arm A (8K cap). 2026-10-23 07:30 CST.
+# Caveat for arm A: a cap-hit output has no </think>, so its 'answer' is the whole output and the gold-string check can match a number mentioned while thinking.
+== answer length (tokens after </think>): median [95% CI], n, hit cap
+  Olmo-3-7B-Think-SFT_run1                   | short    173 [129, 192] n=50 cap=0 | detail    764 [691, 812] n=50 cap=0 | open    712 [614, 812] n=50 cap=0
+  Olmo-3-7B-Think-DPO_run1                   | short    295 [236, 322] n=50 cap=0 | detail   1048 [980, 1098] n=50 cap=0 | open    966 [846, 1092] n=50 cap=0
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 | short    226 [116, 7950] n=50 cap=23 | detail   8179 [8167, 8184] n=50 cap=47 | open   8171 [8158, 8178] n=50 cap=47
+
+== short questions: correct (gold string in answer), over-answered (> 60 tokens)
+  Olmo-3-7B-Think-SFT_run1                   correct 50/50 = 1.00 [0.93, 1.00]   over-answered 48/50 = 0.96 [0.87, 0.99]
+  Olmo-3-7B-Think-DPO_run1                   correct 50/50 = 1.00 [0.93, 1.00]   over-answered 50/50 = 1.00 [0.93, 1.00]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 correct 45/50 = 0.90 [0.79, 0.96]   over-answered 44/50 = 0.88 [0.76, 0.94]
+     misses: S02:Okay, so I need to figure out how many minutes are in a day. || S08:Okay, so I need to find 15% of 240. Hmm, percentages can som || S20:Okay, so the user is asking for the plural of "cactus." Let  || S25:Okay, so I need to figure out what 7 cubed is. Hmm, let me s || S47:Okay, so I need to figure out how many days are in a leap ye
+
+== paired change in answer tokens from Olmo-3-7B-Think-SFT_run1: median [95% CI]
+  Olmo-3-7B-Think-DPO_run1                   | short   +116 [+76, +140] n=50 | detail   +282 [+259, +310] n=50 | open   +241 [+165, +286] n=50
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 | short    +89 [-8, +7655] n=50 | detail  +7338 [+7281, +7419] n=50 | open  +7361 [+7277, +7468] n=50
+# arm A short questions: 27 outputs stopped normally and all 27 are correct; 23 hit the cap, 18 of them mention the gold answer somewhere in the runaway text.

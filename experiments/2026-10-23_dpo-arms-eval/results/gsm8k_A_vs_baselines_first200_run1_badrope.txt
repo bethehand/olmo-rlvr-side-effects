@@ -1,0 +1,7 @@
+# INVALID (kept as the record of an artifact): arm A's rows here were generated with a config that loaded as rope_theta 10000 and no YaRN under transformers 4.57 (see the README compatibility note, 2026-10-23 10:45). The baseline rows are valid.
+# GSM8K, first 200 test problems (index < 200), one sample each (temp 0.6, top_p 0.95, seed 1). Arm A generated with the 8K cap; the baselines' 32K outputs re-capped at 8K after the fact with truncate_to_cap.py (SFT 5, DPO 3 of these 200 were cut). 2026-10-23 09:51 CST.
+Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl: n=200 acc=0.940 [0.898, 0.965]  hit cap=5  no number=0
+Olmo-3-7B-Think-DPO@main_run1_cap8k_first200.jsonl: n=200 acc=0.855 [0.800, 0.897]  hit cap=3  no number=0
+icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl: n=200 acc=0.040 [0.020, 0.077]  hit cap=195  no number=0
+  Olmo-3-7B-Think-DPO@main_run1_cap8k_first200.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl: n=200 diff=-0.085 [-0.130, -0.040]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k_first200.jsonl: n=200 diff=-0.900 [-0.940, -0.855]

@@ -1,0 +1,23 @@
+# analyze_heldout.py on the held-out set (150 prompts: 50 short factual, 50 detail, 50 open), run1 (temp 0.6, top_p 0.95, seed 1, 32K cap). Rows: Think-SFT with the arms' training template (tmplA, the exact control), Think-SFT with its released template, Ai2's Think-DPO, arms A, B and B' (repaired configs, training template). Paired block: per-prompt change against the training-template Think-SFT, median [bootstrap 95% CI]. Judge results are in heldout_judge_run1.txt once the judge has run. 2026-10-25 05:40 CST (four-row version of 10-23 kept as heldout_lengths_run1_4rows_1023.txt).
+== answer length (tokens after </think>): median [95% CI], n, hit cap
+  Olmo-3-7B-Think-SFT_tmplA                  | short    138 [122, 176] n=50 cap=0 | detail    744 [686, 794] n=50 cap=1 | open    729 [645, 778] n=50 cap=1
+  Olmo-3-7B-Think-SFT_run1                   | short    173 [129, 192] n=50 cap=0 | detail    764 [691, 812] n=50 cap=0 | open    712 [614, 812] n=50 cap=0
+  Olmo-3-7B-Think-DPO_run1                   | short    295 [236, 322] n=50 cap=0 | detail   1048 [980, 1098] n=50 cap=0 | open    966 [846, 1092] n=50 cap=0
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 | short    139 [112, 181] n=50 cap=0 | detail    821 [735, 847] n=50 cap=0 | open    750 [630, 818] n=50 cap=0
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1 | short    150 [129, 173] n=50 cap=0 | detail    774 [735, 832] n=50 cap=0 | open    770 [658, 853] n=50 cap=0
+  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1 | short    149 [120, 166] n=50 cap=0 | detail    765 [723, 808] n=50 cap=0 | open    749 [638, 824] n=50 cap=0
+
+== short questions: correct (gold string in answer), over-answered (> 60 tokens)
+  Olmo-3-7B-Think-SFT_tmplA                  correct 50/50 = 1.00 [0.93, 1.00]   over-answered 48/50 = 0.96 [0.87, 0.99]
+  Olmo-3-7B-Think-SFT_run1                   correct 50/50 = 1.00 [0.93, 1.00]   over-answered 48/50 = 0.96 [0.87, 0.99]
+  Olmo-3-7B-Think-DPO_run1                   correct 50/50 = 1.00 [0.93, 1.00]   over-answered 50/50 = 1.00 [0.93, 1.00]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 correct 50/50 = 1.00 [0.93, 1.00]   over-answered 47/50 = 0.94 [0.84, 0.98]
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1 correct 50/50 = 1.00 [0.93, 1.00]   over-answered 45/50 = 0.90 [0.79, 0.96]
+  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1 correct 50/50 = 1.00 [0.93, 1.00]   over-answered 48/50 = 0.96 [0.87, 0.99]
+
+== paired change in answer tokens from Olmo-3-7B-Think-SFT_tmplA: median [95% CI]
+  Olmo-3-7B-Think-SFT_run1                   | short     +0 [-21, +38] n=50 | detail    +10 [-38, +57] n=50 | open    +11 [-26, +38] n=50
+  Olmo-3-7B-Think-DPO_run1                   | short   +130 [+92, +180] n=50 | detail   +287 [+230, +321] n=50 | open   +250 [+196, +306] n=50
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1_run1 | short     -4 [-25, +15] n=50 | detail    +58 [+12, +88] n=50 | open    +28 [+14, +66] n=50
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1_run1 | short     +6 [-12, +24] n=50 | detail    +32 [-24, +97] n=50 | open    +46 [+5, +64] n=50
+  icedduck_olmo3-7b-think-dpo-arm_Bp_seed1_run1 | short     +4 [-18, +16] n=50 | detail     +4 [-46, +34] n=50 | open     +6 [-28, +42] n=50

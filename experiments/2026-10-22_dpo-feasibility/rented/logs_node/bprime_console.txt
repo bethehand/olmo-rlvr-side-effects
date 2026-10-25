@@ -1,0 +1,1265 @@
+2026-10-23T05:27:43Z B-prime runner started; waiting for the A/B pipeline to finish
+2026-10-23T06:47:44Z B-prime start: gpus=3 mode=sep ds_conf=/workspace/side-effects/experiments/2026-10-22_dpo-feasibility/rented/ds_stage3_offload_optimizer.conf volume=186G free
+2026-10-23T06:47:44Z arm_Bp.jsonl ready: 20000 pairs
+end 2026-10-23T15:50:48Z exit=0 wall_s=32581
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+run_info.txt
+step_600
+tokenizer.json
+tokenizer_config.json
+A new version of huggingface_hub (2.3.0) is available! You are using version 1.8.0.
+To update, run: pip install -U huggingface_hub
+
+Start hashing 8 files.
+Finished hashing 8 files.
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...p_seed1/model.safetensors:   0%|          | 2.43MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   0%|          | 2.43MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   0%|          | 2.43MB / 14.6GB, 3.04MB/s  
+New Data Upload               :   4%|▎         | 2.43MB / 67.1MB, 3.04MB/s  [A
+
+  ...p_seed1/model.safetensors:   0%|          | 66.8MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   0%|          | 66.8MB / 14.6GB, 66.8MB/s  
+New Data Upload               :  50%|████▉     | 66.8MB /  134MB, 66.8MB/s  [A
+
+  ...p_seed1/model.safetensors:   0%|          | 66.8MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   0%|          | 66.8MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   0%|          | 66.8MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   1%|          |  134MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   1%|          |  134MB / 14.6GB, 74.3MB/s  
+New Data Upload               : 100%|█████████▉|  134MB /  134MB, 74.3MB/s  [A
+
+  ...p_seed1/model.safetensors:   1%|          |  134MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   1%|          |  134MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   1%|▏         |  201MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   1%|▏         |  201MB / 14.6GB, 83.6MB/s  
+New Data Upload               :  75%|███████▍  |  201MB /  268MB, 83.6MB/s  [A
+
+  ...p_seed1/model.safetensors:   1%|▏         |  201MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   1%|▏         |  201MB / 14.6GB, 77.3MB/s  
+New Data Upload               :  75%|███████▍  |  201MB /  268MB, 77.3MB/s  [A
+
+  ...p_seed1/model.safetensors:   2%|▏         |  268MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  268MB / 14.6GB, 95.6MB/s  
+New Data Upload               :  80%|███████▉  |  268MB /  335MB, 95.6MB/s  [A
+
+  ...p_seed1/model.safetensors:   2%|▏         |  268MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   2%|▏         |  269MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  269MB / 14.6GB, 84.1MB/s  
+New Data Upload               :  80%|████████  |  269MB /  335MB, 84.1MB/s  [A
+
+  ...p_seed1/model.safetensors:   2%|▏         |  335MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  335MB / 14.6GB, 98.5MB/s  
+New Data Upload               :  83%|████████▎ |  335MB /  402MB, 98.5MB/s  [A
+
+  ...p_seed1/model.safetensors:   2%|▏         |  335MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  335MB / 14.6GB, 93.1MB/s  
+New Data Upload               :  83%|████████▎ |  335MB /  402MB, 93.1MB/s  [A
+
+  ...p_seed1/model.safetensors:   3%|▎         |  402MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   3%|▎         |  402MB / 14.6GB,  106MB/s  
+New Data Upload               :  86%|████████▌ |  402MB /  469MB,  106MB/s  [A
+
+  ...p_seed1/model.safetensors:   3%|▎         |  402MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   3%|▎         |  469MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   3%|▎         |  469MB / 14.6GB,  112MB/s  
+New Data Upload               :  87%|████████▋ |  469MB /  536MB,  112MB/s  [A
+
+  ...p_seed1/model.safetensors:   3%|▎         |  469MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   4%|▎         |  536MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   4%|▎         |  536MB / 14.6GB,  116MB/s  
+New Data Upload               :  89%|████████▉ |  536MB /  604MB,  116MB/s  [A
+
+  ...p_seed1/model.safetensors:   4%|▎         |  536MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   4%|▍         |  603MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   4%|▍         |  603MB / 14.6GB,  121MB/s  
+New Data Upload               :  90%|████████▉ |  603MB /  671MB,  121MB/s  [A
+
+  ...p_seed1/model.safetensors:   4%|▍         |  603MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   4%|▍         |  607MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   4%|▍         |  607MB / 14.6GB,  112MB/s  
+New Data Upload               :  90%|█████████ |  607MB /  671MB,  112MB/s  [A
+
+  ...p_seed1/model.safetensors:   5%|▍         |  670MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   5%|▍         |  670MB / 14.6GB,  120MB/s  
+New Data Upload               :  91%|█████████ |  670MB /  738MB,  120MB/s  [A
+
+  ...p_seed1/model.safetensors:   5%|▍         |  670MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   5%|▍         |  670MB / 14.6GB,  116MB/s  
+New Data Upload               :  91%|█████████ |  670MB /  738MB,  116MB/s  [A
+
+  ...p_seed1/model.safetensors:   5%|▌         |  737MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   5%|▌         |  737MB / 14.6GB,  123MB/s  
+New Data Upload               :  92%|█████████▏|  737MB /  805MB,  123MB/s  [A
+
+  ...p_seed1/model.safetensors:   5%|▌         |  737MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   5%|▌         |  737MB / 14.6GB,  119MB/s  
+
+  ...p_seed1/model.safetensors:   6%|▌         |  804MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   6%|▌         |  804MB / 14.6GB,  126MB/s  
+New Data Upload               :  92%|█████████▏|  804MB /  872MB,  126MB/s  [A
+
+  ...p_seed1/model.safetensors:   6%|▌         |  804MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   6%|▌         |  871MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   6%|▌         |  871MB / 14.6GB,  128MB/s  
+New Data Upload               :  93%|█████████▎|  871MB /  939MB,  128MB/s  [A
+
+  ...p_seed1/model.safetensors:   6%|▌         |  871MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   6%|▋         |  938MB / 14.6GB            [A[AProcessing Files (0 / 1)      :   6%|▋         |  938MB / 14.6GB,  130MB/s  
+New Data Upload               :  93%|█████████▎|  938MB / 1.01GB,  130MB/s  [A
+
+  ...p_seed1/model.safetensors:   6%|▋         |  938MB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   7%|▋         | 1.01GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   7%|▋         | 1.01GB / 14.6GB,  132MB/s  
+New Data Upload               : 100%|█████████▉| 1.01GB / 1.01GB,  132MB/s  [A
+
+  ...p_seed1/model.safetensors:   7%|▋         | 1.01GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   7%|▋         | 1.01GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   7%|▋         | 1.01GB / 14.6GB,  126MB/s  
+New Data Upload               :  94%|█████████▎| 1.01GB / 1.07GB,  126MB/s  [A
+
+  ...p_seed1/model.safetensors:   7%|▋         | 1.07GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   7%|▋         | 1.07GB / 14.6GB,  131MB/s  
+New Data Upload               :  94%|█████████▍| 1.07GB / 1.14GB,  131MB/s  [A
+
+  ...p_seed1/model.safetensors:   7%|▋         | 1.07GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   7%|▋         | 1.07GB / 14.6GB,  128MB/s  
+
+  ...p_seed1/model.safetensors:   8%|▊         | 1.14GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   8%|▊         | 1.14GB / 14.6GB,  133MB/s  
+New Data Upload               :  94%|█████████▍| 1.14GB / 1.21GB,  132MB/s  [A
+
+  ...p_seed1/model.safetensors:   8%|▊         | 1.14GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   8%|▊         | 1.21GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   8%|▊         | 1.21GB / 14.6GB,  134MB/s  
+New Data Upload               :  95%|█████████▍| 1.21GB / 1.27GB,  134MB/s  [A
+
+  ...p_seed1/model.safetensors:   8%|▊         | 1.21GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   9%|▊         | 1.27GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   9%|▊         | 1.27GB / 14.6GB,  136MB/s  
+New Data Upload               :  95%|█████████▍| 1.27GB / 1.34GB,  136MB/s  [A
+
+  ...p_seed1/model.safetensors:   9%|▊         | 1.27GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   9%|▉         | 1.34GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   9%|▉         | 1.34GB / 14.6GB,  137MB/s  
+New Data Upload               :  95%|█████████▌| 1.34GB / 1.41GB,  137MB/s  [A
+
+  ...p_seed1/model.safetensors:   9%|▉         | 1.34GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:   9%|▉         | 1.36GB / 14.6GB            [A[AProcessing Files (0 / 1)      :   9%|▉         | 1.36GB / 14.6GB,  133MB/s  
+New Data Upload               :  96%|█████████▋| 1.36GB / 1.41GB,  133MB/s  [A
+
+  ...p_seed1/model.safetensors:  10%|▉         | 1.41GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|▉         | 1.41GB / 14.6GB,  138MB/s  
+New Data Upload               :  95%|█████████▌| 1.41GB / 1.48GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  10%|▉         | 1.41GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|▉         | 1.41GB / 14.6GB,  138MB/s  
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|█         | 1.48GB / 14.6GB,  145MB/s  
+New Data Upload               : 100%|█████████▉| 1.48GB / 1.48GB,  145MB/s  [A
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|█         | 1.48GB / 14.6GB,  138MB/s  
+New Data Upload               : 100%|█████████▉| 1.48GB / 1.48GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|█         | 1.48GB / 14.6GB,  138MB/s  
+New Data Upload               : 100%|██████████| 1.48GB / 1.48GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  10%|█         | 1.48GB / 14.6GB,  138MB/s  
+
+  ...p_seed1/model.safetensors:  10%|█         | 1.48GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  11%|█         | 1.54GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█         | 1.54GB / 14.6GB,  138MB/s  
+New Data Upload               : 100%|█████████▉| 1.54GB / 1.54GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  11%|█         | 1.54GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█         | 1.54GB / 14.6GB,  138MB/s  
+
+  ...p_seed1/model.safetensors:  11%|█         | 1.54GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█         | 1.54GB / 14.6GB,  132MB/s  
+
+  ...p_seed1/model.safetensors:  11%|█         | 1.61GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█         | 1.61GB / 14.6GB,  138MB/s  
+New Data Upload               :  96%|█████████▌| 1.61GB / 1.68GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  11%|█         | 1.61GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█         | 1.61GB / 14.6GB,  132MB/s  
+New Data Upload               :  96%|█████████▌| 1.61GB / 1.68GB,  132MB/s  [A
+
+  ...p_seed1/model.safetensors:  11%|█▏        | 1.68GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  11%|█▏        | 1.68GB / 14.6GB,  138MB/s  
+New Data Upload               :  96%|█████████▌| 1.68GB / 1.74GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  11%|█▏        | 1.68GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  12%|█▏        | 1.74GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  12%|█▏        | 1.74GB / 14.6GB,  138MB/s  
+New Data Upload               :  96%|█████████▋| 1.74GB / 1.81GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  12%|█▏        | 1.74GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  12%|█▏        | 1.81GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  12%|█▏        | 1.81GB / 14.6GB,  138MB/s  
+New Data Upload               :  96%|█████████▋| 1.81GB / 1.88GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  12%|█▏        | 1.81GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  13%|█▎        | 1.88GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 1.88GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 1.88GB / 1.94GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  13%|█▎        | 1.88GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  13%|█▎        | 1.92GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 1.92GB / 14.6GB,  135MB/s  
+New Data Upload               :  99%|█████████▊| 1.92GB / 1.94GB,  135MB/s  [A
+
+  ...p_seed1/model.safetensors:  13%|█▎        | 1.95GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 1.95GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 1.94GB / 2.01GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  13%|█▎        | 1.95GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 1.95GB / 14.6GB,  132MB/s  
+New Data Upload               :  97%|█████████▋| 1.94GB / 2.01GB,  132MB/s  [A
+
+  ...p_seed1/model.safetensors:  14%|█▍        | 2.01GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  14%|█▍        | 2.01GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.01GB / 2.08GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  14%|█▍        | 2.01GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  14%|█▍        | 2.08GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  14%|█▍        | 2.08GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.08GB / 2.15GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  14%|█▍        | 2.08GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  15%|█▍        | 2.15GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  15%|█▍        | 2.15GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.15GB / 2.21GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  15%|█▍        | 2.15GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  15%|█▌        | 2.21GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  15%|█▌        | 2.21GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.21GB / 2.28GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  15%|█▌        | 2.21GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  16%|█▌        | 2.28GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  16%|█▌        | 2.28GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.28GB / 2.35GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  16%|█▌        | 2.28GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  16%|█▌        | 2.35GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  16%|█▌        | 2.35GB / 14.6GB,  138MB/s  
+New Data Upload               : 100%|█████████▉| 2.35GB / 2.35GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  16%|█▌        | 2.35GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  16%|█▌        | 2.35GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.41GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  17%|█▋        | 2.41GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.41GB / 2.48GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.41GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  17%|█▋        | 2.41GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.41GB / 2.48GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.48GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  17%|█▋        | 2.48GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.48GB / 2.55GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.48GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.55GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  17%|█▋        | 2.55GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.55GB / 2.62GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  17%|█▋        | 2.55GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  18%|█▊        | 2.62GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  18%|█▊        | 2.62GB / 14.6GB,  138MB/s  
+New Data Upload               :  97%|█████████▋| 2.62GB / 2.68GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  18%|█▊        | 2.62GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  18%|█▊        | 2.68GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  18%|█▊        | 2.68GB / 14.6GB,  138MB/s  
+New Data Upload               :  98%|█████████▊| 2.68GB / 2.75GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  18%|█▊        | 2.68GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  19%|█▉        | 2.75GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  19%|█▉        | 2.75GB / 14.6GB,  138MB/s  
+New Data Upload               :  98%|█████████▊| 2.75GB / 2.82GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  19%|█▉        | 2.75GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  19%|█▉        | 2.77GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  19%|█▉        | 2.77GB / 14.6GB,  139MB/s  
+New Data Upload               :  96%|█████████▌| 2.77GB / 2.88GB,  139MB/s  [A
+
+  ...p_seed1/model.safetensors:  19%|█▉        | 2.82GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  19%|█▉        | 2.82GB / 14.6GB,  138MB/s  
+New Data Upload               :  98%|█████████▊| 2.82GB / 2.88GB,  138MB/s  [A
+
+  ...p_seed1/model.safetensors:  20%|█▉        | 2.88GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  20%|█▉        | 2.88GB / 14.6GB,  145MB/s  
+New Data Upload               : 100%|█████████▉| 2.88GB / 2.88GB,  145MB/s  [A
+
+  ...p_seed1/model.safetensors:  20%|█▉        | 2.88GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  20%|█▉        | 2.88GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  20%|██        | 2.95GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  20%|██        | 2.95GB / 14.6GB,  145MB/s  
+New Data Upload               :  98%|█████████▊| 2.95GB / 3.02GB,  145MB/s  [A
+
+  ...p_seed1/model.safetensors:  20%|██        | 2.95GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  20%|██        | 2.95GB / 14.6GB,  145MB/s  
+New Data Upload               :  98%|█████████▊| 2.95GB / 3.02GB,  145MB/s  [A
+
+  ...p_seed1/model.safetensors:  21%|██        | 3.02GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  21%|██        | 3.02GB / 14.6GB,  151MB/s  
+New Data Upload               :  98%|█████████▊| 3.02GB / 3.09GB,  151MB/s  [A
+
+  ...p_seed1/model.safetensors:  21%|██        | 3.03GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  21%|██        | 3.03GB / 14.6GB,  152MB/s  
+New Data Upload               :  98%|█████████▊| 3.02GB / 3.09GB,  152MB/s  [A
+
+  ...p_seed1/model.safetensors:  21%|██        | 3.09GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  21%|██        | 3.09GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.08GB / 3.15GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  21%|██        | 3.09GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  22%|██▏       | 3.15GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  22%|██▏       | 3.15GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.15GB / 3.22GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  22%|██▏       | 3.15GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  22%|██▏       | 3.22GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  22%|██▏       | 3.22GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.22GB / 3.29GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  22%|██▏       | 3.22GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.29GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  23%|██▎       | 3.29GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.29GB / 3.35GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.29GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.35GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  23%|██▎       | 3.35GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.35GB / 3.42GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.35GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.42GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  23%|██▎       | 3.42GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.42GB / 3.49GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  23%|██▎       | 3.42GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  24%|██▍       | 3.49GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  24%|██▍       | 3.49GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 3.49GB / 3.55GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  24%|██▍       | 3.49GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  24%|██▍       | 3.55GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  24%|██▍       | 3.55GB / 14.6GB,  161MB/s  
+New Data Upload               :  98%|█████████▊| 3.55GB / 3.62GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  24%|██▍       | 3.55GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  25%|██▍       | 3.62GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  25%|██▍       | 3.62GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.62GB / 3.69GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  25%|██▍       | 3.62GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  25%|██▌       | 3.69GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  25%|██▌       | 3.69GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.69GB / 3.76GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  25%|██▌       | 3.69GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  26%|██▌       | 3.76GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  26%|██▌       | 3.76GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.76GB / 3.82GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  26%|██▌       | 3.76GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  26%|██▌       | 3.82GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  26%|██▌       | 3.82GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.82GB / 3.89GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  26%|██▌       | 3.82GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  27%|██▋       | 3.89GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  27%|██▋       | 3.89GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.89GB / 3.96GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  27%|██▋       | 3.89GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  27%|██▋       | 3.96GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  27%|██▋       | 3.96GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 3.96GB / 4.02GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  27%|██▋       | 3.96GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.02GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  28%|██▊       | 4.02GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 4.02GB / 4.09GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.02GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.09GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  28%|██▊       | 4.09GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 4.09GB / 4.16GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.09GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.16GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  28%|██▊       | 4.16GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 4.16GB / 4.16GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  28%|██▊       | 4.16GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  29%|██▊       | 4.19GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  29%|██▊       | 4.19GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 4.19GB / 4.23GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  29%|██▉       | 4.23GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  29%|██▉       | 4.23GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 4.23GB / 4.29GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  29%|██▉       | 4.23GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  29%|██▉       | 4.29GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  29%|██▉       | 4.29GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 4.29GB / 4.36GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  29%|██▉       | 4.29GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  30%|██▉       | 4.36GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  30%|██▉       | 4.36GB / 14.6GB,  164MB/s  
+New Data Upload               :  98%|█████████▊| 4.36GB / 4.43GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  30%|██▉       | 4.36GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  30%|███       | 4.43GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  30%|███       | 4.43GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.43GB / 4.49GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  30%|███       | 4.43GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  31%|███       | 4.49GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  31%|███       | 4.49GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.49GB / 4.56GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  31%|███       | 4.49GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  31%|███▏      | 4.56GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  31%|███▏      | 4.56GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.56GB / 4.63GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  31%|███▏      | 4.56GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  32%|███▏      | 4.63GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  32%|███▏      | 4.63GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.63GB / 4.69GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  32%|███▏      | 4.63GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  32%|███▏      | 4.69GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  32%|███▏      | 4.69GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.69GB / 4.76GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  32%|███▏      | 4.69GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  33%|███▎      | 4.76GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  33%|███▎      | 4.76GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.76GB / 4.83GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  33%|███▎      | 4.76GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  33%|███▎      | 4.83GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  33%|███▎      | 4.83GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.83GB / 4.90GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  33%|███▎      | 4.83GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  34%|███▎      | 4.90GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  34%|███▎      | 4.90GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.89GB / 4.96GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  34%|███▎      | 4.90GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  34%|███▎      | 4.90GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.90GB / 4.96GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  34%|███▍      | 4.96GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  34%|███▍      | 4.96GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 4.96GB / 5.03GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  34%|███▍      | 4.96GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  34%|███▍      | 5.03GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  34%|███▍      | 5.03GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 5.03GB / 5.10GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  34%|███▍      | 5.03GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  34%|███▍      | 5.03GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 5.03GB / 5.10GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  35%|███▍      | 5.10GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  35%|███▍      | 5.10GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 5.10GB / 5.16GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  35%|███▍      | 5.10GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  35%|███▌      | 5.16GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  35%|███▌      | 5.16GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 5.16GB / 5.16GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  35%|███▌      | 5.16GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  35%|███▌      | 5.16GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  35%|███▌      | 5.16GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▊| 5.16GB / 5.23GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  36%|███▌      | 5.23GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  36%|███▌      | 5.23GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 5.23GB / 5.30GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  36%|███▌      | 5.23GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  36%|███▌      | 5.23GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▊| 5.23GB / 5.30GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  36%|███▋      | 5.30GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  36%|███▋      | 5.30GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▊| 5.30GB / 5.37GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  36%|███▋      | 5.30GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  37%|███▋      | 5.37GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  37%|███▋      | 5.37GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.37GB / 5.43GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  37%|███▋      | 5.37GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  37%|███▋      | 5.43GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  37%|███▋      | 5.43GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.43GB / 5.50GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  37%|███▋      | 5.43GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  38%|███▊      | 5.50GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  38%|███▊      | 5.50GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.50GB / 5.57GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  38%|███▊      | 5.50GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  38%|███▊      | 5.57GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  38%|███▊      | 5.57GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.57GB / 5.63GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  38%|███▊      | 5.57GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  39%|███▊      | 5.63GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  39%|███▊      | 5.63GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.63GB / 5.70GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  39%|███▊      | 5.63GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  39%|███▉      | 5.70GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  39%|███▉      | 5.70GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 5.70GB / 5.70GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  39%|███▉      | 5.70GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  39%|███▉      | 5.70GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  40%|███▉      | 5.77GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  40%|███▉      | 5.77GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 5.77GB / 5.83GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  40%|███▉      | 5.77GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  40%|███▉      | 5.84GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  40%|███▉      | 5.84GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 5.83GB / 5.90GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  40%|███▉      | 5.84GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  40%|████      | 5.90GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  40%|████      | 5.90GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.90GB / 5.97GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  40%|████      | 5.90GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  41%|████      | 5.97GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  41%|████      | 5.97GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 5.97GB / 6.04GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  41%|████      | 5.97GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  41%|████▏     | 6.04GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  41%|████▏     | 6.04GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.04GB / 6.10GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  41%|████▏     | 6.04GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  42%|████▏     | 6.10GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  42%|████▏     | 6.10GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.10GB / 6.17GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  42%|████▏     | 6.10GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  42%|████▏     | 6.17GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  42%|████▏     | 6.17GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.17GB / 6.24GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  42%|████▏     | 6.17GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  43%|████▎     | 6.24GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  43%|████▎     | 6.24GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.24GB / 6.30GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  43%|████▎     | 6.24GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  43%|████▎     | 6.30GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  43%|████▎     | 6.30GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.30GB / 6.37GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  43%|████▎     | 6.30GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  44%|████▎     | 6.37GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  44%|████▎     | 6.37GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.37GB / 6.44GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  44%|████▎     | 6.37GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  44%|████▍     | 6.44GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  44%|████▍     | 6.44GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.44GB / 6.51GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  44%|████▍     | 6.44GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  44%|████▍     | 6.44GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.44GB / 6.51GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  44%|████▍     | 6.44GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  44%|████▍     | 6.44GB / 14.6GB,  158MB/s  
+New Data Upload               :  98%|█████████▊| 6.44GB / 6.57GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  45%|████▍     | 6.51GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  45%|████▍     | 6.51GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.50GB / 6.57GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  45%|████▍     | 6.54GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  45%|████▍     | 6.54GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 6.54GB / 6.57GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  45%|████▌     | 6.57GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  45%|████▌     | 6.57GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.57GB / 6.64GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  45%|████▌     | 6.57GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  45%|████▌     | 6.64GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  45%|████▌     | 6.64GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.64GB / 6.71GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  45%|████▌     | 6.64GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  46%|████▌     | 6.71GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  46%|████▌     | 6.71GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.71GB / 6.77GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  46%|████▌     | 6.71GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  46%|████▋     | 6.77GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  46%|████▋     | 6.77GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 6.77GB / 6.84GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  46%|████▋     | 6.77GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  47%|████▋     | 6.84GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  47%|████▋     | 6.84GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.84GB / 6.91GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  47%|████▋     | 6.84GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  47%|████▋     | 6.91GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  47%|████▋     | 6.91GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.91GB / 6.97GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  47%|████▋     | 6.91GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  48%|████▊     | 6.98GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  48%|████▊     | 6.98GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 6.97GB / 7.04GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  48%|████▊     | 6.98GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  48%|████▊     | 7.04GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  48%|████▊     | 7.04GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.04GB / 7.11GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  48%|████▊     | 7.04GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  49%|████▊     | 7.11GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  49%|████▊     | 7.11GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 7.11GB / 7.11GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  49%|████▊     | 7.11GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  49%|████▊     | 7.11GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  49%|████▊     | 7.11GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.11GB / 7.18GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  49%|████▉     | 7.18GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  49%|████▉     | 7.18GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.18GB / 7.24GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  49%|████▉     | 7.18GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  49%|████▉     | 7.18GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.18GB / 7.24GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  50%|████▉     | 7.24GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  50%|████▉     | 7.24GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.24GB / 7.31GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  50%|████▉     | 7.24GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  50%|█████     | 7.31GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  50%|█████     | 7.31GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.31GB / 7.38GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  50%|█████     | 7.31GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  51%|█████     | 7.38GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  51%|█████     | 7.38GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.38GB / 7.44GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  51%|█████     | 7.38GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  51%|█████     | 7.45GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  51%|█████     | 7.45GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.44GB / 7.51GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  51%|█████     | 7.45GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  51%|█████▏    | 7.51GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  51%|█████▏    | 7.51GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.51GB / 7.58GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  51%|█████▏    | 7.51GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  52%|█████▏    | 7.58GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  52%|█████▏    | 7.58GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.58GB / 7.65GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  52%|█████▏    | 7.58GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  52%|█████▏    | 7.65GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  52%|█████▏    | 7.65GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 7.65GB / 7.71GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  52%|█████▏    | 7.65GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  52%|█████▏    | 7.65GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.65GB / 7.71GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  53%|█████▎    | 7.66GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  53%|█████▎    | 7.66GB / 14.6GB,  160MB/s  
+New Data Upload               :  99%|█████████▉| 7.66GB / 7.71GB,  160MB/s  [A
+
+  ...p_seed1/model.safetensors:  53%|█████▎    | 7.71GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  53%|█████▎    | 7.71GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.71GB / 7.78GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  53%|█████▎    | 7.73GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  53%|█████▎    | 7.73GB / 14.6GB,  160MB/s  
+New Data Upload               :  99%|█████████▉| 7.73GB / 7.78GB,  160MB/s  [A
+
+  ...p_seed1/model.safetensors:  53%|█████▎    | 7.78GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  53%|█████▎    | 7.78GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.78GB / 7.85GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  53%|█████▎    | 7.78GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  54%|█████▍    | 7.85GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  54%|█████▍    | 7.85GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.85GB / 7.91GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  54%|█████▍    | 7.85GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  54%|█████▍    | 7.91GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  54%|█████▍    | 7.91GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.91GB / 7.98GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  54%|█████▍    | 7.91GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  55%|█████▍    | 7.98GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  55%|█████▍    | 7.98GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 7.98GB / 8.05GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  55%|█████▍    | 7.98GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  55%|█████▌    | 8.05GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  55%|█████▌    | 8.05GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.05GB / 8.11GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  55%|█████▌    | 8.05GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  56%|█████▌    | 8.11GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  56%|█████▌    | 8.11GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.11GB / 8.18GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  56%|█████▌    | 8.11GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  56%|█████▌    | 8.18GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  56%|█████▌    | 8.18GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 8.18GB / 8.25GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  56%|█████▌    | 8.18GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.25GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  57%|█████▋    | 8.25GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.25GB / 8.32GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.25GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.32GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  57%|█████▋    | 8.32GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.32GB / 8.38GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.32GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.38GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  57%|█████▋    | 8.38GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.38GB / 8.45GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  57%|█████▋    | 8.38GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  58%|█████▊    | 8.45GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  58%|█████▊    | 8.45GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.45GB / 8.52GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  58%|█████▊    | 8.45GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  58%|█████▊    | 8.52GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  58%|█████▊    | 8.52GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 8.52GB / 8.52GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  58%|█████▊    | 8.52GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  58%|█████▊    | 8.52GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  58%|█████▊    | 8.52GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.52GB / 8.58GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  59%|█████▉    | 8.59GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  59%|█████▉    | 8.59GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.58GB / 8.65GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  59%|█████▉    | 8.59GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  59%|█████▉    | 8.59GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.58GB / 8.65GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  59%|█████▉    | 8.65GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  59%|█████▉    | 8.65GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.65GB / 8.72GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  59%|█████▉    | 8.65GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  60%|█████▉    | 8.72GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  60%|█████▉    | 8.72GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.72GB / 8.79GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  60%|█████▉    | 8.72GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  60%|██████    | 8.79GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  60%|██████    | 8.79GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.79GB / 8.85GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  60%|██████    | 8.79GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  60%|██████    | 8.80GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  60%|██████    | 8.80GB / 14.6GB,  159MB/s  
+New Data Upload               :  99%|█████████▊| 8.79GB / 8.92GB,  159MB/s  [A
+
+  ...p_seed1/model.safetensors:  61%|██████    | 8.85GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  61%|██████    | 8.85GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.85GB / 8.92GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  61%|██████    | 8.92GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  61%|██████    | 8.92GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.92GB / 8.99GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  61%|██████    | 8.92GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 8.99GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  62%|██████▏   | 8.99GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 8.99GB / 9.05GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 8.99GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  62%|██████▏   | 8.99GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 8.99GB / 9.05GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 9.05GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  62%|██████▏   | 9.05GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.05GB / 9.12GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 9.05GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 9.12GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  62%|██████▏   | 9.12GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 9.12GB / 9.12GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  62%|██████▏   | 9.12GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  63%|██████▎   | 9.13GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  63%|██████▎   | 9.13GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.13GB / 9.19GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  63%|██████▎   | 9.19GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  63%|██████▎   | 9.19GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.19GB / 9.26GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  63%|██████▎   | 9.19GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  63%|██████▎   | 9.19GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.19GB / 9.26GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  63%|██████▎   | 9.26GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  63%|██████▎   | 9.26GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.25GB / 9.32GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  63%|██████▎   | 9.26GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  64%|██████▍   | 9.32GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  64%|██████▍   | 9.32GB / 14.6GB,  163MB/s  
+New Data Upload               :  99%|█████████▉| 9.32GB / 9.39GB,  163MB/s  [A
+
+  ...p_seed1/model.safetensors:  64%|██████▍   | 9.32GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  64%|██████▍   | 9.39GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  64%|██████▍   | 9.39GB / 14.6GB,  162MB/s  
+New Data Upload               :  99%|█████████▉| 9.39GB / 9.46GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  64%|██████▍   | 9.39GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  65%|██████▍   | 9.46GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  65%|██████▍   | 9.46GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.46GB / 9.52GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  65%|██████▍   | 9.46GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  65%|██████▌   | 9.52GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  65%|██████▌   | 9.52GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.52GB / 9.59GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  65%|██████▌   | 9.52GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  66%|██████▌   | 9.59GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  66%|██████▌   | 9.59GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.59GB / 9.66GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  66%|██████▌   | 9.59GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  66%|██████▌   | 9.66GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  66%|██████▌   | 9.66GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.66GB / 9.72GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  66%|██████▌   | 9.66GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  67%|██████▋   | 9.73GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  67%|██████▋   | 9.73GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 9.72GB / 9.79GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  67%|██████▋   | 9.73GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  67%|██████▋   | 9.73GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  67%|██████▋   | 9.73GB / 14.6GB,  159MB/s  
+New Data Upload               :  99%|█████████▉| 9.73GB / 9.79GB,  159MB/s  [A
+
+  ...p_seed1/model.safetensors:  67%|██████▋   | 9.79GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  67%|██████▋   | 9.79GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.79GB / 9.86GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  67%|██████▋   | 9.81GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  67%|██████▋   | 9.81GB / 14.6GB,  159MB/s  
+New Data Upload               :  99%|█████████▉| 9.81GB / 9.86GB,  159MB/s  [A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.86GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 9.86GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.86GB / 9.93GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.90GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 9.90GB / 14.6GB,  162MB/s  
+New Data Upload               : 100%|█████████▉| 9.90GB / 9.93GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.93GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 9.93GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.93GB / 9.99GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.93GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.99GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 9.99GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 9.99GB / 10.1GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  68%|██████▊   | 9.99GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  69%|██████▉   | 10.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  69%|██████▉   | 10.1GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.1GB / 10.1GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  69%|██████▉   | 10.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  69%|██████▉   | 10.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  69%|██████▉   | 10.1GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.1GB / 10.2GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  69%|██████▉   | 10.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  70%|██████▉   | 10.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  70%|██████▉   | 10.2GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.2GB / 10.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  70%|██████▉   | 10.2GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  70%|███████   | 10.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  70%|███████   | 10.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.3GB / 10.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  70%|███████   | 10.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  71%|███████   | 10.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  71%|███████   | 10.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.3GB / 10.4GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  71%|███████   | 10.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  71%|███████   | 10.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  71%|███████   | 10.4GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.4GB / 10.5GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  71%|███████   | 10.4GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  71%|███████▏  | 10.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  71%|███████▏  | 10.4GB / 14.6GB,  161MB/s  
+New Data Upload               : 100%|█████████▉| 10.4GB / 10.5GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  72%|███████▏  | 10.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  72%|███████▏  | 10.5GB / 14.6GB,  163MB/s  
+New Data Upload               :  99%|█████████▉| 10.5GB / 10.5GB,  163MB/s  [A
+
+  ...p_seed1/model.safetensors:  72%|███████▏  | 10.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  72%|███████▏  | 10.5GB / 14.6GB,  162MB/s  
+New Data Upload               : 100%|█████████▉| 10.5GB / 10.5GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  72%|███████▏  | 10.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  72%|███████▏  | 10.5GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.5GB / 10.6GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  72%|███████▏  | 10.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  72%|███████▏  | 10.5GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.5GB / 10.6GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  73%|███████▎  | 10.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  73%|███████▎  | 10.6GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.6GB / 10.7GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  73%|███████▎  | 10.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  73%|███████▎  | 10.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  73%|███████▎  | 10.7GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.7GB / 10.7GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  73%|███████▎  | 10.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  74%|███████▎  | 10.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  74%|███████▎  | 10.7GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 10.7GB / 10.8GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  74%|███████▎  | 10.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  74%|███████▍  | 10.8GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  74%|███████▍  | 10.8GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.8GB / 10.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  74%|███████▍  | 10.8GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  74%|███████▍  | 10.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  74%|███████▍  | 10.9GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.9GB / 10.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  74%|███████▍  | 10.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  75%|███████▍  | 10.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  75%|███████▍  | 10.9GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 10.9GB / 11.0GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  75%|███████▍  | 10.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  75%|███████▌  | 11.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  75%|███████▌  | 11.0GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.0GB / 11.1GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  75%|███████▌  | 11.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  75%|███████▌  | 11.0GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.0GB / 11.1GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  76%|███████▌  | 11.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  76%|███████▌  | 11.0GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 11.0GB / 11.1GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  76%|███████▌  | 11.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  76%|███████▌  | 11.1GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.1GB / 11.1GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  76%|███████▋  | 11.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  76%|███████▋  | 11.1GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.1GB / 11.2GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  76%|███████▋  | 11.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  76%|███████▋  | 11.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  77%|███████▋  | 11.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  77%|███████▋  | 11.2GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.2GB / 11.3GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  77%|███████▋  | 11.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  77%|███████▋  | 11.2GB / 14.6GB,  162MB/s  
+New Data Upload               : 100%|█████████▉| 11.2GB / 11.3GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  77%|███████▋  | 11.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  77%|███████▋  | 11.3GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.3GB / 11.3GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  77%|███████▋  | 11.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  77%|███████▋  | 11.3GB / 14.6GB,  160MB/s  
+New Data Upload               : 100%|█████████▉| 11.3GB / 11.3GB,  160MB/s  [A
+
+  ...p_seed1/model.safetensors:  78%|███████▊  | 11.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  78%|███████▊  | 11.3GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.3GB / 11.4GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  78%|███████▊  | 11.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  78%|███████▊  | 11.3GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.3GB / 11.4GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  78%|███████▊  | 11.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  78%|███████▊  | 11.4GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.4GB / 11.5GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  78%|███████▊  | 11.4GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  79%|███████▊  | 11.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  79%|███████▊  | 11.5GB / 14.6GB,  163MB/s  
+New Data Upload               :  99%|█████████▉| 11.5GB / 11.5GB,  163MB/s  [A
+
+  ...p_seed1/model.safetensors:  79%|███████▊  | 11.5GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  79%|███████▉  | 11.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  79%|███████▉  | 11.5GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 11.5GB / 11.6GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  79%|███████▉  | 11.5GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  79%|███████▉  | 11.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  79%|███████▉  | 11.6GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.6GB / 11.7GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  79%|███████▉  | 11.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  80%|███████▉  | 11.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  80%|███████▉  | 11.7GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.7GB / 11.7GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  80%|███████▉  | 11.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  80%|████████  | 11.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  80%|████████  | 11.7GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.7GB / 11.8GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  80%|████████  | 11.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  80%|████████  | 11.7GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.7GB / 11.8GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  81%|████████  | 11.8GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  81%|████████  | 11.8GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 11.8GB / 11.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  81%|████████  | 11.8GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  81%|████████▏ | 11.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  81%|████████▏ | 11.9GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 11.9GB / 11.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  81%|████████▏ | 11.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  81%|████████▏ | 11.9GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.9GB / 11.9GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  81%|████████▏ | 11.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  82%|████████▏ | 11.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  82%|████████▏ | 11.9GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 11.9GB / 12.0GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  82%|████████▏ | 11.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  82%|████████▏ | 12.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  82%|████████▏ | 12.0GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.0GB / 12.1GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  82%|████████▏ | 12.0GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  83%|████████▎ | 12.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  83%|████████▎ | 12.1GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 12.1GB / 12.1GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  83%|████████▎ | 12.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  83%|████████▎ | 12.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  83%|████████▎ | 12.1GB / 14.6GB,  161MB/s  
+New Data Upload               :  99%|█████████▉| 12.1GB / 12.2GB,  161MB/s  [A
+
+  ...p_seed1/model.safetensors:  83%|████████▎ | 12.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  84%|████████▎ | 12.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  84%|████████▎ | 12.2GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 12.2GB / 12.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  84%|████████▎ | 12.2GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  84%|████████▍ | 12.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  84%|████████▍ | 12.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 12.3GB / 12.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  84%|████████▍ | 12.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  85%|████████▍ | 12.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  85%|████████▍ | 12.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 12.3GB / 12.4GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  85%|████████▍ | 12.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  85%|████████▍ | 12.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  85%|████████▍ | 12.4GB / 14.6GB,  159MB/s  
+New Data Upload               : 100%|█████████▉| 12.4GB / 12.4GB,  159MB/s  [A
+
+  ...p_seed1/model.safetensors:  85%|████████▌ | 12.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  85%|████████▌ | 12.4GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.4GB / 12.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  85%|████████▌ | 12.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  85%|████████▌ | 12.4GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.4GB / 12.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  85%|████████▌ | 12.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  85%|████████▌ | 12.5GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.5GB / 12.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  86%|████████▌ | 12.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  86%|████████▌ | 12.5GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 12.5GB / 12.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  86%|████████▌ | 12.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  86%|████████▌ | 12.5GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.5GB / 12.6GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  86%|████████▌ | 12.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  86%|████████▌ | 12.6GB / 14.6GB,  162MB/s  
+New Data Upload               : 100%|█████████▉| 12.6GB / 12.6GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  86%|████████▋ | 12.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  86%|████████▋ | 12.6GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.6GB / 12.7GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  86%|████████▋ | 12.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  87%|████████▋ | 12.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  87%|████████▋ | 12.7GB / 14.6GB,  162MB/s  
+New Data Upload               :  99%|█████████▉| 12.7GB / 12.7GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  87%|████████▋ | 12.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  87%|████████▋ | 12.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  87%|████████▋ | 12.7GB / 14.6GB,  158MB/s  
+New Data Upload               :  99%|█████████▉| 12.7GB / 12.8GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  87%|████████▋ | 12.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  88%|████████▊ | 12.8GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  88%|████████▊ | 12.8GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 12.8GB / 12.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  88%|████████▊ | 12.8GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  88%|████████▊ | 12.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  88%|████████▊ | 12.9GB / 14.6GB,  160MB/s  
+New Data Upload               :  99%|█████████▉| 12.9GB / 12.9GB,  160MB/s  [A
+
+  ...p_seed1/model.safetensors:  88%|████████▊ | 12.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  89%|████████▊ | 12.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  89%|████████▊ | 12.9GB / 14.6GB,  162MB/s  
+New Data Upload               :  99%|█████████▉| 12.9GB / 13.0GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors:  89%|████████▊ | 12.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  89%|████████▉ | 13.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  89%|████████▉ | 13.0GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.0GB / 13.1GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  89%|████████▉ | 13.0GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  90%|████████▉ | 13.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  90%|████████▉ | 13.1GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.1GB / 13.1GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  90%|████████▉ | 13.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  90%|█████████ | 13.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  90%|█████████ | 13.1GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.1GB / 13.2GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  90%|█████████ | 13.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  91%|█████████ | 13.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  91%|█████████ | 13.2GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.2GB / 13.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  91%|█████████ | 13.2GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  91%|█████████ | 13.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  91%|█████████ | 13.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.3GB / 13.3GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  91%|█████████ | 13.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  91%|█████████▏| 13.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  91%|█████████▏| 13.3GB / 14.6GB,  164MB/s  
+New Data Upload               :  99%|█████████▉| 13.3GB / 13.4GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  91%|█████████▏| 13.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  92%|█████████▏| 13.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  92%|█████████▏| 13.4GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.4GB / 13.5GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  92%|█████████▏| 13.4GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  92%|█████████▏| 13.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  92%|█████████▏| 13.4GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 13.4GB / 13.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  92%|█████████▏| 13.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  92%|█████████▏| 13.5GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 13.5GB / 13.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  92%|█████████▏| 13.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  92%|█████████▏| 13.5GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 13.5GB / 13.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  93%|█████████▎| 13.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  93%|█████████▎| 13.5GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.5GB / 13.6GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  93%|█████████▎| 13.5GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  93%|█████████▎| 13.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  93%|█████████▎| 13.6GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.6GB / 13.7GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  93%|█████████▎| 13.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  94%|█████████▎| 13.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  94%|█████████▎| 13.7GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.7GB / 13.7GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  94%|█████████▎| 13.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  94%|█████████▍| 13.7GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  94%|█████████▍| 13.7GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.7GB / 13.8GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  94%|█████████▍| 13.7GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  95%|█████████▍| 13.8GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  95%|█████████▍| 13.8GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.8GB / 13.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  95%|█████████▍| 13.8GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  95%|█████████▌| 13.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  95%|█████████▌| 13.9GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.9GB / 13.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  95%|█████████▌| 13.9GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  96%|█████████▌| 13.9GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  96%|█████████▌| 13.9GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 13.9GB / 13.9GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  96%|█████████▌| 14.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  96%|█████████▌| 14.0GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 13.9GB / 14.0GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  96%|█████████▌| 14.0GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  96%|█████████▌| 14.0GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  96%|█████████▌| 14.0GB / 14.6GB,  163MB/s  
+New Data Upload               : 100%|█████████▉| 14.0GB / 14.1GB,  163MB/s  [A
+
+  ...p_seed1/model.safetensors:  96%|█████████▌| 14.0GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  96%|█████████▋| 14.1GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  96%|█████████▋| 14.1GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.1GB / 14.2GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  96%|█████████▋| 14.1GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  97%|█████████▋| 14.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  97%|█████████▋| 14.2GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.1GB / 14.2GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  97%|█████████▋| 14.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  97%|█████████▋| 14.2GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 14.1GB / 14.2GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  97%|█████████▋| 14.2GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  97%|█████████▋| 14.2GB / 14.6GB,  160MB/s  
+New Data Upload               : 100%|█████████▉| 14.2GB / 14.3GB,  160MB/s  [A
+
+  ...p_seed1/model.safetensors:  97%|█████████▋| 14.2GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  98%|█████████▊| 14.3GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  98%|█████████▊| 14.3GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.3GB / 14.4GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  98%|█████████▊| 14.3GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  98%|█████████▊| 14.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  98%|█████████▊| 14.4GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.4GB / 14.4GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  98%|█████████▊| 14.4GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors:  99%|█████████▉| 14.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  99%|█████████▉| 14.4GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.4GB / 14.5GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  99%|█████████▉| 14.4GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  99%|█████████▉| 14.4GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 14.4GB / 14.5GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors:  99%|█████████▉| 14.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  99%|█████████▉| 14.5GB / 14.6GB,  164MB/s  
+New Data Upload               : 100%|█████████▉| 14.5GB / 14.6GB,  164MB/s  [A
+
+  ...p_seed1/model.safetensors:  99%|█████████▉| 14.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      :  99%|█████████▉| 14.5GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 14.5GB / 14.6GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|█████████▉| 14.5GB / 14.6GB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 14.5GB / 14.6GB,  163MB/s  
+New Data Upload               : 100%|█████████▉| 14.5GB / 14.6GB,  163MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|█████████▉| 14.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 14.6GB / 14.6GB,  158MB/s  
+New Data Upload               : 100%|█████████▉| 14.6GB / 14.6GB,  158MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|█████████▉| 14.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 14.6GB / 14.6GB,  162MB/s  
+New Data Upload               : 100%|█████████▉| 14.6GB / 14.6GB,  162MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|█████████▉| 14.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 14.6GB / 14.6GB,  155MB/s  
+New Data Upload               : 100%|█████████▉| 14.6GB / 14.6GB,  155MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|█████████▉| 14.6GB / 14.6GB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 14.6GB / 14.6GB,  155MB/s  
+New Data Upload               : 100%|█████████▉| 14.6GB / 14.6GB,  155MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 14.6GB / 14.6GB,  149MB/s  
+New Data Upload               : 100%|██████████| 14.6GB / 14.6GB,  149MB/s  [A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[A
+
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 14.6GB / 14.6GB,  125MB/s  
+New Data Upload               : 100%|██████████| 14.6GB / 14.6GB,  125MB/s  
+  ...p_seed1/model.safetensors: 100%|██████████| 14.6GB / 14.6GB            
+https://huggingface.co/icedduck/olmo3-7b-think-dpo-arm_Bp_seed1/commit/ceb1668b2df0aa658f297b9718b92a7356e066dc
+arm_Bp_seed1 -> https://huggingface.co/icedduck/olmo3-7b-think-dpo-arm_Bp_seed1 (private) 2026-10-23T15:52:58Z
+removed arm_Bp_seed1 step_* checkpoints; volume: 200G used of 280G
+2026-10-23T15:53:06Z arm Bp done and pushed
+2026-10-23T15:53:06Z BPRIME DONE

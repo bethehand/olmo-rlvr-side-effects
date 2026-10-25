@@ -1,0 +1,15 @@
+# AlpacaEval 805 prompts, run1 (temp 0.6, top_p 0.95, seed 1, 32K cap), answer = text after the last </think>. Rows: Think-SFT with the arms' training template (tmplA, exact control), Think-SFT and Think-DPO with their released templates, arms A and B (repaired configs, training template). 2026-10-23 18:16 CST.
+median answer tokens [95% CI] | median total tokens | median thinking tokens (finished) | cap hits | answers > 1000 tokens | median answer chars
+  Think-SFT (training tmpl)  n=805 answer    577 [549, 615] | total   1568 | thinking    886 | cap  16 | >1000 0.12 | chars   2479
+  Think-SFT (released tmpl)  n=805 answer    600 [569, 628] | total   1657 | thinking    941 | cap  24 | >1000 0.12 | chars   2540
+  Think-DPO                  n=805 answer    874 [835, 912] | total   2123 | thinking   1163 | cap   8 | >1000 0.38 | chars   3677
+  arm A                      n=805 answer    647 [608, 686] | total   1616 | thinking    877 | cap  16 | >1000 0.16 | chars   2748
+  arm B                      n=805 answer    613 [566, 642] | total   1547 | thinking    868 | cap  14 | >1000 0.14 | chars   2562
+paired change in answer tokens vs Think-SFT (training tmpl): median [95% CI]; share of prompts with a longer answer
+  Think-SFT (released tmpl)      +0 [-5, +8]  n=805  longer on 0.50 of prompts
+  Think-DPO                    +243 [+231, +258]  n=805  longer on 0.94 of prompts
+  arm A                         +35 [+25, +46]  n=805  longer on 0.62 of prompts
+  arm B                         +15 [+6, +22]  n=805  longer on 0.56 of prompts
+paired change in answer tokens vs arm A: median [95% CI]; share of prompts with a longer answer
+  arm B                         -19 [-30, -7]  n=805  longer on 0.43 of prompts
+  sign test B vs A: B shorter on 451, longer on 347, ties 7, z = 3.68

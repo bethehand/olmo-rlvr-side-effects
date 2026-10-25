@@ -1,0 +1,20 @@
+# weight_shift.py on GS01 (CPU, safetensors read directly): each arm against the start model allenai/Olmo-3-7B-Think-SFT (snapshot 6ff85758), arms icedduck/olmo3-7b-think-dpo-arm_{A,B,Bp}_seed1 (snapshots e770501a / a0d27b7f / ceb1668b). Relative L2 delta of the parameters, share of the squared delta per group, and cosine similarity between the arms' deltas. 2026-10-25 06:20 CST.
+A: 355 tensors; missing vs start 0 []; extra 0 []
+B: 355 tensors; missing vs start 0 []; extra 0 []
+Bp: 355 tensors; missing vs start 0 []; extra 0 []
+
+355 tensors, 7.298 B parameters, start model /mnt/nvme0/looped/oi_work/hf-hub/models--allenai--Olmo-3-7B-Think-SFT/snapshots/6ff857587e040d6d523a3d5f3a56e918f5401d66/
+relative L2 delta ||arm - start|| / ||start|| (x 1e-3), overall and by group; in brackets the group's share of the arm's squared delta
+  group                                        A                         B                        Bp
+  attention                    0.233 [45.4%]              0.189 [48.6%]              0.189 [46.8%]     
+  mlp                          0.158 [54.4%]              0.120 [51.2%]              0.124 [53.0%]     
+  embeddings/lm_head           0.004 [ 0.1%]              0.004 [ 0.2%]              0.004 [ 0.2%]     
+  norms                        0.002 [ 0.0%]              0.002 [ 0.0%]              0.002 [ 0.0%]     
+  ALL                          0.102 [100.0%]              0.080 [100.0%]              0.081 [100.0%]     
+delta norm ratios: B/A = 0.785, Bp/A = 0.796, Bp/B = 1.015
+cosine similarity between the arms' deltas, overall and by group
+  attention             A~B +0.689  A~Bp +0.742  B~Bp +0.848
+  mlp                   A~B +0.664  A~Bp +0.718  B~Bp +0.825
+  embeddings/lm_head    A~B +0.510  A~Bp +0.525  B~Bp +0.595
+  norms                 A~B +0.857  A~Bp +0.898  B~Bp +0.941
+  ALL                   A~B +0.675  A~Bp +0.729  B~Bp +0.835

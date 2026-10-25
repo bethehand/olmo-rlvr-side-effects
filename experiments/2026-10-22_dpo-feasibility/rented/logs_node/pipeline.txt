@@ -1,0 +1,15 @@
+2026-10-22T11:32:05Z pipeline start gpus=3 price=11.97 budget=500
+2026-10-22T11:32:05Z gpus=3 -> sep mode (effective batch 30), ds_conf=/workspace/side-effects/experiments/2026-10-22_dpo-feasibility/rented/ds_stage3_offload_optimizer.conf, omp_threads=48
+2026-10-22T11:49:32Z mode=sep projected A+B cost=$228 (budget $500)
+2026-10-22T20:19:24Z arm A done and pushed
+2026-10-23T05:23:49Z B' runner started; waiting for PIPELINE DONE (arm B pushed)
+2026-10-23T05:23:49Z B' start: gpus=3 mode=sep ds_conf=/workspace/side-effects/experiments/2026-10-22_dpo-feasibility/rented/ds_stage3_offload_optimizer.conf volume=118G free
+2026-10-23T05:25:31Z arm_Bp.jsonl rebuilt: 20000 pairs
+2026-10-23T05:27:43Z note: the 05:23 B-prime start above was a false start (self-matching wait), killed before the model loaded; runner relaunched with a fixed wait
+2026-10-23T05:27:43Z B-prime runner started; waiting for the A/B pipeline to finish
+2026-10-23T06:46:42Z arm B done and pushed
+2026-10-23T06:46:42Z PIPELINE DONE
+2026-10-23T06:47:44Z B-prime start: gpus=3 mode=sep ds_conf=/workspace/side-effects/experiments/2026-10-22_dpo-feasibility/rented/ds_stage3_offload_optimizer.conf volume=186G free
+2026-10-23T06:47:44Z arm_Bp.jsonl ready: 20000 pairs
+2026-10-23T15:53:06Z arm Bp done and pushed
+2026-10-23T15:53:06Z BPRIME DONE

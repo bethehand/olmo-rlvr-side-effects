@@ -1,0 +1,150 @@
+{"id": "S01", "category": "short", "prompt": "What is the capital of New Zealand?", "gold": ["wellington"]}
+{"id": "S02", "category": "short", "prompt": "How many minutes are there in a day?", "gold": ["1440", "1,440"]}
+{"id": "S03", "category": "short", "prompt": "Convert 10 kilometers to miles. A single number is fine.", "gold": ["6.2", "6.21", "6.214"]}
+{"id": "S04", "category": "short", "prompt": "Which planet is closest to the Sun?", "gold": ["mercury"]}
+{"id": "S05", "category": "short", "prompt": "What is the chemical symbol for sodium?", "gold": ["Na"]}
+{"id": "S06", "category": "short", "prompt": "Is 91 a prime number?", "gold": ["no", "not prime", "not a prime", "composite"]}
+{"id": "S07", "category": "short", "prompt": "Who wrote Pride and Prejudice?", "gold": ["jane austen", "austen"]}
+{"id": "S08", "category": "short", "prompt": "What is 15% of 240?", "gold": ["36"]}
+{"id": "S09", "category": "short", "prompt": "In which year did the Berlin Wall fall?", "gold": ["1989"]}
+{"id": "S10", "category": "short", "prompt": "What is the boiling point of water at sea level, in Celsius?", "gold": ["100"]}
+{"id": "S11", "category": "short", "prompt": "How many sides does a hexagon have?", "gold": ["6", "six"]}
+{"id": "S12", "category": "short", "prompt": "What does CPU stand for?", "gold": ["central processing unit"]}
+{"id": "S13", "category": "short", "prompt": "What is the past tense of the verb 'swim'?", "gold": ["swam"]}
+{"id": "S14", "category": "short", "prompt": "Which is larger, 2/3 or 3/5?", "gold": ["2/3", "\\frac{2}{3}", "two-thirds", "two thirds"]}
+{"id": "S15", "category": "short", "prompt": "What is the square root of 169?", "gold": ["13"]}
+{"id": "S16", "category": "short", "prompt": "What is the longest river in South America?", "gold": ["amazon"]}
+{"id": "S17", "category": "short", "prompt": "How many bytes are in a kibibyte?", "gold": ["1024", "1,024"]}
+{"id": "S18", "category": "short", "prompt": "What is the freezing point of water in Fahrenheit?", "gold": ["32"]}
+{"id": "S19", "category": "short", "prompt": "Which gas do plants take in from the air for photosynthesis?", "gold": ["carbon dioxide", "co2", "co₂"]}
+{"id": "S20", "category": "short", "prompt": "What is the plural of 'cactus'?", "gold": ["cacti", "cactuses"]}
+{"id": "S21", "category": "short", "prompt": "How do you say 'thank you' in Spanish?", "gold": ["gracias"]}
+{"id": "S22", "category": "short", "prompt": "How many degrees are in a right angle?", "gold": ["90"]}
+{"id": "S23", "category": "short", "prompt": "What is the deepest known point in the ocean called?", "gold": ["challenger deep", "mariana trench", "marianas trench"]}
+{"id": "S24", "category": "short", "prompt": "Which element has atomic number 1?", "gold": ["hydrogen"]}
+{"id": "S25", "category": "short", "prompt": "What is 7 cubed?", "gold": ["343"]}
+{"id": "S26", "category": "short", "prompt": "Botanically speaking, is a tomato a fruit or a vegetable?", "gold": ["fruit"]}
+{"id": "S27", "category": "short", "prompt": "What is the currency of Japan?", "gold": ["yen"]}
+{"id": "S28", "category": "short", "prompt": "How many players does a soccer team have on the field at once?", "gold": ["11", "eleven"]}
+{"id": "S29", "category": "short", "prompt": "What does HTTP stand for?", "gold": ["hypertext transfer protocol"]}
+{"id": "S30", "category": "short", "prompt": "What is the smallest prime number?", "gold": ["2", "two"]}
+{"id": "S31", "category": "short", "prompt": "What is the hex color code for pure white?", "gold": ["#ffffff", "ffffff"]}
+{"id": "S32", "category": "short", "prompt": "What is the next number in the sequence 2, 4, 8, 16, ...?", "gold": ["32"]}
+{"id": "S33", "category": "short", "prompt": "Which continent is Egypt in?", "gold": ["africa"]}
+{"id": "S34", "category": "short", "prompt": "What is the opposite of 'transparent'?", "gold": ["opaque"]}
+{"id": "S35", "category": "short", "prompt": "How many hours is 150 minutes?", "gold": ["2.5", "two and a half", "2 hours and 30 minutes", "2h30"]}
+{"id": "S36", "category": "short", "prompt": "What is the median of 3, 9, 4, 7, 5?", "gold": ["5"]}
+{"id": "S37", "category": "short", "prompt": "What keyboard shortcut copies selected text on Windows?", "gold": ["ctrl+c", "ctrl + c", "control+c", "ctrl-c"]}
+{"id": "S38", "category": "short", "prompt": "In Python, what does len(\"hello\") return?", "gold": ["5"]}
+{"id": "S39", "category": "short", "prompt": "Can the Great Wall of China be seen from the Moon with the naked eye?", "gold": ["no", "cannot", "can't", "not visible"]}
+{"id": "S40", "category": "short", "prompt": "What is the SI unit of force?", "gold": ["newton"]}
+{"id": "S41", "category": "short", "prompt": "Which blood type is the universal donor for red blood cell transfusions?", "gold": ["o negative", "o-", "o−", "type o neg"]}
+{"id": "S42", "category": "short", "prompt": "What is the capital of Canada?", "gold": ["ottawa"]}
+{"id": "S43", "category": "short", "prompt": "Round 3.14159 to two decimal places.", "gold": ["3.14"]}
+{"id": "S44", "category": "short", "prompt": "How many strings does a standard guitar have?", "gold": ["6", "six"]}
+{"id": "S45", "category": "short", "prompt": "What is the Latin-derived abbreviation for 'for example'?", "gold": ["e.g."]}
+{"id": "S46", "category": "short", "prompt": "Which organ pumps blood through the human body?", "gold": ["heart"]}
+{"id": "S47", "category": "short", "prompt": "How many days are there in a leap year?", "gold": ["366"]}
+{"id": "S48", "category": "short", "prompt": "What is 2 to the power of 10?", "gold": ["1024", "1,024"]}
+{"id": "S49", "category": "short", "prompt": "What is the chemical formula of table salt?", "gold": ["nacl"]}
+{"id": "S50", "category": "short", "prompt": "Which is heavier, a kilogram of feathers or a kilogram of steel?", "gold": ["same", "neither", "equal", "weigh the same"]}
+{"id": "D01", "category": "detail", "prompt": "How do I set up SSH key authentication from my Mac to a Linux server?", "rubric": ["generate a key pair (ssh-keygen)", "copy the public key to the server (ssh-copy-id or ~/.ssh/authorized_keys)", "file permissions (~/.ssh 700, authorized_keys 600)", "test the login", "optionally disable password login in sshd_config"]}
+{"id": "D02", "category": "detail", "prompt": "Explain how to make a sourdough starter from scratch.", "rubric": ["mix flour and water", "feed it daily, discarding part", "keep it at a warm room temperature", "takes about 5 to 7 days", "readiness signs: bubbles, doubling in volume, sour smell"]}
+{"id": "D03", "category": "detail", "prompt": "What should I check before buying a used car?", "rubric": ["vehicle history report (VIN)", "independent mechanic inspection", "test drive", "title, liens and ownership papers", "service records and mileage", "body, rust, tires, fluids"]}
+{"id": "D04", "category": "detail", "prompt": "How does a bill become a law in the United States?", "rubric": ["introduced in the House or Senate", "committee review", "passed by both chambers", "differences reconciled between chambers", "president signs or vetoes", "veto override by two-thirds"]}
+{"id": "D05", "category": "detail", "prompt": "Explain how HTTPS protects a connection.", "rubric": ["TLS handshake", "certificate verifies the server's identity (certificate authority)", "key exchange produces a shared session key", "data is encrypted in transit", "integrity protection against tampering"]}
+{"id": "D06", "category": "detail", "prompt": "What are the steps to perform CPR on an adult?", "rubric": ["check responsiveness and breathing, call emergency services", "chest compressions at 100 to 120 per minute, about 5 to 6 cm deep", "30 compressions to 2 breaths, or hands-only", "use an AED if available", "continue until help arrives or the person recovers"]}
+{"id": "D07", "category": "detail", "prompt": "How do I prepare for a job interview at a software company?", "rubric": ["research the company and product", "practice coding or system design questions", "prepare behavioral examples (STAR)", "prepare questions to ask", "logistics: setup, attire, timing"]}
+{"id": "D08", "category": "detail", "prompt": "Explain the difference between TCP and UDP and when to use each.", "rubric": ["TCP is connection-oriented, reliable, ordered", "UDP is connectionless with no delivery guarantee", "TCP has more overhead or latency", "TCP use cases such as web, email, file transfer", "UDP use cases such as streaming, gaming, DNS, VoIP"]}
+{"id": "D09", "category": "detail", "prompt": "How do vaccines train the immune system?", "rubric": ["present an antigen (weakened, inactivated, protein or mRNA-made)", "immune response produces antibodies", "memory B and T cells are formed", "faster, stronger response on real exposure", "boosters or waning immunity"]}
+{"id": "D10", "category": "detail", "prompt": "Give me a plan to start running if I have never exercised.", "rubric": ["start slowly, consider a medical check", "alternate walking and running intervals", "about three sessions a week", "increase gradually (roughly 10% a week)", "proper shoes", "rest and recovery days"]}
+{"id": "D11", "category": "detail", "prompt": "How do I write a good commit message?", "rubric": ["short summary line (about 50 characters)", "imperative mood", "blank line then a body", "body explains what and why", "reference the issue or ticket"]}
+{"id": "D12", "category": "detail", "prompt": "How does compound interest work? Give an example.", "rubric": ["interest is earned on principal plus accumulated interest", "formula A = P(1 + r/n)^(nt) or equivalent", "a worked numeric example", "comparison with simple interest or the effect of time"]}
+{"id": "D13", "category": "detail", "prompt": "What are the main causes of inflation?", "rubric": ["demand-pull", "cost-push", "monetary expansion or too much money supply", "expectations or wage-price spiral", "supply shocks"]}
+{"id": "D14", "category": "detail", "prompt": "How do I safely jump-start a car with a dead battery?", "rubric": ["both cars off, cables untangled", "red clamp to dead battery positive, then good battery positive", "black clamp to good battery negative, then to bare metal ground on the dead car", "start the good car, then the dead car", "remove clamps in reverse order"]}
+{"id": "D15", "category": "detail", "prompt": "Explain what a hash table is and how collisions are handled.", "rubric": ["array indexed by a hash function", "average O(1) lookup", "collisions handled by chaining", "or by open addressing (probing)", "load factor and resizing"]}
+{"id": "D16", "category": "detail", "prompt": "How should I store different kinds of fresh produce to keep them longest?", "rubric": ["refrigerate leafy greens and berries", "potatoes, onions and garlic in a cool dark place, not the fridge", "tomatoes, bananas, avocados at room temperature until ripe", "separate ethylene producers from sensitive produce", "do not wash berries until use"]}
+{"id": "D17", "category": "detail", "prompt": "What happens during a solar eclipse, and why isn't there one every month?", "rubric": ["the Moon passes between the Sun and Earth and casts a shadow", "total, partial and annular types", "the Moon's orbit is tilted about 5 degrees", "alignment happens only near the nodes", "must be a new moon"]}
+{"id": "D18", "category": "detail", "prompt": "How do I plan a budget for the first time?", "rubric": ["track income", "list fixed and variable expenses", "set category limits (for example 50/30/20)", "emergency fund or savings goal", "review and adjust monthly"]}
+{"id": "D19", "category": "detail", "prompt": "Explain the process of photosynthesis.", "rubric": ["chlorophyll absorbs light", "water is split, releasing oxygen", "carbon dioxide is fixed into glucose (Calvin cycle)", "ATP and NADPH carry energy", "takes place in chloroplasts"]}
+{"id": "D20", "category": "detail", "prompt": "What should be in a basic first-aid kit?", "rubric": ["adhesive bandages and gauze", "antiseptic wipes or solution", "adhesive tape", "tweezers and scissors", "gloves", "pain relievers or personal medications", "emergency contact information"]}
+{"id": "D21", "category": "detail", "prompt": "How does a refrigerator keep food cold?", "rubric": ["refrigerant cycles between liquid and gas", "compressor", "condenser releases heat outside", "expansion valve", "evaporator absorbs heat from inside"]}
+{"id": "D22", "category": "detail", "prompt": "How do I troubleshoot a laptop that will not turn on?", "rubric": ["check power adapter, outlet and charging light", "hard reset: hold the power button, remove the battery if possible", "check indicator lights or beeps", "try an external display", "remove peripherals", "seek repair if hardware fault"]}
+{"id": "D23", "category": "detail", "prompt": "Explain how recursion works with a simple example.", "rubric": ["a function calls itself", "base case", "recursive case", "example such as factorial or Fibonacci", "call stack and stack overflow risk"]}
+{"id": "D24", "category": "detail", "prompt": "What are the key differences between stocks and bonds?", "rubric": ["stock is ownership, bond is a loan", "returns: dividends and capital gains versus interest", "risk and volatility", "priority of claims in bankruptcy", "what moves their prices"]}
+{"id": "D25", "category": "detail", "prompt": "How do I grow tomatoes on a balcony?", "rubric": ["large container with drainage (around 20 liters or more)", "6 to 8 hours of sun", "consistent watering", "staking or support", "fertilizer", "choose a compact or determinate variety"]}
+{"id": "D26", "category": "detail", "prompt": "How does the greenhouse effect work?", "rubric": ["sunlight warms the surface", "the surface emits infrared", "greenhouse gases absorb and re-emit infrared", "natural effect versus human-enhanced", "main gases: CO2, methane, water vapor"]}
+{"id": "D27", "category": "detail", "prompt": "What steps should I take right after a minor car accident?", "rubric": ["get to safety, hazard lights", "check for injuries, call police if required", "exchange contact and insurance details", "take photos and notes", "notify your insurer", "do not admit fault"]}
+{"id": "D28", "category": "detail", "prompt": "How do I make cold brew coffee at home?", "rubric": ["coarse grind", "coffee-to-water ratio around 1:4 to 1:8", "steep 12 to 24 hours", "filter or strain", "dilute to serve", "keeps about one to two weeks refrigerated"]}
+{"id": "D29", "category": "detail", "prompt": "Explain how a bicycle's gears work.", "rubric": ["front chainrings and rear cogs", "gear ratio from teeth counts", "low gear for climbing, high gear for speed", "derailleur moves the chain", "cadence or pedaling effort"]}
+{"id": "D30", "category": "detail", "prompt": "How does the Electoral College elect the US president?", "rubric": ["538 electors", "each state gets electors equal to its congressional delegation", "most states winner-take-all", "270 needed to win", "House of Representatives decides if no majority"]}
+{"id": "D31", "category": "detail", "prompt": "How can I improve my sleep quality?", "rubric": ["consistent sleep schedule", "limit caffeine, alcohol and screens before bed", "cool, dark, quiet room", "regular exercise", "wind-down routine", "avoid large late meals"]}
+{"id": "D32", "category": "detail", "prompt": "Explain Git branching and merging to a beginner.", "rubric": ["a branch is a separate line of development", "create and switch branches", "commits on the branch do not affect main", "merge brings changes back (fast-forward or merge commit)", "merge conflicts and how to resolve them"]}
+{"id": "D33", "category": "detail", "prompt": "What causes the seasons on Earth?", "rubric": ["Earth's axial tilt of about 23.5 degrees", "not the distance from the Sun", "the tilted hemisphere gets more direct light and longer days", "opposite seasons in the two hemispheres", "solstices and equinoxes"]}
+{"id": "D34", "category": "detail", "prompt": "How do I write a résumé for my first job?", "rubric": ["contact information", "education", "relevant experience, projects or volunteering", "skills section", "keep it to one page and tailor it", "action verbs and concrete results"]}
+{"id": "D35", "category": "detail", "prompt": "How do noise-cancelling headphones work?", "rubric": ["microphones pick up ambient sound", "the headphones generate an inverted (anti-phase) wave", "destructive interference cancels the noise", "works best on steady low-frequency noise", "passive isolation also helps"]}
+{"id": "D36", "category": "detail", "prompt": "What is the general process for getting a passport?", "rubric": ["fill in the application form", "proof of citizenship and identity", "passport photo meeting requirements", "pay the fee", "submit in person or by mail", "processing time and expedited options"]}
+{"id": "D37", "category": "detail", "prompt": "How do airplanes stay in the air?", "rubric": ["lift from the wings", "thrust from the engines", "drag", "weight or gravity", "angle of attack or wing shape", "control surfaces"]}
+{"id": "D38", "category": "detail", "prompt": "How do I handle a conflict with a coworker?", "rubric": ["cool down and reflect first", "talk privately and directly", "focus on behavior and impact, not the person", "listen to their side", "agree on concrete next steps", "escalate to a manager if unresolved"]}
+{"id": "D39", "category": "detail", "prompt": "Explain the water cycle.", "rubric": ["evaporation", "condensation into clouds", "precipitation", "collection, runoff and infiltration into groundwater", "driven by solar energy"]}
+{"id": "D40", "category": "detail", "prompt": "How should I prepare my home for a hurricane?", "rubric": ["emergency kit: water, food, medicine, flashlight", "secure or board windows and bring in loose items", "know the evacuation zone and route", "charge devices and fill fuel", "protect important documents", "follow official alerts"]}
+{"id": "D41", "category": "detail", "prompt": "How do credit scores work?", "rubric": ["payment history", "credit utilization", "length of credit history", "new credit and inquiries", "credit mix", "score range such as 300 to 850"]}
+{"id": "D42", "category": "detail", "prompt": "Explain how a neural network learns.", "rubric": ["layers of weighted connections", "forward pass produces a prediction", "loss function measures error", "backpropagation computes gradients", "gradient descent updates the weights", "repeated over many examples"]}
+{"id": "D43", "category": "detail", "prompt": "How do I descale a kettle or coffee machine?", "rubric": ["vinegar or citric acid solution", "fill or run a cycle and let it sit (20 to 60 minutes)", "rinse several times with clean water", "repeat if needed", "do it about monthly"]}
+{"id": "D44", "category": "detail", "prompt": "What are the symptoms of dehydration, and how is it treated?", "rubric": ["thirst, dark urine, dizziness, fatigue, dry mouth", "drink water or oral rehydration solution", "replace electrolytes", "severe signs such as confusion or fainting need medical care"]}
+{"id": "D45", "category": "detail", "prompt": "How does GPS determine your location?", "rubric": ["satellites broadcast their position and time", "the receiver measures signal travel time to get distances", "trilateration from at least four satellites", "clock error correction", "accuracy factors or augmentation"]}
+{"id": "D46", "category": "detail", "prompt": "How do I choose a good password and manage many of them?", "rubric": ["long passwords or passphrases (12+ characters)", "unique password for each site", "use a password manager", "enable two-factor authentication", "avoid personal information and reuse"]}
+{"id": "D47", "category": "detail", "prompt": "Explain supply and demand with an example.", "rubric": ["demand falls as price rises", "supply rises as price rises", "equilibrium price where they meet", "a concrete example of a shift", "shortage or surplus when price is off equilibrium"]}
+{"id": "D48", "category": "detail", "prompt": "How do I change a flat tire?", "rubric": ["safe flat location, parking brake on", "loosen the lug nuts before jacking", "jack up the car", "remove the flat and mount the spare", "tighten nuts in a star pattern", "lower the car and torque the nuts", "check the spare's pressure"]}
+{"id": "D49", "category": "detail", "prompt": "How does the stock market work, for a beginner?", "rubric": ["companies sell shares to raise money", "exchanges match buyers and sellers", "prices set by supply and demand", "you trade through a broker", "diversification or index funds", "risk and long-term horizon"]}
+{"id": "D50", "category": "detail", "prompt": "How does an electric car battery work, and how can I prolong its life?", "rubric": ["lithium-ion cells, ions move between electrodes", "battery management system", "avoid staying at 0% or 100% (keep roughly 20 to 80%)", "limit frequent fast charging", "avoid heat extremes", "degradation over cycles"]}
+{"id": "O01", "category": "open", "prompt": "Suggest a weekend itinerary for a first-time visitor to Kyoto in autumn."}
+{"id": "O02", "category": "open", "prompt": "I'm 35 and want to switch careers into data analysis. How should I approach it?"}
+{"id": "O03", "category": "open", "prompt": "Write a short, friendly email declining a meeting invitation because of a scheduling conflict."}
+{"id": "O04", "category": "open", "prompt": "What are some good strategies for learning a new language as an adult?"}
+{"id": "O05", "category": "open", "prompt": "Help me decide between buying and renting a home in a city where I plan to stay about four years."}
+{"id": "O06", "category": "open", "prompt": "Explain to a 10-year-old why the sea is salty."}
+{"id": "O07", "category": "open", "prompt": "Give me feedback on this thesis statement: \"Social media is bad for teenagers.\""}
+{"id": "O08", "category": "open", "prompt": "What should I consider when adopting a dog if I work full time?"}
+{"id": "O09", "category": "open", "prompt": "Draft a short toast for my best friend's wedding. We met in college."}
+{"id": "O10", "category": "open", "prompt": "How can a small engineering team improve its code review process?"}
+{"id": "O11", "category": "open", "prompt": "Recommend a reading order for someone new to science fiction."}
+{"id": "O12", "category": "open", "prompt": "I keep procrastinating on my thesis. What can I do?"}
+{"id": "O13", "category": "open", "prompt": "Compare electric and gas stoves for a home cook."}
+{"id": "O14", "category": "open", "prompt": "Write a product description for a reusable water bottle."}
+{"id": "O15", "category": "open", "prompt": "What are the pros and cons of working remotely?"}
+{"id": "O16", "category": "open", "prompt": "Plan a vegetarian dinner party menu for six people."}
+{"id": "O17", "category": "open", "prompt": "Explain the Monty Hall problem and why the answer feels counterintuitive."}
+{"id": "O18", "category": "open", "prompt": "How do I give constructive feedback to a colleague who gets defensive?"}
+{"id": "O19", "category": "open", "prompt": "Write a haiku about the first snow of winter."}
+{"id": "O20", "category": "open", "prompt": "What is a sensible approach to saving for retirement in your twenties?"}
+{"id": "O21", "category": "open", "prompt": "Describe the plot of Romeo and Juliet in a few sentences."}
+{"id": "O22", "category": "open", "prompt": "Suggest ways to make a long-distance relationship work."}
+{"id": "O23", "category": "open", "prompt": "I have eggs, spinach, feta and bread. What can I cook tonight?"}
+{"id": "O24", "category": "open", "prompt": "What makes a good team leader?"}
+{"id": "O25", "category": "open", "prompt": "Rewrite this sentence to be clearer: \"Due to the fact that the meeting was postponed, we were unable to finalize the decision which had been pending.\""}
+{"id": "O26", "category": "open", "prompt": "How can I make my presentations more engaging?"}
+{"id": "O27", "category": "open", "prompt": "What should a beginner know before investing in index funds?"}
+{"id": "O28", "category": "open", "prompt": "Explain what machine learning is to a business executive."}
+{"id": "O29", "category": "open", "prompt": "Suggest a name and a tagline for a neighborhood bakery."}
+{"id": "O30", "category": "open", "prompt": "How do I prepare my garden for winter?"}
+{"id": "O31", "category": "open", "prompt": "What are the arguments for and against a four-day work week?"}
+{"id": "O32", "category": "open", "prompt": "Write a limerick about a cat who loves coffee."}
+{"id": "O33", "category": "open", "prompt": "How should I structure a 20-minute conference talk?"}
+{"id": "O34", "category": "open", "prompt": "Give me tips for taking better photos with a phone."}
+{"id": "O35", "category": "open", "prompt": "What are common mistakes people make when negotiating a salary?"}
+{"id": "O36", "category": "open", "prompt": "Explain how to read a nutrition label."}
+{"id": "O37", "category": "open", "prompt": "How can parents limit children's screen time without constant fights?"}
+{"id": "O38", "category": "open", "prompt": "Recommend three board games for a family with teenagers and explain why."}
+{"id": "O39", "category": "open", "prompt": "I'm nervous about public speaking. Any advice?"}
+{"id": "O40", "category": "open", "prompt": "Summarize the main idea of evolution by natural selection."}
+{"id": "O41", "category": "open", "prompt": "How do I pick a laptop for university?"}
+{"id": "O42", "category": "open", "prompt": "Write a two-sentence horror story."}
+{"id": "O43", "category": "open", "prompt": "What is the best way to learn to cook if I have never cooked?"}
+{"id": "O44", "category": "open", "prompt": "Explain the difference between weather and climate."}
+{"id": "O45", "category": "open", "prompt": "Help me write a polite message to a neighbor about their loud music at night."}
+{"id": "O46", "category": "open", "prompt": "What are good habits for maintaining mental health while working from home?"}
+{"id": "O47", "category": "open", "prompt": "Suggest a 30-minute bodyweight workout for beginners."}
+{"id": "O48", "category": "open", "prompt": "Explain why airlines overbook flights."}
+{"id": "O49", "category": "open", "prompt": "How do I start journaling and keep it up?"}
+{"id": "O50", "category": "open", "prompt": "Design a simple weekly meal-prep routine for one person."}

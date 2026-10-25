@@ -1,0 +1,22 @@
+# AlpacaEval 805 prompts, run2 = second generation seed (engine seed 2; otherwise as run1: temp 0.6, top_p 0.95, 32K cap), answer = text after the last </think>. Rows: Think-SFT with the arms' training template (tmplA2, exact control), arms A, B and B' (same checkpoints as run1; this is a re-sampling check, not a second training seed). Last block: same model, run2 minus run1 on the same prompts (generation noise). Produced by length_table.py OUT_DIR run2 --compare RUN1_DIR. 2026-10-25 10:10 CST.
+[run2] median answer tokens [95% CI] | median total tokens | median thinking tokens (finished) | cap hits | answers > 1000 tokens | median answer chars
+  Think-SFT (training tmpl)  n=805 answer    600 [570, 637] | total   1548 | thinking    838 | cap  24 | >1000 0.12 | chars   2571
+  arm A                      n=805 answer    644 [612, 669] | total   1661 | thinking    899 | cap  15 | >1000 0.14 | chars   2707
+  arm B                      n=805 answer    613 [582, 656] | total   1584 | thinking    872 | cap  10 | >1000 0.13 | chars   2615
+  arm B'                     n=805 answer    626 [598, 660] | total   1609 | thinking    857 | cap  25 | >1000 0.14 | chars   2681
+paired change in answer tokens vs Think-SFT (training tmpl): median [95% CI]; share of prompts with a longer answer; thinking tokens change
+  arm A                         +30 [+19, +41]  n=805  longer on 0.60 of prompts | thinking   +58
+  arm B                         +17 [+8, +24]  n=805  longer on 0.57 of prompts | thinking    +9
+  arm B'                        +14 [+5, +23]  n=805  longer on 0.55 of prompts | thinking   +11
+arm vs arm, paired on the same prompts: median difference in answer tokens [95% CI]; sign test; robustness (chars, 10% trimmed mean)
+  arm B − arm A:   -14 [-25, -6] tokens, n=805; arm B shorter on 449, longer on 349, ties 7, z = +3.54; chars   -58 [-103, -21]; trimmed-mean diff -22 tokens
+     per source: helpful_base -16 (n=129); koala +0 (n=156); oasst -10 (n=188); selfinstruct -14 (n=252); vicuna -48 (n=80)
+  arm B' − arm A:   -14 [-21, -8] tokens, n=805; arm B' shorter on 457, longer on 342, ties 6, z = +4.07; chars   -62 [-107, -32]; trimmed-mean diff -12 tokens
+     per source: helpful_base -14 (n=129); koala +1 (n=156); oasst -14 (n=188); selfinstruct -22 (n=252); vicuna -16 (n=80)
+  arm B' − arm B:    +0 [-7, +10] tokens, n=805; arm B' shorter on 398, longer on 400, ties 7, z = -0.07; chars    +1 [-28, +36]; trimmed-mean diff +10 tokens
+     per source: helpful_base -2 (n=129); koala -12 (n=156); oasst +22 (n=188); selfinstruct -6 (n=252); vicuna -0 (n=80)
+generation-noise check, same model run2 vs run1 on the same prompts: median paired difference [95% CI]; median answer tokens in each run
+  Think-SFT (training tmpl)  run2 − run1:    +0 [-8, +6]  n=805  medians 600 vs 577
+  arm A                      run2 − run1:    +2 [-3, +9]  n=805  medians 644 vs 647
+  arm B                      run2 − run1:    +0 [-9, +11]  n=805  medians 613 vs 613
+  arm B'                     run2 − run1:    -4 [-11, +3]  n=805  medians 626 vs 622

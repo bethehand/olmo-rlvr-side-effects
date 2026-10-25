@@ -1,0 +1,14 @@
+# IFEval, all 541 prompts, one sample each (temp 0.6, top_p 0.95, seed 1, 32K cap), Google's checkers (langdetect seeded; random draws re-seeded per file). Rows: Think-SFT with the arms' training template (tmplA, exact control), Think-SFT and Think-DPO with their released templates, arms A and B (repaired configs, training template). 2026-10-23 17:15 CST.
+Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=541  prompt strict=0.784 [0.747, 0.816]  prompt loose=0.830 [0.796, 0.859]  instruction strict=0.847 loose=0.880  hit cap=25
+Olmo-3-7B-Think-SFT@main_run1.jsonl: n=541  prompt strict=0.765 [0.728, 0.799]  prompt loose=0.808 [0.772, 0.839]  instruction strict=0.843 loose=0.872  hit cap=23
+Olmo-3-7B-Think-DPO@main_run1.jsonl: n=541  prompt strict=0.719 [0.680, 0.755]  prompt loose=0.778 [0.741, 0.811]  instruction strict=0.808 loose=0.850  hit cap=3
+icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl: n=541  prompt strict=0.756 [0.718, 0.790]  prompt loose=0.800 [0.765, 0.832]  instruction strict=0.829 loose=0.862  hit cap=21
+icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl: n=541  prompt strict=0.765 [0.728, 0.799]  prompt loose=0.810 [0.774, 0.840]  instruction strict=0.841 loose=0.871  hit cap=14
+  Olmo-3-7B-Think-SFT@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt strict: n=541 diff=-0.018 [-0.054, +0.013]
+  Olmo-3-7B-Think-SFT@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt loose: n=541 diff=-0.022 [-0.057, +0.013]
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt strict: n=541 diff=-0.065 [-0.102, -0.031]
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt loose: n=541 diff=-0.052 [-0.087, -0.020]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt strict: n=541 diff=-0.028 [-0.061, +0.006]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt loose: n=541 diff=-0.030 [-0.063, +0.006]
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt strict: n=541 diff=-0.018 [-0.052, +0.011]
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl, prompt loose: n=541 diff=-0.020 [-0.052, +0.011]

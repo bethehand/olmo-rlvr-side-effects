@@ -1,0 +1,5 @@
+# IFEval, all 541 prompts, baselines' 32K outputs re-capped at 8K after the fact (truncate_to_cap.py; SFT 27, DPO 11 outputs cut), for comparison with arms generated at 8K. 2026-10-23 08:28 CST.
+Olmo-3-7B-Think-SFT@main_run1_cap8k.jsonl: n=541  prompt strict=0.762 [0.724, 0.796]  prompt loose=0.804 [0.769, 0.835]  instruction strict=0.839 loose=0.867  hit cap=27
+Olmo-3-7B-Think-DPO@main_run1_cap8k.jsonl: n=541  prompt strict=0.715 [0.676, 0.752]  prompt loose=0.773 [0.735, 0.806]  instruction strict=0.805 loose=0.845  hit cap=11
+  Olmo-3-7B-Think-DPO@main_run1_cap8k.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k.jsonl, prompt strict: n=541 diff=-0.046 [-0.081, -0.011]
+  Olmo-3-7B-Think-DPO@main_run1_cap8k.jsonl minus Olmo-3-7B-Think-SFT@main_run1_cap8k.jsonl, prompt loose: n=541 diff=-0.031 [-0.067, +0.004]

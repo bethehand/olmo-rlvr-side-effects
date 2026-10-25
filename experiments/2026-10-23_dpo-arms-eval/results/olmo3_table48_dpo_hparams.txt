@@ -1,0 +1,26 @@
+# Olmo 3 technical report (arXiv 2512.13961v2), Appendix A.6.2 and Table 48, text extracted with pypdf on 2026-10-23 (pages 105-106). Primary source for the DPO recipe.
+A.6.2 Preference Tuning Details
+Training SettingsGiven a preference dataset D={(x, y c, yr)} of prompts x and corresponding chosen and
+rejected responses yc≻y r, we optimize the model policyπθ on a length-normalized DPO loss (Lambert et al.,
+2024):
+max
+πθ
+...
+We sweep learning rate and preference dataset size, as we observe that performance increases up until
+some task-dependent optimal optimization point beyond which further tuning hurts (Figure 23). All other
+hyperparameters are kept fixed. See Table 48 for exact hyperparameters. We train our 7B models using 2–4
+8xH100 nodes, and our 32B models with 8–16 8xH100 nodes.
+
+7B Thinking DPO 32B Thinking DPO 7B Instruct DPO
+6210-Num. Preference Pairs 150K 200K 260K
+6211-Num. Epochs1 1 1
+6212-DPOβ 5 5 5
+6213-Learning Rate8.0×10 −8 7.0×10 −8 1.0×10 −6
+6214-LR Schedule Linear decay Linear decay Linear decay
+6215-W armup Ratio0.1 0.1 0.1
+6216-Num. GPUs 32 64-128 16
+6217-Batch Size128 128 128
+6218-Max Sequence Length 16K 8K 16K
+6219-Table 48 Training hyperparameters for Olmo 3 Think DPO and Olmo 3 Instruct DPO. GPU hours assume NVIDIA
+6220-H100 accelerator.
+6221-A.6.3 Reinforcement Learning Details

@@ -1,0 +1,9 @@
+2026-10-22T11:10:01Z pipeline start gpus=3 price=11.97 budget=500
+2026-10-22T11:10:01Z gpus=3 -> sep mode, activation budget 0.1 (effective batch 30)
+64-pair run failed (exit 1), see /workspace/logs/timing_sep_64.log
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 5009)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+2026-10-22T11:14:18Z sep timing rc=1 peak=78217 MiB at budget 0.1 -> retrying with budget 0.0 (recompute everything)

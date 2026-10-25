@@ -1,0 +1,4 @@
+timing_sep_64 exit=0 wall_s=359 peak_gpu_mib=53699
+timing_sep_256 exit=0 wall_s=686 peak_gpu_mib=54941
+mode=sep gpus=3: 1.70 s/pair, fixed 4.2 min -> one 20,000-pair run ~9.5 h, $114 at $11.97/h; peak GPU memory 54941.0 MiB of 81,559
+A+B ~19.1 h $228 | +C ~28.6 h $342 | +2 extra seeds ~47.7 h $570

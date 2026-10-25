@@ -1,0 +1,12 @@
+# GSM8K test, all 1,319 problems, one sample each (temp 0.6, top_p 0.95, seed 1, 32K cap), score_gsm8k.py with the 2026-10-23 extraction routes. Rows: Think-SFT with the arms' training template (tmplA, exact control), Think-SFT and Think-DPO with their released templates, arms A and B (repaired configs, training template). 2026-10-23 23:17 CST.
+Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=1319 acc=0.946 [0.933, 0.957]  hit cap=4  no number=0  extraction routes={'bold': 41, 'boxed': 1260, 'lastnum': 11, 'marker': 7}
+Olmo-3-7B-Think-SFT@main_run1.jsonl: n=1319 acc=0.946 [0.933, 0.957]  hit cap=2  no number=0  extraction routes={'bold': 22, 'boxed': 1288, 'lastnum': 6, 'marker': 3}
+Olmo-3-7B-Think-DPO@main_run1.jsonl: n=1319 acc=0.908 [0.891, 0.922]  hit cap=0  no number=2  extraction routes={'bold': 591, 'boxed': 625, 'lastnum': 42, 'marker': 61}
+icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl: n=1319 acc=0.939 [0.925, 0.951]  hit cap=3  no number=0  extraction routes={'bold': 82, 'boxed': 1214, 'lastnum': 11, 'marker': 12}
+icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl: n=1319 acc=0.947 [0.933, 0.958]  hit cap=0  no number=0  extraction routes={'bold': 54, 'boxed': 1255, 'lastnum': 5, 'marker': 5}
+  Olmo-3-7B-Think-SFT@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=1319 diff=+0.000 [-0.009, +0.008]
+  Olmo-3-7B-Think-DPO@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=1319 diff=-0.039 [-0.052, -0.025]
+  icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=1319 diff=-0.007 [-0.017, +0.004]
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl minus Olmo-3-7B-Think-SFT@main_tmplA.jsonl: n=1319 diff=+0.001 [-0.008, +0.009]
+# B minus A:
+  icedduck_olmo3-7b-think-dpo-arm_B_seed1@main_run1.jsonl minus icedduck_olmo3-7b-think-dpo-arm_A_seed1@main_run1.jsonl: n=1319 diff=+0.008 [-0.002, +0.017]

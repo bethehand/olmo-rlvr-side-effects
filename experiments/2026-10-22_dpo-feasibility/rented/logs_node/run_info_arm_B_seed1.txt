@@ -1,0 +1,3 @@
+start 2026-10-22T20:19:24Z gpus=3 mode=sep grad_accum=10 effective_batch=30 open-instruct=ff32794a3
+NVIDIA H100 80GB HBM3, 81559 MiB, 595.91.07
+end 2026-10-23T06:44:22Z exit=0 wall_s=37498
