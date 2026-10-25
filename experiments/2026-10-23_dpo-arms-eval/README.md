@@ -96,7 +96,7 @@ measures what that difference alone does. So far it changes nothing measurable i
 | `length_table.py` | the 805-prompt length table (`results/alpaca805_lengths_run1.txt`, `_run2.txt`): per-model medians with bootstrap intervals, paired changes against the training-template control, arm-vs-arm differences with sign tests and robustness checks; `length_table.py OUT_DIR [run2] [--compare DIR]` since 2026-10-25 (second generation seed and the run-to-run noise block). |
 | `truncate_to_cap.py` | re-caps the baselines' 32K outputs at 8K after the fact (`*_cap8k.jsonl`), so that arms and baselines are compared under the same cap (see the protocol change) |
 | `score_ifeval.py`, `score_gsm8k.py`, `analyze_heldout.py`, `judge_heldout.py` | scoring |
-| `outputs/`, `judgments/`, `results/` | per-sample outputs (not committed, large), judge records, tables |
+| `outputs/`, `judgments/`, `results/` | per-sample outputs (not committed here; the six models' generations for all four sets, plus the second-seed 805 runs, are public on the Hub as `icedduck/olmo3-7b-think-dpo-arms-eval-outputs`), judge records (`judgments/heldout_run1.jsonl`, committed), tables |
 
 ## What is established so far (2026-10-25 10:15; all four sets, the judge and a second generation seed done for A, B and B')
 
@@ -362,3 +362,8 @@ tokens but not its answers.
   11:45 from notes kept in the session's scratchpad: from 06:23 to 11:40 the session could not open any pre-existing file under the
   Desktop folder (macOS denied the process after the auto-updater removed its executable; fixed by toggling Terminal's Full Disk
   Access). New files, including every results file of today, were unaffected.
+- 2026-10-26 01:25 CST: **published.** This directory and `../2026-10-22_dpo-feasibility/` pushed (commit 15374ee); the three
+  checkpoints `icedduck/olmo3-7b-think-dpo-arm_{A,B,Bp}_seed1` set public with model cards and a `config.json` /
+  `tokenizer_config.json` that carry the transformers 4.x keys next to the 5.x ones (the fix of 2026-10-23, so a 4.57 user does not
+  get the silent θ = 10000 fallback); the per-sample generations of all six models (held-out, IFEval, GSM8K, the 805 prompts for
+  run1 and the second seed) uploaded as the public dataset `icedduck/olmo3-7b-think-dpo-arms-eval-outputs` (28 files, 226 MB).
