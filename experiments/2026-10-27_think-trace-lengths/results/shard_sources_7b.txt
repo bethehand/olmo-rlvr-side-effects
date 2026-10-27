@@ -1,0 +1,156 @@
+shard   0 rows= 14540 SINGLE allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered
+shard   1 rows= 14540 SINGLE allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered
+shard   2 rows= 14540 SINGLE allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered
+shard   3 rows= 14540 MIXED min=['allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered', 'allenai/wildchat-r1-p2-repetition-filter'] max=['allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered', 'allenai/wildchat-r1-p2-repetition-filter']
+shard   4 rows= 14540 SINGLE allenai/wildchat-r1-p2-repetition-filter
+shard   5 rows= 14540 MIXED min=['allenai/wildchat-r1-p2-repetition-filter', 'saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2'] max=['allenai/wildchat-r1-p2-repetition-filter', 'saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2']
+shard   6 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard   7 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard   8 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard   9 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  10 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  11 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  12 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  13 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  14 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  15 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  16 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  17 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  18 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  19 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  20 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  21 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  22 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  23 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  24 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  25 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  26 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  27 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  28 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  29 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  30 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  31 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  32 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  33 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  34 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  35 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  36 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  37 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  38 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  39 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  40 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  41 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  42 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  43 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  44 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  45 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  46 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  47 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  48 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  49 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  50 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  51 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  52 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  53 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  54 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  55 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  56 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2
+shard  57 rows= 14540 MIXED min=['saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2', 'saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2'] max=['saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2', 'saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2']
+shard  58 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  59 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  60 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  61 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  62 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  63 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2
+shard  64 rows= 14540 MIXED min=['saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2', 'saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2'] max=['saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2', 'saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2']
+shard  65 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2
+shard  66 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2
+shard  67 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2
+shard  68 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2
+shard  69 rows= 14540 SINGLE saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2
+shard  70 rows= 14540 MIXED min=['allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'allenai/oasst1-r1-format-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2'] max=['allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'allenai/oasst1-r1-format-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2']
+shard  71 rows= 14540 MIXED min=['allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered'] max=['allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered', 'allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered']
+shard  72 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  73 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  74 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  75 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  76 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  77 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  78 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  79 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  80 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  81 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  82 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  83 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  84 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  85 rows= 14540 SINGLE allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered
+shard  86 rows= 14540 MIXED min=['allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered', 'saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2'] max=['allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered', 'saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2']
+shard  87 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  88 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  89 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  90 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  91 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  92 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  93 rows= 14540 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  94 rows= 14539 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  95 rows= 14539 SINGLE saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2
+shard  96 rows= 14539 MIXED min=['allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered', 'saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2'] max=['allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered', 'saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2']
+shard  97 rows= 14539 SINGLE allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered
+shard  98 rows= 14539 MIXED min=['allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered', 'allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered'] max=['allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered', 'allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered']
+shard  99 rows= 14539 SINGLE allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered
+shard 100 rows= 14539 SINGLE allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered
+shard 101 rows= 14539 MIXED min=['allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered', 'allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered'] max=['allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered', 'allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered']
+shard 102 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 103 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 104 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 105 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 106 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 107 rows= 14539 SINGLE allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered
+shard 108 rows= 14539 MIXED min=['allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered', 'allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered'] max=['allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered', 'allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered']
+shard 109 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 110 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 111 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 112 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 113 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 114 rows= 14539 SINGLE allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered
+shard 115 rows= 14539 MIXED min=['allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered', 'allenai/tablegpt_r1-format-filtered-keyword-filtered-filter-datecutoff'] max=['allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered', 'allenai/tablegpt_r1-format-filtered-keyword-filtered-filter-datecutoff']
+shard 116 rows= 14539 MIXED min=['allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls', 'allenai/tablegpt_r1-format-filtered-keyword-filtered-filter-datecutoff'] max=['allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls', 'allenai/tablegpt_r1-format-filtered-keyword-filtered-filter-datecutoff']
+shard 117 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 118 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 119 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 120 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 121 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 122 rows= 14539 SINGLE allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls
+shard 123 rows= 14539 MIXED min=['allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls', 'saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2'] max=['allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls', 'saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2']
+shard 124 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 125 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 126 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 127 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 128 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 129 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 130 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 131 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 132 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 133 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 134 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 135 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 136 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 137 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 138 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 139 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 140 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 141 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 142 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 143 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 144 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 145 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 146 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 147 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 148 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 149 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 150 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 151 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 152 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 153 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 154 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2
+shard 155 rows= 14539 SINGLE saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2

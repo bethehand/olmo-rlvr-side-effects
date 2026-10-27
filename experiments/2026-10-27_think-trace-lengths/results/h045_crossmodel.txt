@@ -1,0 +1,40 @@
+# Per-turn view across the four same-prompt reruns: for each of the 22 turns, how many of the 32 Olmo 3 samples (4 models x 8)
+# had no </think> at 8,192, how many of those were loops (tail distinct 8-gram ratio < 0.5), next to H045's outcome on that turn
+# (status and tail ratio from h045_chatlog_loops.txt). Then: on how many of the turns where H045 looped did no Olmo 3 sample fail at all?
+# Also prints the tails of a few Olmo 3 7B Think-SFT no-answer samples that are *not* loops, to check that they are still progressing.
+# Usage: h045_crossmodel.py OUT.txt H045_LOOPS.txt LABEL=FILE.jsonl ...
+# Produced by h045_crossmodel.py on 2026-10-27 14:38 CST
+
+case                             turn | H045       H045 tail | Olmo 3 7B Thin | Olmo 3 7B Thin | Olmo 3 32B Thi | Olmo 3.1 32B T | all 32: no answer of which loops
+bv-02-feature-announcement          1 | answered        1.00 |   0/8        |   0/8        |   0/8        |   3/8        |       3/32                     0
+bv-02-feature-announcement          2 | UNFINISHED      0.10 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+fa-08-citation-request              1 | UNFINISHED      0.02 |   2/8        |   0/8        |   0/8        |   0/8        |       2/32                     2
+fa-08-citation-request              2 | UNFINISHED      0.01 |   2/8        |   0/8        |   0/8        |   0/8        |       2/32                     2
+q-01-trip-plan-constraints          1 | UNFINISHED      0.01 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+q-01-trip-plan-constraints          2 | answered        0.99 |   2/8        |   0/8        |   1/8        |   0/8        |       3/32                     3
+q-08-blog-outline-structure         1 | UNFINISHED      0.01 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+q-08-blog-outline-structure         2 | UNFINISHED      0.03 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+q-09-recipe-substitution            1 | UNFINISHED      0.04 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+q-09-recipe-substitution            2 | answered        0.98 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-01-river-crossing-variant         1 | UNFINISHED      0.69 |   7/8        |   7/8        |   2/8        |   4/8        |      20/32                     0
+r-01-river-crossing-variant         2 | UNFINISHED      0.00 |   4/8        |   6/8        |   6/8        |   3/8        |      19/32                     3
+r-03-bat-and-ball-not-the-classi    1 | answered        0.96 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-03-bat-and-ball-not-the-classi    2 | UNFINISHED      0.04 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-04-predict-python-output          1 | answered        0.95 |   1/8        |   0/8        |   0/8        |   0/8        |       1/32                     0
+r-04-predict-python-output          2 | UNFINISHED      0.03 |   2/8        |   1/8        |   0/8        |   0/8        |       3/32                     1
+r-05-scheduling-constraints         1 | UNFINISHED      0.79 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-05-scheduling-constraints         2 | UNFINISHED      0.15 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-06-fermi-estimate                 1 | UNFINISHED      0.34 |   7/8        |   4/8        |   0/8        |   0/8        |      11/32                     0
+r-06-fermi-estimate                 2 | answered        0.93 |   0/8        |   0/8        |   0/8        |   0/8        |       0/32                     0
+r-08-monty-hall-random-host         1 | UNFINISHED      0.79 |   3/8        |   7/8        |   0/8        |   0/8        |      10/32                     0
+r-08-monty-hall-random-host         2 | UNFINISHED      0.07 |   0/8        |   0/8        |   1/8        |   0/8        |       1/32                     1
+
+H045 looped (tail ratio < 0.5) on 13 turns; on 7 of them no Olmo 3 sample (0 of 32) exceeded 8,192 without closing: bv-02-feature-announcement t2, q-01-trip-plan-constraints t1, q-08-blog-outline-structure t1, q-08-blog-outline-structure t2, q-09-recipe-substitution t1, r-03-bat-and-ball-not-the-classi t2, r-05-scheduling-constraints t2
+turns where at least one Olmo 3 sample failed: 11 of 22; Olmo 3 loops in total: 12 of 704 samples
+
+Tails (last 350 chars) of Olmo 3 7B Think-SFT no-answer samples that are not loops:
+--- r-01-river-crossing-variant turn 1 (tail ratio 0.96): ... G to B. /  / Second crossing: F returns alone? No, because he has to take two items. Wait, if he must take two items each time, he can't return alone. So he has to bring two items back. But he was on B with V and G. To return, he has to take two items back to A. But the only items on B are V and G and himself. Wait, the farmer is going back, so he can
+--- r-01-river-crossing-variant turn 1 (tail ratio 0.97): ...er plus two items", so maybe each crossing must have exactly two items. So the farmer can't take one. /  / Alternatively, if he can take one, then: /  / 1. F takes C to the right. (1 crossing) /  / 2. F returns alone. (2 crossings) /  / 3. F takes G to the right. (3 crossings) /  / 4. F returns with C. (4 crossings) /  / 5. F takes Fx to the right. (5 crossings) /  / But this
+--- r-01-river-crossing-variant turn 1 (tail ratio 0.99): ... was 7, but maybe that's for a different problem where the boat can only carry one item. Let me confirm. /  / Yes, in the classic problem where the boat can only carry the farmer and one item at a time, the minimum number of crossings is indeed 7. The steps are: /  / 1. Farmer takes chicken over. /  / 2. Farmer returns with chicken. /  / 3. Farmer takes grain over
+--- r-01-river-crossing-variant turn 1 (tail ratio 0.89): ..., Left has all four, which is not the goal. Hmm, that's not helpful. /  / Alternatively, step 2: F takes F and G back? That just brings him back. Not helpful. /  / Hmm. /  / Alternative 6: /  / 1. F takes C and G to Right. (Left: F, V; Right: F, C, G). But on Right, C and G can't be left together. Invalid. /  / Alternative 7: /  / 1. F takes V and G to Right. (Left: F, C;
+--- r-01-river-crossing-variant turn 1 (tail ratio 0.87): ...ep: /  / After 1: B has F, F, G. A has C. /  / After 2: A has F, F, G, C. B empty. /  / After 3: B has C, G. A has F. /  / After 4: A has F, C, F. B has G. /  / Wait, step 4: Farmer takes Chicken and Fox (from A) to B. So A now has Fox (since he took it), and B now has G, C, F. Wait, but Chicken and Fox on B are together, which is bad. So that's invalid. /  / Hmm, this is

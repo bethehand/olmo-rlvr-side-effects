@@ -1,0 +1,38 @@
+# Loop signature of the Olmo 3.5 SFT H045 turns in the chat_logs.md attached to open-instruct #2080 (exported from Ai2's qualeval,
+# max_tokens 8192). For every assistant turn: status (answered / UNFINISHED), completion tokens, reasoning length, and two repetition
+# measures computed on the reasoning text: the distinct 8-gram ratio over the last 2,000 words (1.0 = no repeated 8-word windows,
+# near 0 = the tail is one repeated passage) and the number of words starting with "wait" per 1,000 words; plus the most repeated
+# 8-gram and how many times it occurs. The same measures on our Olmo 3 outputs: finished thinking 0.98-1.00, 32K-cap loops 0.00-0.03.
+# Usage: h045_chatlog_loops.py chat_logs.md OUT.txt
+# Produced by h045_chatlog_loops.py on 2026-10-27 11:58 CST
+# turns parsed: 22 (UNFINISHED 16, answered 6)
+
+case                             turn status        tokens  words distinct8 tail distinct8 all wait/1k top 8-gram count  most repeated 8-gram
+bv-02-feature-announcement          1 answered    361/8192    152           1.00          1.00     0.0                1  Okay, I need to write a 120-word announcement
+bv-02-feature-announcement          2 UNFINISHED 8192/8192   5540           0.10          0.19     0.7               78  workflows, automates routine exports, and ensures reliability with
+fa-08-citation-request              1 UNFINISHED 8192/8192   4598           0.02          0.30     2.6              200  Alternatively, Van Dongen and Dinges (2005) is primary.
+fa-08-citation-request              2 UNFINISHED 8192/8192   6084           0.01          0.13     1.2              327  studies, but I can only provide three. Alternatively,
+q-01-trip-plan-constraints          1 UNFINISHED 8192/8192   6356           0.01          0.43     2.8              128  the user can have one day with a
+q-01-trip-plan-constraints          2 answered   1411/8192    538           0.99          0.99     5.6                2  they can just explore the Alfama district without
+q-08-blog-outline-structure         1 UNFINISHED 8192/8192   6010           0.01          0.37     2.2              208  perhaps the user made a mistake, but I'll
+q-08-blog-outline-structure         2 UNFINISHED 8192/8192   6534           0.03          0.15     0.6               99  with a new section on testing strategy, making
+q-09-recipe-substitution            1 UNFINISHED 8192/8192   6266           0.04          0.26     9.6               99  they have baking soda but not baking powder,
+q-09-recipe-substitution            2 answered   1590/8192    843           0.98          0.98     2.4                5  the yogurt was added to a dish that's
+r-01-river-crossing-variant         1 UNFINISHED 8192/8192   6821           0.69          0.74    11.7               26  the farmer takes the chicken and the grain
+r-01-river-crossing-variant         2 UNFINISHED 8192/8192   5907           0.00          0.19     1.9              661  Therefore, he can't take any of them. Therefore,
+r-03-bat-and-ball-not-the-classi    1 answered   1253/8192    793           0.96          0.96     6.3                2  bat and a ball cost $1.10 in total.
+r-03-bat-and-ball-not-the-classi    2 UNFINISHED 8192/8192   6012           0.04          0.24    37.6              112  $1.00 more than the ball, but the total
+r-04-predict-python-output          1 answered   2669/8192   1594           0.95          0.95    12.5                3  the current value of i at the time
+r-04-predict-python-output          2 UNFINISHED 8192/8192   6065           0.03          0.21    18.6               90  a list comprehension that iterates over a range
+r-05-scheduling-constraints         1 UNFINISHED 8192/8192   5835           0.79          0.82    15.3               13  D must be immediately after A, so D
+r-05-scheduling-constraints         2 UNFINISHED 8192/8192   5508           0.15          0.44    11.6               64  A at 9, D at 10, C at
+r-06-fermi-estimate                 1 UNFINISHED 8192/8192   4915           0.34          0.65     3.9               39  maybe the number of tunings per piano is
+r-06-fermi-estimate                 2 answered   1664/8192    989           0.93          0.93     3.0                6  least certain assumption is the number of tunings
+r-08-monty-hall-random-host         1 UNFINISHED 8192/8192   5695           0.79          0.77     9.5               38  the probability that the car is in door
+r-08-monty-hall-random-host         2 UNFINISHED 8192/8192   6102           0.07          0.39     2.5               61  the host doesn't know, but the contestant does,
+
+UNFINISHED: n=16 | median distinct8 tail 0.04 (min 0.00, max 0.79) | median distinct8 all 0.33 | median wait/1k 3.3 | median words 6011
+   turns with distinct8 tail < 0.5 (looping tail): 13 of 16; < 0.9: 16
+
+answered: n=6 | median distinct8 tail 0.97 (min 0.93, max 1.00) | median distinct8 all 0.97 | median wait/1k 4.3 | median words 818
+   turns with distinct8 tail < 0.5 (looping tail): 0 of 6; < 0.9: 0

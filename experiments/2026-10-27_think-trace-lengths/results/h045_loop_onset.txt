@@ -1,0 +1,25 @@
+# Where in each unfinished H045 trace does the repetition start? Sliding window of 500 words, step 50, over the reasoning text;
+# the onset is the first window whose distinct 8-gram ratio drops below 0.5 and stays below it for the rest of the trace (allowing one
+# recovery window). Reports onset in words, as a share of the trace, and in tokens estimated as onset_words * 8192 / total_words
+# (the trace is exactly 8,192 tokens long). Usage: h045_loop_onset.py chat_logs.md OUT.txt
+# Produced by h045_loop_onset.py on 2026-10-27 12:28 CST
+
+case                             turn  words onset word onset share onset ~tokens tail ratio
+bv-02-feature-announcement          2   5540       1800         32%          2662       0.10
+fa-08-citation-request              1   4598       1400         30%          2494       0.02
+fa-08-citation-request              2   6084        800         13%          1077       0.01
+q-01-trip-plan-constraints          1   6356       2600         41%          3351       0.01
+q-08-blog-outline-structure         1   6010       2750         46%          3748       0.01
+q-08-blog-outline-structure         2   6534       1050         16%          1316       0.03
+q-09-recipe-substitution            1   6266       1900         30%          2484       0.04
+r-01-river-crossing-variant         1   6821       none           -             -       0.69
+r-01-river-crossing-variant         2   5907        950         16%          1317       0.00
+r-03-bat-and-ball-not-the-classi    2   6012       1550         26%          2112       0.04
+r-04-predict-python-output          2   6065       1350         22%          1823       0.03
+r-05-scheduling-constraints         1   5835       none           -             -       0.79
+r-05-scheduling-constraints         2   5508       3700         67%          5503       0.15
+r-06-fermi-estimate                 1   4915       3650         74%          6084       0.34
+r-08-monty-hall-random-host         1   5695       none           -             -       0.79
+r-08-monty-hall-random-host         2   6102       2850         47%          3826       0.07
+
+turns with a detected onset: 13 of 16; median onset 1800 words = 30% of the trace ≈ 2494 tokens; earliest ≈ 1077 tokens, latest ≈ 6084 tokens

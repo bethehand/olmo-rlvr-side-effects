@@ -1,0 +1,22 @@
+# Sanity check of the shard sample: per-source share in the sampled rows versus the prompt counts on the dataset card.
+Clean-v1 is compared with the Dolci-Think-SFT-32B card (its source, 2,253,684 rows; Clean-v1 keeps 2,190,070 of them), the 7B sample
+with the Dolci-Think-SFT-7B card (2,268,178 rows). Card labels are matched to the parquet source strings by keyword.
+Usage: composition_check.py rows.parquet {32b|7b} OUT.txt
+# Produced by composition_check.py on 2026-10-27 12:16 CST
+sampled rows: 307980 from results/rows_clean_v1.parquet; card: Dolci-Think-SFT-32B (2253684 rows)
+card label                           sample share  card share  sample n
+OpenThoughts 3 (Math+STEM+Code)             39.8%       41.8%    122597
+SYNTHETIC-2 SFT-Verified                     4.6%        4.6%     14214
+Nemotron code                                5.0%        5.0%     15517
+Dolci Think Persona IF                       9.9%        9.8%     30449
+Dolci Precise IF                             5.8%        6.0%     17933
+Dolci Think Python                          20.5%       20.7%     63110
+WildChat                                     6.2%        3.4%     19015
+OpenAssistant                                0.3%        0.3%       858
+CoCoNot                                      0.4%        0.4%      1318
+WildGuardMix                                 1.5%        1.6%      4615
+WildJailbreak                                1.7%        1.8%      5285
+Aya                                          4.0%        4.3%     12471
+TableGPT                                     0.2%        0.2%       598
+Olmo Identity                                0.0%        0.0%         0
+raw source counts: Dolci Think OpenThoughts3 Math: 98461, Dolci Think Python Algorithms: 63110, Persona Precise IF: 30449, Wildchat: 19015, Dolci Think Precise IF: 17933, Nemotron Code: 15517, SYNTHETIC-2-SFT-Verified: 14214, Dolci Think OpenThoughts3 STEM: 13269, Aya: 12471, Dolci Think OpenThoughts3 Code: 10867, WildJailbreak: 5285, WildGuardMix: 4615, CoCoNot: 1318, OpenAssistant: 858, TableGPT: 598

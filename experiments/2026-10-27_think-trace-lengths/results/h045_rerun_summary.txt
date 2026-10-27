@@ -1,0 +1,129 @@
+# Summarize rerun_h045_turns.py outputs: per model, the share of samples with no </think> (no final answer) at the 8,192 budget,
+# overall and split by whether H045 answered that turn; per-turn counts; the loop measure (distinct 8-gram ratio over the last
+# 2,000 words) for the no-answer samples versus the finished ones; median tokens of finished samples. Wilson 95% intervals.
+# Usage: summarize_h045_rerun.py OUT.txt FILE.jsonl [FILE.jsonl ...]
+# Produced by summarize_h045_rerun.py on 2026-10-27 14:25 CST
+
+== allenai/Olmo-3-7B-Think-SFT (outputs/h045_rerun/7b_think_sft.jsonl): 22 turns x 8 samples = 176 samples; max_tokens 8192
+no </think> (no final answer): 30/176 = 17.0% [12.2, 23.3] | hit max_tokens: 35/176 = 19.9% [14.7, 26.4]
+  on the 16 turns H045 left unfinished: 27/128 = 21.1% [14.9, 29.0] | on the 6 turns H045 answered: 3/48 = 6.2% [2.1, 16.8]
+  turns with at least one no-answer sample: 9/22; turns where every sample failed: 0/22
+  loop measure, tail distinct 8-gram ratio: no-answer samples median 0.91 (n=30); finished samples median 0.97 (n=146)
+  no-answer samples split: loops (tail ratio < 0.5) 7/176 = 4.0% [1.9, 8.0] of all samples | long but progressing (>= 0.5) 23/176 = 13.1% [8.9, 18.8] of all samples   [H045 in the same 22 turns, 1 sample each: 13 loops + 3 long = 16 unfinished]
+  finished samples: median total tokens 2477; prompt tokens median 158
+  case                             turn H045       no answer median tokens
+  bv-02-feature-announcement          1 answered      0/8              381
+  bv-02-feature-announcement          2 UNFINISHED    0/8              481
+  fa-08-citation-request              1 UNFINISHED    2/8             2184
+  fa-08-citation-request              2 UNFINISHED    2/8             1747
+  q-01-trip-plan-constraints          1 UNFINISHED    0/8             5162
+  q-01-trip-plan-constraints          2 answered      2/8             3268
+  q-08-blog-outline-structure         1 UNFINISHED    0/8             1622
+  q-08-blog-outline-structure         2 UNFINISHED    0/8             4783
+  q-09-recipe-substitution            1 UNFINISHED    0/8             3261
+  q-09-recipe-substitution            2 answered      0/8             1264
+  r-01-river-crossing-variant         1 UNFINISHED    7/8             8192
+  r-01-river-crossing-variant         2 UNFINISHED    4/8             8051
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8             1638
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8             1164
+  r-04-predict-python-output          1 answered      1/8             3736
+  r-04-predict-python-output          2 UNFINISHED    2/8             5406
+  r-05-scheduling-constraints         1 UNFINISHED    0/8             3061
+  r-05-scheduling-constraints         2 UNFINISHED    0/8             2053
+  r-06-fermi-estimate                 1 UNFINISHED    7/8             8192
+  r-06-fermi-estimate                 2 answered      0/8             1794
+  r-08-monty-hall-random-host         1 UNFINISHED    3/8             8192
+  r-08-monty-hall-random-host         2 UNFINISHED    0/8             3766
+
+== allenai/Olmo-3-7B-Think-DPO (outputs/h045_rerun/7b_think_dpo.jsonl): 22 turns x 8 samples = 176 samples; max_tokens 8192
+no </think> (no final answer): 25/176 = 14.2% [9.8, 20.1] | hit max_tokens: 26/176 = 14.8% [10.3, 20.8]
+  on the 16 turns H045 left unfinished: 25/128 = 19.5% [13.6, 27.2] | on the 6 turns H045 answered: 0/48 = 0.0% [0.0, 7.4]
+  turns with at least one no-answer sample: 5/22; turns where every sample failed: 0/22
+  loop measure, tail distinct 8-gram ratio: no-answer samples median 0.99 (n=25); finished samples median 1.00 (n=151)
+  no-answer samples split: loops (tail ratio < 0.5) 0/176 = 0.0% [0.0, 2.1] of all samples | long but progressing (>= 0.5) 25/176 = 14.2% [9.8, 20.1] of all samples   [H045 in the same 22 turns, 1 sample each: 13 loops + 3 long = 16 unfinished]
+  finished samples: median total tokens 2634; prompt tokens median 178
+  case                             turn H045       no answer median tokens
+  bv-02-feature-announcement          1 answered      0/8              760
+  bv-02-feature-announcement          2 UNFINISHED    0/8              718
+  fa-08-citation-request              1 UNFINISHED    0/8             2264
+  fa-08-citation-request              2 UNFINISHED    0/8             3310
+  q-01-trip-plan-constraints          1 UNFINISHED    0/8             5242
+  q-01-trip-plan-constraints          2 answered      0/8             3436
+  q-08-blog-outline-structure         1 UNFINISHED    0/8             2164
+  q-08-blog-outline-structure         2 UNFINISHED    0/8             3584
+  q-09-recipe-substitution            1 UNFINISHED    0/8             3046
+  q-09-recipe-substitution            2 answered      0/8             1517
+  r-01-river-crossing-variant         1 UNFINISHED    7/8             8192
+  r-01-river-crossing-variant         2 UNFINISHED    6/8             8032
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8             1210
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8             1021
+  r-04-predict-python-output          1 answered      0/8             2062
+  r-04-predict-python-output          2 UNFINISHED    1/8             6841
+  r-05-scheduling-constraints         1 UNFINISHED    0/8             3502
+  r-05-scheduling-constraints         2 UNFINISHED    0/8             2670
+  r-06-fermi-estimate                 1 UNFINISHED    4/8             8192
+  r-06-fermi-estimate                 2 answered      0/8             2584
+  r-08-monty-hall-random-host         1 UNFINISHED    7/8             8192
+  r-08-monty-hall-random-host         2 UNFINISHED    0/8             6236
+
+== allenai/Olmo-3-32B-Think-SFT (outputs/h045_rerun/32b_think_sft.jsonl): 22 turns x 8 samples = 176 samples; max_tokens 8192
+no </think> (no final answer): 10/176 = 5.7% [3.1, 10.1] | hit max_tokens: 10/176 = 5.7% [3.1, 10.1]
+  on the 16 turns H045 left unfinished: 9/128 = 7.0% [3.7, 12.8] | on the 6 turns H045 answered: 1/48 = 2.1% [0.4, 10.9]
+  turns with at least one no-answer sample: 4/22; turns where every sample failed: 0/22
+  loop measure, tail distinct 8-gram ratio: no-answer samples median 0.49 (n=10); finished samples median 0.98 (n=166)
+  no-answer samples split: loops (tail ratio < 0.5) 5/176 = 2.8% [1.2, 6.5] of all samples | long but progressing (>= 0.5) 5/176 = 2.8% [1.2, 6.5] of all samples   [H045 in the same 22 turns, 1 sample each: 13 loops + 3 long = 16 unfinished]
+  finished samples: median total tokens 2034; prompt tokens median 126
+  case                             turn H045       no answer median tokens
+  bv-02-feature-announcement          1 answered      0/8              555
+  bv-02-feature-announcement          2 UNFINISHED    0/8              898
+  fa-08-citation-request              1 UNFINISHED    0/8             3116
+  fa-08-citation-request              2 UNFINISHED    0/8             1154
+  q-01-trip-plan-constraints          1 UNFINISHED    0/8             4696
+  q-01-trip-plan-constraints          2 answered      1/8             4229
+  q-08-blog-outline-structure         1 UNFINISHED    0/8             1356
+  q-08-blog-outline-structure         2 UNFINISHED    0/8             2734
+  q-09-recipe-substitution            1 UNFINISHED    0/8             2850
+  q-09-recipe-substitution            2 answered      0/8             1129
+  r-01-river-crossing-variant         1 UNFINISHED    2/8             6724
+  r-01-river-crossing-variant         2 UNFINISHED    6/8             8084
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8             1160
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8              918
+  r-04-predict-python-output          1 answered      0/8              940
+  r-04-predict-python-output          2 UNFINISHED    0/8             2723
+  r-05-scheduling-constraints         1 UNFINISHED    0/8             2874
+  r-05-scheduling-constraints         2 UNFINISHED    0/8             2130
+  r-06-fermi-estimate                 1 UNFINISHED    0/8             5936
+  r-06-fermi-estimate                 2 answered      0/8             1231
+  r-08-monty-hall-random-host         1 UNFINISHED    0/8             5646
+  r-08-monty-hall-random-host         2 UNFINISHED    1/8             3150
+
+== allenai/Olmo-3.1-32B-Think (outputs/h045_rerun/31_32b_think.jsonl): 22 turns x 8 samples = 176 samples; max_tokens 8192
+no </think> (no final answer): 10/176 = 5.7% [3.1, 10.1] | hit max_tokens: 12/176 = 6.8% [3.9, 11.5]
+  on the 16 turns H045 left unfinished: 7/128 = 5.5% [2.7, 10.9] | on the 6 turns H045 answered: 3/48 = 6.2% [2.1, 16.8]
+  turns with at least one no-answer sample: 3/22; turns where every sample failed: 0/22
+  loop measure, tail distinct 8-gram ratio: no-answer samples median 0.95 (n=10); finished samples median 0.98 (n=166)
+  no-answer samples split: loops (tail ratio < 0.5) 0/176 = 0.0% [0.0, 2.1] of all samples | long but progressing (>= 0.5) 10/176 = 5.7% [3.1, 10.1] of all samples   [H045 in the same 22 turns, 1 sample each: 13 loops + 3 long = 16 unfinished]
+  finished samples: median total tokens 3996; prompt tokens median 158
+  case                             turn H045       no answer median tokens
+  bv-02-feature-announcement          1 answered      3/8             7408
+  bv-02-feature-announcement          2 UNFINISHED    0/8             2014
+  fa-08-citation-request              1 UNFINISHED    0/8             5205
+  fa-08-citation-request              2 UNFINISHED    0/8             4677
+  q-01-trip-plan-constraints          1 UNFINISHED    0/8             6266
+  q-01-trip-plan-constraints          2 answered      0/8             5787
+  q-08-blog-outline-structure         1 UNFINISHED    0/8             3019
+  q-08-blog-outline-structure         2 UNFINISHED    0/8             4581
+  q-09-recipe-substitution            1 UNFINISHED    0/8             4242
+  q-09-recipe-substitution            2 answered      0/8             1844
+  r-01-river-crossing-variant         1 UNFINISHED    4/8             7204
+  r-01-river-crossing-variant         2 UNFINISHED    3/8             7352
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8             1468
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8             1335
+  r-04-predict-python-output          1 answered      0/8             1679
+  r-04-predict-python-output          2 UNFINISHED    0/8             3188
+  r-05-scheduling-constraints         1 UNFINISHED    0/8             2629
+  r-05-scheduling-constraints         2 UNFINISHED    0/8             4200
+  r-06-fermi-estimate                 1 UNFINISHED    0/8             6407
+  r-06-fermi-estimate                 2 answered      0/8             3445
+  r-08-monty-hall-random-host         1 UNFINISHED    0/8             6964
+  r-08-monty-hall-random-host         2 UNFINISHED    0/8             5864

@@ -1,0 +1,168 @@
+{
+ "clean_v1": {
+  "rows": 307980,
+  "valid": 307229,
+  "below_0_5": 16,
+  "below_0_8": 370,
+  "by_source": {
+   "Dolci Think OpenThoughts3 Math": {
+    "n": 98461,
+    "below_0_5": 12,
+    "below_0_8": 54
+   },
+   "Persona Precise IF": {
+    "n": 30447,
+    "below_0_5": 3,
+    "below_0_8": 178
+   },
+   "Aya": {
+    "n": 11940,
+    "below_0_5": 0,
+    "below_0_8": 5
+   },
+   "Dolci Think OpenThoughts3 Code": {
+    "n": 10867,
+    "below_0_5": 0,
+    "below_0_8": 6
+   },
+   "Dolci Think Python Algorithms": {
+    "n": 63110,
+    "below_0_5": 0,
+    "below_0_8": 7
+   },
+   "WildJailbreak": {
+    "n": 5285,
+    "below_0_5": 0,
+    "below_0_8": 0
+   },
+   "Dolci Think Precise IF": {
+    "n": 17930,
+    "below_0_5": 0,
+    "below_0_8": 16
+   },
+   "Nemotron Code": {
+    "n": 15483,
+    "below_0_5": 0,
+    "below_0_8": 44
+   },
+   "Dolci Think OpenThoughts3 STEM": {
+    "n": 13267,
+    "below_0_5": 0,
+    "below_0_8": 1
+   },
+   "OpenAssistant": {
+    "n": 852,
+    "below_0_5": 0,
+    "below_0_8": 1
+   },
+   "SYNTHETIC-2-SFT-Verified": {
+    "n": 14192,
+    "below_0_5": 0,
+    "below_0_8": 20
+   },
+   "WildGuardMix": {
+    "n": 4614,
+    "below_0_5": 0,
+    "below_0_8": 0
+   },
+   "CoCoNot": {
+    "n": 1303,
+    "below_0_5": 1,
+    "below_0_8": 3
+   },
+   "TableGPT": {
+    "n": 598,
+    "below_0_5": 0,
+    "below_0_8": 1
+   },
+   "Wildchat": {
+    "n": 18880,
+    "below_0_5": 0,
+    "below_0_8": 34
+   }
+  }
+ },
+ "think_sft_7b": {
+  "rows": 218094,
+  "valid": 216454,
+  "below_0_5": 21,
+  "below_0_8": 254,
+  "by_source": {
+   "allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered": {
+    "n": 14308,
+    "below_0_5": 2,
+    "below_0_8": 38
+   },
+   "allenai/wildchat-r1-p2-repetition-filter": {
+    "n": 14331,
+    "below_0_5": 1,
+    "below_0_8": 43
+   },
+   "saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2": {
+    "n": 29080,
+    "below_0_5": 7,
+    "below_0_8": 13
+   },
+   "saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2": {
+    "n": 14540,
+    "below_0_5": 1,
+    "below_0_8": 2
+   },
+   "saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2": {
+    "n": 20960,
+    "below_0_5": 2,
+    "below_0_8": 18
+   },
+   "allenai/oasst1-r1-format-filtered-keyword-filtered-filter-datecutoff-chinese-filtered": {
+    "n": 6657,
+    "below_0_5": 0,
+    "below_0_8": 3
+   },
+   "allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered": {
+    "n": 1306,
+    "below_0_5": 0,
+    "below_0_8": 0
+   },
+   "allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered": {
+    "n": 14534,
+    "below_0_5": 3,
+    "below_0_8": 70
+   },
+   "saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2": {
+    "n": 14540,
+    "below_0_5": 0,
+    "below_0_8": 9
+   },
+   "allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered": {
+    "n": 14538,
+    "below_0_5": 0,
+    "below_0_8": 2
+   },
+   "allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered": {
+    "n": 14361,
+    "below_0_5": 0,
+    "below_0_8": 0
+   },
+   "allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered": {
+    "n": 14539,
+    "below_0_5": 0,
+    "below_0_8": 0
+   },
+   "allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered": {
+    "n": 13712,
+    "below_0_5": 0,
+    "below_0_8": 3
+   },
+   "allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls": {
+    "n": 14509,
+    "below_0_5": 5,
+    "below_0_8": 50
+   },
+   "saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2": {
+    "n": 14539,
+    "below_0_5": 0,
+    "below_0_8": 3
+   }
+  }
+ }
+}

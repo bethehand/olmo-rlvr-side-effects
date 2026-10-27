@@ -1,0 +1,64 @@
+# Do the SFT thinking traces themselves contain repetition loops? For every sampled row (same shards as trace_lengths.py) take the
+# thinking part of the last assistant message and compute the distinct 8-gram ratio over its last 2,000 words (the measure used on the
+# H045 logs and on our Olmo 3 outputs: finished traces 0.93-1.00, loops 0.00-0.03), plus the most repeated 8-gram and its count.
+# Reports per source and overall the share of traces below 0.5 (looping tail) and below 0.8, and writes the flagged rows
+# (ratio < 0.8) with id, source, ratio, repeat count and the repeated 8-gram to results/loop_flagged_<dataset>.parquet.
+# Clean-v1's own cleanup dropped 239 "degenerate tail" rows with a C4-style filter, so anything flagged here in Clean-v1 is what that filter kept.
+# Usage: loop_scan.py DATA_DIR OUT_DIR [--procs 32]
+# Produced by loop_scan.py on 2026-10-27 12:29 CST
+
+== clean_v1: 307980 rows, 307229 with a tail of at least 57 words (shorter traces skipped)
+source                                                             n           <0.5           <0.8 median ratio
+Dolci Think OpenThoughts3 Math                                 98461    12 ( 0.01%)    54 ( 0.05%)        0.999
+Dolci Think Python Algorithms                                  63110     0 ( 0.00%)     7 ( 0.01%)        0.995
+Persona Precise IF                                             30447     3 ( 0.01%)   178 ( 0.58%)        1.000
+Wildchat                                                       18880     0 ( 0.00%)    34 ( 0.18%)        1.000
+Dolci Think Precise IF                                         17930     0 ( 0.00%)    16 ( 0.09%)        1.000
+Nemotron Code                                                  15483     0 ( 0.00%)    44 ( 0.28%)        0.974
+SYNTHETIC-2-SFT-Verified                                       14192     0 ( 0.00%)    20 ( 0.14%)        0.992
+Dolci Think OpenThoughts3 STEM                                 13267     0 ( 0.00%)     1 ( 0.01%)        1.000
+Aya                                                            11940     0 ( 0.00%)     5 ( 0.04%)        1.000
+Dolci Think OpenThoughts3 Code                                 10867     0 ( 0.00%)     6 ( 0.06%)        0.997
+WildJailbreak                                                   5285     0 ( 0.00%)     0 ( 0.00%)        1.000
+WildGuardMix                                                    4614     0 ( 0.00%)     0 ( 0.00%)        1.000
+CoCoNot                                                         1303     1 ( 0.08%)     3 ( 0.23%)        1.000
+OpenAssistant                                                    852     0 ( 0.00%)     1 ( 0.12%)        1.000
+TableGPT                                                         598     0 ( 0.00%)     1 ( 0.17%)        1.000
+ALL                                                           307229    16 ( 0.01%)   370 ( 0.12%)        0.999
+most repetitive traces (id | source | words | ratio | repeats | 8-gram):
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  13249 | 0.136 | 1213 | , , , , , , , ,
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  15613 | 0.142 |  908 | , , , , , , , ,
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  17597 | 0.146 | 1704 | Hmm. Hmm. Hmm. Hmm. Hmm. Hmm. Hmm. Hmm.
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  12938 | 0.165 | 1665 | , , , , , , , ,
+  coconot-r1-format-domain-filtered-keywor | CoCoNot                      |   2761 | 0.173 | 1649 | | | | | | | | |
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  17254 | 0.179 | 1638 | , , , , , , , ,
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  18552 | 0.191 |  919 | , , , , , , , ,
+  OpenThoughts3-full-filtered-math-deconta | Dolci Think OpenThoughts3 Ma |  14799 | 0.215 |  722 | ， , ， , ， , ， ,
+
+== think_sft_7b: 218094 rows, 216454 with a tail of at least 57 words (shorter traces skipped)
+source                                                             n           <0.5           <0.8 median ratio
+saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2       29080     7 ( 0.02%)    13 ( 0.04%)        0.999
+saumyamalik/OpenThoughts3-full-filtered-code-subsampled-deco   20960     2 ( 0.01%)    18 ( 0.09%)        0.997
+saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2    14540     1 ( 0.01%)     2 ( 0.01%)        1.000
+saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2     14540     0 ( 0.00%)     9 ( 0.06%)        1.000
+allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chines   14539     0 ( 0.00%)     0 ( 0.00%)        0.993
+saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-de   14539     0 ( 0.00%)     3 ( 0.02%)        0.995
+allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chine   14538     0 ( 0.00%)     2 ( 0.01%)        1.000
+allenai/persona-precise-if-r1-final-content-filtered-chinese   14534     3 ( 0.02%)    70 ( 0.48%)        1.000
+allenai/nemotron-post-training-dataset-subset-ngram-filtered   14509     5 ( 0.03%)    50 ( 0.34%)        0.974
+allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered   14361     0 ( 0.00%)     0 ( 0.00%)        1.000
+allenai/wildchat-r1-p2-repetition-filter                       14331     1 ( 0.01%)    43 ( 0.30%)        1.000
+allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-fil   14308     2 ( 0.01%)    38 ( 0.27%)        1.000
+allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-   13712     0 ( 0.00%)     3 ( 0.02%)        1.000
+allenai/oasst1-r1-format-filtered-keyword-filtered-filter-da    6657     0 ( 0.00%)     3 ( 0.05%)        1.000
+allenai/coconot-r1-format-domain-filtered-keyword-filtered-f    1306     0 ( 0.00%)     0 ( 0.00%)        1.000
+ALL                                                           216454    21 ( 0.01%)   254 ( 0.12%)        1.000
+most repetitive traces (id | source | words | ratio | repeats | 8-gram):
+  OpenThoughts3-full-filtered-science-deco | saumyamalik/OpenThoughts3-fu |   9799 | 0.001 | 1993 | , , , , , , , ,
+  tulu_v3.9_wildchat_100k_english-r1-final | allenai/tulu_v3.9_wildchat_1 |   4494 | 0.001 | 1992 | 00 00 00 00 00 00 00 00
+  OpenThoughts3-full-filtered-code-subsamp | saumyamalik/OpenThoughts3-fu |  13229 | 0.001 | 1992 | 曲 曲 曲 曲 曲 曲 曲 曲
+  nemotron-post-training-dataset-subset-ng | allenai/nemotron-post-traini |  13232 | 0.002 |  996 | in Pyton in Pyton in Pyton in Pyton
+  persona-precise-if-r1-final-content-filt | allenai/persona-precise-if-r |   2185 | 0.013 |   83 | rest," "fishing rod holder," "fishing rod rack," "fishing
+  nemotron-post-training-dataset-subset-ng | allenai/nemotron-post-traini |   3972 | 0.014 | 1967 | contiguous contiguous contiguous contiguous contiguous conti
+  OpenThoughts3-full-filtered-math-deconta | saumyamalik/OpenThoughts3-fu |  14660 | 0.029 | 1929 | , , , , , , , ,
+  nemotron-post-training-dataset-subset-ng | allenai/nemotron-post-traini |   5488 | 0.034 |  200 | we did. Now, what if we have a

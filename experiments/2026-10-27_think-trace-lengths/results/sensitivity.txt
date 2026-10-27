@@ -1,0 +1,20 @@
+# Tokenizer sensitivity of the "> 8,192 tokens" shares: the olmo35 tokenizer is not public, so the counts use the Olmo 3 tokenizer.
+# Recomputes the dataset-level share (re-weighted by card source counts, as in make_tables.py) with every completion length scaled
+# by 0.90, 0.95, 1.00, 1.05 and 1.10. Usage: sensitivity.py RESULTS_DIR
+# Produced by sensitivity.py on 2026-10-27 12:29 CST
+
+== clean_v1 (307980 rows; 100.0% of card rows covered)
+ scale   > 4,096   > 8,192  > 16,384
+  0.90     56.1%     44.9%     21.8%
+  0.95     56.9%     45.9%     23.5%
+  1.00     57.7%     46.8%     25.1%
+  1.05     58.5%     47.7%     27.5%
+  1.10     59.2%     48.5%     29.9%
+
+== think_sft_7b (218094 rows; 99.8% of card rows covered)
+ scale   > 4,096   > 8,192  > 16,384
+  0.90     54.2%     41.3%     14.7%
+  0.95     55.2%     42.5%     16.0%
+  1.00     56.1%     43.5%     17.9%
+  1.05     56.9%     44.5%     21.6%
+  1.10     57.6%     45.4%     24.6%

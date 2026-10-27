@@ -1,0 +1,39 @@
+# Share of SFT completions longer than each candidate thinking budget (8,192 / 12,288 / 16,384 / 24,576 / 32,768 tokens), re-weighted by
+# the dataset card's source counts as in make_tables.py, for Clean-v1 and the Olmo 3 7B mix, with the reasoning sources listed separately.
+# Usage: budget_coverage.py RESULTS_DIR OUT.txt
+# Produced by budget_coverage.py on 2026-10-27 16:04 CST
+
+== clean_v1: share of completions longer than the budget (dataset level, re-weighted; 100.0% of card rows covered)
+      >8,192    >12,288    >16,384    >24,576    >32,768
+       46.8%      37.7%      25.1%       8.7%       0.0%
+  by source:
+  OpenThoughts 3 (Math+STEM+Code)         91.3%      78.7%      53.5%      19.0%       0.0%
+  Dolci Think Python                      13.5%       5.0%       1.8%       0.2%       0.0%
+  Dolci Think Persona IF                   0.8%       0.1%       0.0%       0.0%       0.0%
+  Dolci Precise IF                         9.7%       4.6%       1.9%       0.2%       0.0%
+  Nemotron code                           65.4%      49.2%      35.7%      11.4%       0.0%
+  SYNTHETIC-2 SFT-Verified                40.5%      21.3%      11.1%       3.4%       0.0%
+  Aya                                      0.3%       0.1%       0.0%       0.0%       0.0%
+  WildChat                                 1.8%       0.3%       0.0%       0.0%       0.0%
+  WildJailbreak                            0.0%       0.0%       0.0%       0.0%       0.0%
+  WildGuardMix                             0.0%       0.0%       0.0%       0.0%       0.0%
+  CoCoNot                                  0.0%       0.0%       0.0%       0.0%       0.0%
+  OpenAssistant                            0.2%       0.0%       0.0%       0.0%       0.0%
+  TableGPT                                 1.0%       0.0%       0.0%       0.0%       0.0%
+
+== think_sft_7b: share of completions longer than the budget (dataset level, re-weighted; 99.8% of card rows covered)
+      >8,192    >12,288    >16,384    >24,576    >32,768
+       43.5%      33.3%      17.9%       5.7%       0.1%
+  by source:
+  OpenThoughts 3 (Math+STEM+Code)         83.1%      68.1%      36.3%      11.9%       0.1%
+  Dolci Think Python                      13.8%       5.3%       1.9%       0.2%       0.0%
+  Dolci Think Persona IF                   0.4%       0.1%       0.0%       0.0%       0.0%
+  Dolci Precise IF                         9.7%       4.2%       1.7%       0.2%       0.0%
+  Nemotron code                           65.5%      49.3%      35.3%      11.3%       0.1%
+  SYNTHETIC-2 SFT-Verified                45.8%      23.7%      12.2%       3.2%       0.1%
+  Aya                                      0.4%       0.1%       0.0%       0.0%       0.0%
+  WildChat                                 1.7%       0.2%       0.0%       0.0%       0.0%
+  WildJailbreak                            0.0%       0.0%       0.0%       0.0%       0.0%
+  WildGuardMix                             0.0%       0.0%       0.0%       0.0%       0.0%
+  CoCoNot                                  0.0%       0.0%       0.0%       0.0%       0.0%
+  OpenAssistant                            0.3%       0.0%       0.0%       0.0%       0.0%

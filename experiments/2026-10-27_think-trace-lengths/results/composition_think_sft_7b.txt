@@ -1,0 +1,22 @@
+# Sanity check of the shard sample: per-source share in the sampled rows versus the prompt counts on the dataset card.
+Clean-v1 is compared with the Dolci-Think-SFT-32B card (its source, 2,253,684 rows; Clean-v1 keeps 2,190,070 of them), the 7B sample
+with the Dolci-Think-SFT-7B card (2,268,178 rows). Card labels are matched to the parquet source strings by keyword.
+Usage: composition_check.py rows.parquet {32b|7b} OUT.txt
+# Produced by composition_check.py on 2026-10-27 12:16 CST
+sampled rows: 218094 from results/rows_think_sft_7b.parquet; card: Dolci-Think-SFT-7B (2268178 rows)
+card label                           sample share  card share  sample n
+OpenThoughts 3 (Math+STEM+Code)             29.6%       41.5%     64580
+SYNTHETIC-2 SFT-Verified                     6.7%        4.6%     14539
+Nemotron code                                6.7%        5.0%     14539
+Dolci Think Persona IF                       6.7%        9.8%     14540
+Dolci Precise IF                             6.7%        6.0%     14540
+Dolci Think Python                           6.7%       20.6%     14539
+WildChat                                    13.3%        3.7%     29080
+OpenAssistant                                3.1%        0.3%      6800
+CoCoNot                                      0.6%        0.5%      1320
+WildGuardMix                                 6.7%        1.7%     14539
+WildJailbreak                                6.7%        1.8%     14539
+Aya                                          6.7%        4.3%     14539
+TableGPT                                     0.0%        0.2%         0
+Olmo Identity                                0.0%        0.0%         0
+raw source counts: saumyamalik/OpenThoughts3-full-filtered-math-decontam-v2: 29080, saumyamalik/OpenThoughts3-full-filtered-code-subsampled-decontam-v2: 20960, allenai/tulu_v3.9_wildchat_100k_english-r1-final-content-filtered: 14540, allenai/wildchat-r1-p2-repetition-filter: 14540, saumyamalik/OpenThoughts3-full-filtered-science-decontam-v2: 14540, allenai/persona-precise-if-r1-final-content-filtered-chinese-filtered: 14540, saumyamalik/if_qwq_reasoning_verified_filtered_decontam_v2: 14540, allenai/wildguardmix-r1-v2-all-filtered-ngram-filtered-chinese-filtered: 14539, allenai/wildjailbreak-r1-v2-format-filtered-keyword-filtered-filter-datecutoff-final-content-filtered: 14539, allenai/SYNTHETIC-2-SFT-cn-fltrd-final-ngram-filtered-chinese-filtered: 14539, allenai/aya-100k-r1-format-filtered-keyword-filtered-filter-datecutoff-ngram-filtered: 14539, allenai/nemotron-post-training-dataset-subset-ngram-filtered-no-tool-calls: 14539, saumyamalik/correct-python-sft-187k-x16-thoughts-filtered-decontam-v2: 14539, allenai/oasst1-r1-format-filtered-keyword-filtered-filter-datecutoff-chinese-filtered: 6800, allenai/coconot-r1-format-domain-filtered-keyword-filtered-filter-datecutoff-chinese-filtered: 1320
