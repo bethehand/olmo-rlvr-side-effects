@@ -1,0 +1,39 @@
+# Would a repetition-aware stop have caught H045's loops, and what would it cost on healthy traces?
+# Detector: slide a 500-word window over the reasoning text in steps of 50 words; fire at the first position where the distinct 8-gram
+# ratio of the window is below 0.5 for three consecutive windows. Evaluated on: (a) the 16 unfinished H045 turns (recall and where it fires,
+# in words and in estimated tokens = words * total_tokens / total_words); (b) healthy traces: the 6 answered H045 turns and every Olmo 3
+# sample that closed its thinking in the 8K and 32K reruns (false positives, with the position relative to the trace); (c) Olmo 3 samples
+# still open at the cap (recall on the previous generation's loops). Also reports the share of the 8,192-token H045 turns that would be saved.
+# Usage: loop_detector_eval.py OUT.txt chat_logs.md FILE.jsonl [FILE.jsonl ...]
+# Produced by loop_detector_eval.py on 2026-10-28 12:14 CST
+
+== H045 unfinished turns: detector fires on 13/16
+  bv-02-feature-announcement       t2  fires at word   700 of 5540 = ~ 1035 tokens; would save 87% of the turn
+  fa-08-citation-request           t1  fires at word  2000 of 4598 = ~ 3563 tokens; would save 57% of the turn
+  fa-08-citation-request           t2  fires at word  1400 of 6084 = ~ 1885 tokens; would save 77% of the turn
+  q-01-trip-plan-constraints       t1  fires at word  3200 of 6356 = ~ 4124 tokens; would save 50% of the turn
+  q-08-blog-outline-structure      t1  fires at word  3350 of 6010 = ~ 4566 tokens; would save 44% of the turn
+  q-08-blog-outline-structure      t2  fires at word  1650 of 6534 = ~ 2069 tokens; would save 75% of the turn
+  q-09-recipe-substitution         t1  fires at word  2500 of 6266 = ~ 3268 tokens; would save 60% of the turn
+  r-01-river-crossing-variant      t1  no fire  (6821 words)
+  r-01-river-crossing-variant      t2  fires at word  1550 of 5907 = ~ 2150 tokens; would save 74% of the turn
+  r-03-bat-and-ball-not-the-classi t2  fires at word  2150 of 6012 = ~ 2930 tokens; would save 64% of the turn
+  r-04-predict-python-output       t2  fires at word  1950 of 6065 = ~ 2634 tokens; would save 68% of the turn
+  r-05-scheduling-constraints      t1  no fire  (5835 words)
+  r-05-scheduling-constraints      t2  fires at word  4300 of 5508 = ~ 6395 tokens; would save 22% of the turn
+  r-06-fermi-estimate              t1  fires at word  4250 of 4915 = ~ 7084 tokens; would save 14% of the turn
+  r-08-monty-hall-random-host      t1  no fire  (5695 words)
+  r-08-monty-hall-random-host      t2  fires at word  3450 of 6102 = ~ 4632 tokens; would save 43% of the turn
+  median fire position ~3268 tokens; median saving 60% of the 8,192-token turn
+
+== H045 answered turns: false positives 0/6
+
+== 7b_think_sft_t10.jsonl: healthy (closed) samples 147, false positives 0 | open at cap 29, detector fires on 0
+
+== 7b_think_dpo_t10.jsonl: healthy (closed) samples 153, false positives 0 | open at cap 23, detector fires on 0
+
+== 7b_think_sft_t10_32k.jsonl: healthy (closed) samples 176, false positives 0 | open at cap 0, detector fires on 0
+
+== 7b_think_dpo_t10_32k.jsonl: healthy (closed) samples 176, false positives 0 | open at cap 0, detector fires on 0
+
+TOTAL over the Olmo 3 reruns: false positives 0/652 closed traces (0.00%); fires on 0/52 traces that were still open at the cap

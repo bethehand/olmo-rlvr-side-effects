@@ -1,0 +1,23 @@
+# Produced by t10_followup.py on 2026-10-28 12:16 CST
+
+== Olmo 3 7B Think-SFT, 8K: temperature [0.6] -> [1.0], 176 samples each, same seeds
+no </think>: 30/176 -> 29/176 | Fisher exact one-sided p (fewer at 1.0) = 0.5000
+loops (tail ratio < 0.5): 7/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 0.0074
+the 7 (turn, sample) pairs that looped at 0.6, at 1.0: closed 7, still open 0, loops 0
+longest sample (sampled tokens): 8192 at 0.6 -> 8192 at 1.0 | hit max_tokens: 35 -> 34
+
+== Olmo 3 7B Think-DPO, 8K: temperature [0.6] -> [1.0], 176 samples each, same seeds
+no </think>: 25/176 -> 23/176 | Fisher exact one-sided p (fewer at 1.0) = 0.4384
+loops (tail ratio < 0.5): 0/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 1.0000
+longest sample (sampled tokens): 8192 at 0.6 -> 8192 at 1.0 | hit max_tokens: 26 -> 29
+
+== Olmo 3 7B Think-SFT, 32K: temperature [0.6] -> [1.0], 176 samples each, same seeds
+no </think>: 11/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 0.0004
+loops (tail ratio < 0.5): 11/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 0.0004
+the 11 (turn, sample) pairs that looped at 0.6, at 1.0: closed 11, still open 0, loops 0
+longest sample (sampled tokens): 32768 at 0.6 -> 17319 at 1.0 | hit max_tokens: 11 -> 0
+
+== Olmo 3 7B Think-DPO, 32K: temperature [0.6] -> [1.0], 176 samples each, same seeds
+no </think>: 0/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 1.0000
+loops (tail ratio < 0.5): 0/176 -> 0/176 | Fisher exact one-sided p (fewer at 1.0) = 1.0000
+longest sample (sampled tokens): 20178 at 0.6 -> 28728 at 1.0 | hit max_tokens: 0 -> 0

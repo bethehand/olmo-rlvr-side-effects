@@ -1,0 +1,63 @@
+# Summarize the 32K-budget reruns of the 22 turns (rerun_h045_turns.py with max_tokens 32768) and compare them with the 8K runs.
+# For every sample: the sampled-token position of </think> (tokens of the text up to and including the tag, Olmo 3 tokenizer), so the
+# share of samples that close by 8,192 / 16,384 / 24,576 / 32,768; samples still open at 32,768 are split into loops (tail distinct
+# 8-gram ratio < 0.5) and long traces. Consistency with the 8K run of the same model and seeds: share of (turn, sample) pairs whose
+# first 1,500 characters are identical, and the 8K run's no-answer count next to the 32K run's "not closed by 8,192" count.
+# Usage: summarize_32k.py OUT.txt TABLE.md LABEL=RUN32K.jsonl:RUN8K.jsonl [...]
+# Produced by summarize_32k.py on 2026-10-28 12:12 CST
+
+== Olmo 3 7B Think-SFT, temperature 1.0: 176 samples at max_tokens 32768
+not closed by 8,192: 16.5% [11.7, 22.7] | by 16,384: 0.6% [0.1, 3.1] | by 24,576: 0.0% [0.0, 2.1] | still open at 32,768: 0.0% [0.0, 2.1] (loops 0, long 0)
+consistency with the 8K run (same seeds): identical first 1,500 chars in 109/176 samples; 8K run no-answer 29/176 vs 32K run not closed by 8,192 29/176
+close position of finished samples: median 2433 tokens, p90 9478, max 16780
+  case                             turn H045       open@8K open@16K open@32K median close
+  bv-02-feature-announcement          1 answered      0/8      0/8      0/8           321
+  bv-02-feature-announcement          2 UNFINISHED    0/8      0/8      0/8           724
+  fa-08-citation-request              1 UNFINISHED    0/8      0/8      0/8          2278
+  fa-08-citation-request              2 UNFINISHED    0/8      0/8      0/8           856
+  q-01-trip-plan-constraints          1 UNFINISHED    1/8      0/8      0/8          5642
+  q-01-trip-plan-constraints          2 answered      0/8      0/8      0/8          2301
+  q-08-blog-outline-structure         1 UNFINISHED    0/8      0/8      0/8           766
+  q-08-blog-outline-structure         2 UNFINISHED    0/8      0/8      0/8          3374
+  q-09-recipe-substitution            1 UNFINISHED    0/8      0/8      0/8          3044
+  q-09-recipe-substitution            2 answered      0/8      0/8      0/8           786
+  r-01-river-crossing-variant         1 UNFINISHED    8/8      1/8      0/8         13233
+  r-01-river-crossing-variant         2 UNFINISHED    1/8      0/8      0/8          6240
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8      0/8      0/8          1174
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8      0/8      0/8           962
+  r-04-predict-python-output          1 answered      0/8      0/8      0/8          4644
+  r-04-predict-python-output          2 UNFINISHED    2/8      0/8      0/8          7410
+  r-05-scheduling-constraints         1 UNFINISHED    0/8      0/8      0/8          2915
+  r-05-scheduling-constraints         2 UNFINISHED    0/8      0/8      0/8          1552
+  r-06-fermi-estimate                 1 UNFINISHED    7/8      0/8      0/8          9992
+  r-06-fermi-estimate                 2 answered      0/8      0/8      0/8          1760
+  r-08-monty-hall-random-host         1 UNFINISHED    8/8      0/8      0/8          9366
+  r-08-monty-hall-random-host         2 UNFINISHED    2/8      0/8      0/8          7114
+
+== Olmo 3 7B Think-DPO, temperature 1.0: 176 samples at max_tokens 32768
+not closed by 8,192: 13.1% [8.9, 18.8] | by 16,384: 1.1% [0.3, 4.0] | by 24,576: 0.0% [0.0, 2.1] | still open at 32,768: 0.0% [0.0, 2.1] (loops 0, long 0)
+consistency with the 8K run (same seeds): identical first 1,500 chars in 138/176 samples; 8K run no-answer 23/176 vs 32K run not closed by 8,192 23/176
+close position of finished samples: median 2232 tokens, p90 9122, max 24129
+  case                             turn H045       open@8K open@16K open@32K median close
+  bv-02-feature-announcement          1 answered      0/8      0/8      0/8           565
+  bv-02-feature-announcement          2 UNFINISHED    0/8      0/8      0/8           589
+  fa-08-citation-request              1 UNFINISHED    0/8      0/8      0/8          2896
+  fa-08-citation-request              2 UNFINISHED    0/8      0/8      0/8          2122
+  q-01-trip-plan-constraints          1 UNFINISHED    0/8      0/8      0/8          3486
+  q-01-trip-plan-constraints          2 answered      0/8      0/8      0/8          3336
+  q-08-blog-outline-structure         1 UNFINISHED    0/8      0/8      0/8          1452
+  q-08-blog-outline-structure         2 UNFINISHED    0/8      0/8      0/8          3419
+  q-09-recipe-substitution            1 UNFINISHED    0/8      0/8      0/8          1966
+  q-09-recipe-substitution            2 answered      0/8      0/8      0/8           954
+  r-01-river-crossing-variant         1 UNFINISHED    8/8      2/8      0/8         14778
+  r-01-river-crossing-variant         2 UNFINISHED    6/8      0/8      0/8          9908
+  r-03-bat-and-ball-not-the-classi    1 answered      0/8      0/8      0/8          1007
+  r-03-bat-and-ball-not-the-classi    2 UNFINISHED    0/8      0/8      0/8           766
+  r-04-predict-python-output          1 answered      1/8      0/8      0/8          1574
+  r-04-predict-python-output          2 UNFINISHED    0/8      0/8      0/8          5022
+  r-05-scheduling-constraints         1 UNFINISHED    0/8      0/8      0/8          3342
+  r-05-scheduling-constraints         2 UNFINISHED    0/8      0/8      0/8          2188
+  r-06-fermi-estimate                 1 UNFINISHED    5/8      0/8      0/8          8546
+  r-06-fermi-estimate                 2 answered      0/8      0/8      0/8          1616
+  r-08-monty-hall-random-host         1 UNFINISHED    3/8      0/8      0/8          6840
+  r-08-monty-hall-random-host         2 UNFINISHED    0/8      0/8      0/8          4953
